@@ -559,6 +559,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Account data stays on this device; sync is not available. Guest entries remain separate.'**
   String get authLocalNote;
+
+  /// Renovation room UI: rooms
+  ///
+  /// In en, this message translates to:
+  /// **'Rooms'**
+  String get rooms;
+
+  /// Renovation room UI: newRoom
+  ///
+  /// In en, this message translates to:
+  /// **'Add room'**
+  String get newRoom;
+
+  /// Renovation room UI: roomType
+  ///
+  /// In en, this message translates to:
+  /// **'Room type'**
+  String get roomType;
+
+  /// Renovation room UI: roomName
+  ///
+  /// In en, this message translates to:
+  /// **'Room name'**
+  String get roomName;
+
+  /// Renovation room UI: lengthMetres
+  ///
+  /// In en, this message translates to:
+  /// **'Length, m'**
+  String get lengthMetres;
+
+  /// Renovation room UI: widthMetres
+  ///
+  /// In en, this message translates to:
+  /// **'Width, m'**
+  String get widthMetres;
+
+  /// Renovation room UI: heightMetres
+  ///
+  /// In en, this message translates to:
+  /// **'Height, m'**
+  String get heightMetres;
+
+  /// Renovation room UI: renovationWish
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to change?'**
+  String get renovationWish;
+
+  /// Renovation room UI: saveRoom
+  ///
+  /// In en, this message translates to:
+  /// **'Save room'**
+  String get saveRoom;
+
+  /// Renovation room UI: invalidDimension
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a size from 0.001 to 1000 metres (up to 3 decimal places).'**
+  String get invalidDimension;
+
+  /// Renovation room UI: roomGeometryNote
+  ///
+  /// In en, this message translates to:
+  /// **'Rectangular room. Areas exclude no openings yet; confirm doors, windows and work zones before calculating materials.'**
+  String get roomGeometryNote;
+
+  /// Renovation room UI: floorArea
+  ///
+  /// In en, this message translates to:
+  /// **'Floor: {value} m²'**
+  String floorArea(String value);
+
+  /// Renovation room UI: wallArea
+  ///
+  /// In en, this message translates to:
+  /// **'Walls before openings: {value} m²'**
+  String wallArea(String value);
+
+  /// Renovation room UI: roomBathroom
+  ///
+  /// In en, this message translates to:
+  /// **'Bathroom'**
+  String get roomBathroom;
+
+  /// Renovation room UI: roomToilet
+  ///
+  /// In en, this message translates to:
+  /// **'Toilet'**
+  String get roomToilet;
+
+  /// Renovation room UI: roomKitchen
+  ///
+  /// In en, this message translates to:
+  /// **'Kitchen'**
+  String get roomKitchen;
+
+  /// Renovation room UI: roomBedroom
+  ///
+  /// In en, this message translates to:
+  /// **'Bedroom'**
+  String get roomBedroom;
+
+  /// Renovation room UI: roomLiving
+  ///
+  /// In en, this message translates to:
+  /// **'Living room'**
+  String get roomLiving;
+
+  /// Renovation room UI: roomOther
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get roomOther;
 }
 
 class _AppLocalizationsDelegate

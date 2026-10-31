@@ -1,3 +1,4 @@
+import 'package:objectno/features/renovation/domain/quantity_calculator.dart';
 import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sembast/sembast_io.dart';
@@ -18,6 +19,24 @@ void main() {
         final bobId = await bob.addObject('Bob');
         expect(aliceId, bobId);
         await alice.addIssue(aliceId, 'Alice private');
+        await alice.addRoom(
+          aliceId,
+          name: 'Kitchen',
+          kind: RoomKind.kitchen,
+          lengthMm: 4000,
+          widthMm: 3000,
+          heightMm: 2500,
+          wish: 'Paint walls',
+        );
+        await bob.addRoom(
+          bobId,
+          name: 'Bedroom',
+          kind: RoomKind.bedroom,
+          lengthMm: 5000,
+          widthMm: 3000,
+          heightMm: 2700,
+          wish: 'New flooring',
+        );
         await bob.addIssue(bobId, 'Bob private');
         expect(
           (await alice.watchObjects().first).single.value['name'],
@@ -28,6 +47,8 @@ void main() {
           'Bob private',
         );
         await guest.clearAccount('alice');
+        expect(await alice.watchRooms(aliceId).first, isEmpty);
+        expect(await bob.watchRooms(bobId).first, hasLength(1));
         expect(await alice.watchObjects().first, isEmpty);
         expect(await alice.watchIssues(aliceId).first, isEmpty);
         expect(await bob.watchIssues(bobId).first, hasLength(1));
@@ -47,6 +68,15 @@ void main() {
       try {
         var repo = JournalRepository(db);
         final id = await repo.addObject('Квартира');
+        await repo.addRoom(
+          id,
+          name: 'Ванная',
+          kind: RoomKind.bathroom,
+          lengthMm: 2000,
+          widthMm: 3000,
+          heightMm: 2500,
+          wish: 'Обновить плитку',
+        );
         final issue = await repo.addIssue(
           id,
           'Проверить откос',
@@ -57,6 +87,10 @@ void main() {
         await db.close();
         db = await databaseFactoryIo.openDatabase(path);
         repo = JournalRepository(db);
+        expect(
+          (await repo.watchRooms(id).first).single.value['lengthMm'],
+          2000,
+        );
         final records = await repo.watchIssues(id).first;
         expect(records.single.value['description'], 'Проверить откос');
         expect(records.single.value['photo'], 'aGVsbG8=');
@@ -64,6 +98,7 @@ void main() {
         expect(await repo.readTheme(), 'dark');
         await repo.deleteObject(id);
         expect(await repo.watchObjects().first, isEmpty);
+        expect(await repo.watchRooms(id).first, isEmpty);
         expect(await repo.watchIssues(id).first, isEmpty);
         await expectLater(
           repo.addIssue(id, 'Сиротская запись'),

@@ -243,4 +243,67 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get authLocalNote =>
       'I dati restano su questo dispositivo; la sincronizzazione non è disponibile. Le voci ospite restano separate.';
+
+  @override
+  String get rooms => 'Stanze';
+
+  @override
+  String get newRoom => 'Aggiungi stanza';
+
+  @override
+  String get roomType => 'Tipo di stanza';
+
+  @override
+  String get roomName => 'Nome della stanza';
+
+  @override
+  String get lengthMetres => 'Lunghezza, m';
+
+  @override
+  String get widthMetres => 'Larghezza, m';
+
+  @override
+  String get heightMetres => 'Altezza, m';
+
+  @override
+  String get renovationWish => 'Cosa vuoi cambiare?';
+
+  @override
+  String get saveRoom => 'Salva stanza';
+
+  @override
+  String get invalidDimension =>
+      'Inserisci una misura da 0,001 a 1000 metri (fino a 3 decimali).';
+
+  @override
+  String get roomGeometryNote =>
+      'Stanza rettangolare. Le aperture non sono ancora sottratte; conferma porte, finestre e aree di lavoro prima di calcolare i materiali.';
+
+  @override
+  String floorArea(String value) {
+    return 'Pavimento: $value m²';
+  }
+
+  @override
+  String wallArea(String value) {
+    return 'Pareti senza sottrarre aperture: $value m²';
+  }
+
+  @override
+  String get roomBathroom => 'Bagno';
+
+  @override
+  String get roomToilet => 'WC';
+
+  @override
+  String get roomKitchen => 'Cucina';
+
+  @override
+  String get roomBedroom => 'Camera da letto';
+
+  @override
+  String get roomLiving => 'Soggiorno';
+
+  @override
+  String get roomOther => 'Altro';
 }
