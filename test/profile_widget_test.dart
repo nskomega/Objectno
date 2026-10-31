@@ -10,6 +10,37 @@ import 'package:objectno/design_system/theme/objectno_theme.dart';
 import 'package:objectno/l10n/l10n.dart';
 
 void main() {
+  testWidgets('normal tab bar stays compact without cutting tap targets', (
+    tester,
+  ) async {
+    final db = await databaseFactoryMemory.openDatabase('compact-normal');
+    addTearDown(db.close);
+    final session = SessionController(
+      api: AuthApi(baseUrl: ''),
+      vault: MemorySessionVault(),
+    );
+    addTearDown(session.dispose);
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('ru'),
+        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        home: HomeShell(
+          repository: JournalRepository(db),
+          session: session,
+          themeMode: ThemeMode.system,
+          languageCode: 'system',
+          onThemeChanged: (_) async {},
+          onLanguageChanged: (_) async {},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final size = tester.getSize(find.byKey(const ValueKey('root-tab-bar')));
+    expect(size.height, inInclusiveRange(48, 56));
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+  });
   for (final brightness in Brightness.values) {
     testWidgets('profile, name and theme selection at 3x: $brightness', (
       tester,

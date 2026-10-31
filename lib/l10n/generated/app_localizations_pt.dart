@@ -38,7 +38,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get objectsIntro =>
-      'Registe problemas, adicione fotos e acompanhe as correções.';
+      'Da primeira foto e ideia ao progresso da obra e ao resultado final.';
 
   @override
   String get emptyObjectsTitle => 'Adicione o seu primeiro imóvel';
@@ -330,4 +330,48 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get save => 'Guardar';
+
+  @override
+  String get projectHistory => 'Histórico da renovação';
+
+  @override
+  String get beforeStage => 'Antes';
+
+  @override
+  String get proposalStage => 'Propostas';
+
+  @override
+  String get progressStage => 'Progresso da obra';
+
+  @override
+  String get resultStage => 'Resultado';
+
+  @override
+  String get addUpdate => 'Adicionar registo';
+
+  @override
+  String get newProject => 'Novo projeto de renovação';
+
+  @override
+  String get projectWish => 'O que pretende alterar?';
+
+  @override
+  String get measurements => 'Medidas do projeto';
+
+  @override
+  String get addMeasurements => 'Guardar medidas';
+
+  @override
+  String get proposalPending =>
+      'A análise de fotos e a geração de propostas ainda não estão ligadas. As soluções para este projeto aparecerão aqui.';
+
+  @override
+  String get photoRequired => 'Adicione uma foto do estado inicial.';
+
+  @override
+  String get entryStage => 'Etapa';
+
+  @override
+  String get historyEmpty =>
+      'Adicione uma foto inicial e os seus desejos para iniciar o histórico.';
 }

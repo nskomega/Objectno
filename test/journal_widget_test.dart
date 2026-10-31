@@ -9,7 +9,7 @@ import 'package:objectno/design_system/theme/objectno_theme.dart';
 void main() {
   for (final brightness in Brightness.values) {
     for (final scale in [.8, 1.0, 2.0, 3.0]) {
-      testWidgets('create object and issue: $brightness scale $scale', (
+      testWidgets('legacy object and issue: $brightness scale $scale', (
         tester,
       ) async {
         tester.view.physicalSize = const Size(360, 800);
@@ -21,6 +21,7 @@ void main() {
         );
         addTearDown(db.close);
         final repo = JournalRepository(db);
+        await tester.runAsync(() => repo.addObject('Квартира'));
         await tester.pumpWidget(
           MaterialApp(
             locale: const Locale('ru'),
@@ -37,12 +38,6 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        await tester.tap(find.text('Создать объект'));
-        await tester.pumpAndSettle();
-        await tester.enterText(find.byType(TextFormField), 'Квартира');
-        await tester.ensureVisible(find.text('Создать'));
-        await tester.tap(find.text('Создать'));
-        await tester.pumpAndSettle();
         await tester.scrollUntilVisible(
           find.text('Квартира'),
           160,
@@ -55,6 +50,8 @@ void main() {
         await tester.pumpAndSettle();
         expect(find.text('Квартира'), findsOneWidget);
         await tester.tap(find.text('Квартира'));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byTooltip('Замечания'));
         await tester.pumpAndSettle();
         await tester.tap(find.text('Добавить замечание'));
         await tester.pumpAndSettle();

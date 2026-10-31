@@ -77,3 +77,6 @@
 
 ## Profile navigation revision - accepted from user feedback
 Bottom Properties/Profile tabs replace app-bar preference menus. Preferences use dedicated selection screens, local display name and account access live in Profile. Details: decisions/003-profile-navigation.md.
+
+## Unified object revision - accepted from user correction
+An object is the renovation project, with initial photo/wishes, proposals, work progress and final result in one history. Measurements are inline; existing issues and room data are preserved. ADR: decisions/004-unified-object-history.md. Proposal generation remains unimplemented.

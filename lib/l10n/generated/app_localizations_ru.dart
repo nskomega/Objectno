@@ -38,7 +38,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get objectsIntro =>
-      'Фиксируйте замечания, добавляйте фотографии и отмечайте исправленное.';
+      'От первого фото и идеи до хода работ и готового результата.';
 
   @override
   String get emptyObjectsTitle => 'Начните с первого объекта';
@@ -329,4 +329,48 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get save => 'Сохранить';
+
+  @override
+  String get projectHistory => 'История ремонта';
+
+  @override
+  String get beforeStage => 'До ремонта';
+
+  @override
+  String get proposalStage => 'Предложения';
+
+  @override
+  String get progressStage => 'Ход работ';
+
+  @override
+  String get resultStage => 'Результат';
+
+  @override
+  String get addUpdate => 'Добавить запись';
+
+  @override
+  String get newProject => 'Новый объект ремонта';
+
+  @override
+  String get projectWish => 'Что хотите изменить?';
+
+  @override
+  String get measurements => 'Обмеры объекта';
+
+  @override
+  String get addMeasurements => 'Сохранить обмеры';
+
+  @override
+  String get proposalPending =>
+      'Анализ фото и генерация предложений ещё не подключены. Здесь появятся наши решения для этого объекта.';
+
+  @override
+  String get photoRequired => 'Добавьте фото исходного состояния.';
+
+  @override
+  String get entryStage => 'Этап';
+
+  @override
+  String get historyEmpty =>
+      'Добавьте исходное фото и пожелания, чтобы начать историю объекта.';
 }
