@@ -1,5 +1,10 @@
 # Изменения
 
+## 0.1.0-dev.13 - 2026-10-31
+- Set system status-bar appearance explicitly for light and dark themes. Fixed white status text on the light background found during native simulator review.
+- Verified iOS simulator build and launch, inspected screenshots in both appearances; dart analysis clean and eight existing theme/text-scale journal tests passed.
+
+
 ## 0.1.0-dev.12 - 2026-10-31
 - Added reproducible single-architecture iOS simulator build script, avoiding the Flutter 3.44.2/Xcode 27 multi-architecture lipo failure without changing the shared SDK.
 - Build names now explicitly separate the three-component release version from the numeric build number in this script.

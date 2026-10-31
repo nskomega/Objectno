@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 
 // Working tokens for the first prototype; visual approval is still pending.
@@ -22,7 +23,10 @@ ThemeData objectnoTheme(Brightness brightness) {
     scaffoldBackgroundColor: dark
         ? const Color(0xFF18191C)
         : const Color(0xFFF7F2EA),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
+      systemOverlayStyle: dark
+          ? SystemUiOverlayStyle.light
+          : SystemUiOverlayStyle.dark,
       centerTitle: false,
       backgroundColor: Colors.transparent,
     ),
