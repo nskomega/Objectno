@@ -28,3 +28,6 @@ Java runtime обнаружен внутри GoLand, Android debug-сборка 
 Android debug-сборка с runtime GoLand не прошла: отсутствует jlink. Это не полноценный JDK. Запущена установка OpenJDK 17 через Homebrew; результат ещё не подтверждён.
 
 Повторная Android debug-сборка с OpenJDK 17 успешна: build/app/outputs/flutter-apk/app-debug.apk. Это debug APK для локального тестирования, не подписанный production AAB и не публикация в Google Play.
+
+## Актуализация среды dev.8
+Ранние записи выше отражают историю устранения проблем. Xcode 27.2 установлен и выбран. После повышения deployment target до iOS 15 unsigned release-сборка успешна; подпись и магазинный архив ещё не подготовлены. Flutter-экран аккаунта подключён в dev.7, публичный API пока отсутствует. Текущее состояние — ../STATUS.md.
