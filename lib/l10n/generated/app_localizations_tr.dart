@@ -194,4 +194,53 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get languageTurkish => 'Türkçe';
+
+  @override
+  String get account => 'Hesap';
+
+  @override
+  String get signIn => 'Giriş yap';
+
+  @override
+  String get register => 'Hesap oluştur';
+
+  @override
+  String get email => 'E-posta';
+
+  @override
+  String get password => 'Parola';
+
+  @override
+  String get signOut => 'Çıkış yap';
+
+  @override
+  String get deleteAccount => 'Hesabı sil';
+
+  @override
+  String get deleteAccountBody =>
+      'Hesabınızı ve bu cihazdaki verilerini kalıcı olarak silmek için parolanızı girin.';
+
+  @override
+  String get authUnavailable =>
+      'Giriş şu anda kullanılamıyor. Yerel günlüğü kullanmaya devam edebilirsiniz.';
+
+  @override
+  String get authFailure => 'İstek tamamlanamadı. Yeniden deneyin.';
+
+  @override
+  String get authInvalidCredentials => 'E-posta ve parolanızı kontrol edin.';
+
+  @override
+  String get authPasswordRule =>
+      'En az 12 karakter ve en fazla 72 UTF-8 bayt kullanın.';
+
+  @override
+  String get authNetwork => 'Bağlantı başarısız. Yeniden deneyin.';
+
+  @override
+  String get authStorage => 'Güvenli depolama kullanılamıyor. Yeniden deneyin.';
+
+  @override
+  String get authLocalNote =>
+      'Hesap verileri bu cihazda kalır; eşitleme kullanılamıyor. Misafir kayıtları ayrı tutulur.';
 }

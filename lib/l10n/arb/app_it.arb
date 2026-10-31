@@ -59,5 +59,20 @@
   "languageGerman": "Deutsch",
   "languageItalian": "Italiano",
   "languagePortuguese": "Português",
-  "languageTurkish": "Türkçe"
+  "languageTurkish": "Türkçe",
+  "account": "Account",
+  "signIn": "Accedi",
+  "register": "Crea account",
+  "email": "Email",
+  "password": "Password",
+  "signOut": "Esci",
+  "deleteAccount": "Elimina account",
+  "deleteAccountBody": "Inserisci la password per eliminare definitivamente il tuo account e i suoi dati su questo dispositivo.",
+  "authUnavailable": "Accesso non disponibile. Puoi continuare a usare il diario locale.",
+  "authFailure": "Impossibile completare la richiesta. Riprova.",
+  "authInvalidCredentials": "Controlla email e password.",
+  "authPasswordRule": "Usa almeno 12 caratteri e non più di 72 byte UTF-8.",
+  "authNetwork": "Connessione non riuscita. Riprova.",
+  "authStorage": "Archiviazione sicura non disponibile. Riprova.",
+  "authLocalNote": "I dati restano su questo dispositivo; la sincronizzazione non è disponibile. Le voci ospite restano separate."
 }

@@ -59,5 +59,20 @@
   "languageGerman": "Deutsch",
   "languageItalian": "Italiano",
   "languagePortuguese": "Português",
-  "languageTurkish": "Türkçe"
+  "languageTurkish": "Türkçe",
+  "account": "Hesap",
+  "signIn": "Giriş yap",
+  "register": "Hesap oluştur",
+  "email": "E-posta",
+  "password": "Parola",
+  "signOut": "Çıkış yap",
+  "deleteAccount": "Hesabı sil",
+  "deleteAccountBody": "Hesabınızı ve bu cihazdaki verilerini kalıcı olarak silmek için parolanızı girin.",
+  "authUnavailable": "Giriş şu anda kullanılamıyor. Yerel günlüğü kullanmaya devam edebilirsiniz.",
+  "authFailure": "İstek tamamlanamadı. Yeniden deneyin.",
+  "authInvalidCredentials": "E-posta ve parolanızı kontrol edin.",
+  "authPasswordRule": "En az 12 karakter ve en fazla 72 UTF-8 bayt kullanın.",
+  "authNetwork": "Bağlantı başarısız. Yeniden deneyin.",
+  "authStorage": "Güvenli depolama kullanılamıyor. Yeniden deneyin.",
+  "authLocalNote": "Hesap verileri bu cihazda kalır; eşitleme kullanılamıyor. Misafir kayıtları ayrı tutulur."
 }

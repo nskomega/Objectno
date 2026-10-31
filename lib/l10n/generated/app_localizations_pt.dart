@@ -195,4 +195,55 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get languageTurkish => 'Türkçe';
+
+  @override
+  String get account => 'Conta';
+
+  @override
+  String get signIn => 'Entrar';
+
+  @override
+  String get register => 'Criar conta';
+
+  @override
+  String get email => 'E-mail';
+
+  @override
+  String get password => 'Palavra-passe';
+
+  @override
+  String get signOut => 'Sair';
+
+  @override
+  String get deleteAccount => 'Eliminar conta';
+
+  @override
+  String get deleteAccountBody =>
+      'Introduza a palavra-passe para eliminar permanentemente a conta e os seus dados neste dispositivo.';
+
+  @override
+  String get authUnavailable =>
+      'O início de sessão está indisponível. Pode continuar a usar o diário local.';
+
+  @override
+  String get authFailure =>
+      'Não foi possível concluir o pedido. Tente novamente.';
+
+  @override
+  String get authInvalidCredentials => 'Verifique o e-mail e a palavra-passe.';
+
+  @override
+  String get authPasswordRule =>
+      'Use pelo menos 12 caracteres e no máximo 72 bytes UTF-8.';
+
+  @override
+  String get authNetwork => 'Falha na ligação. Tente novamente.';
+
+  @override
+  String get authStorage =>
+      'O armazenamento seguro está indisponível. Tente novamente.';
+
+  @override
+  String get authLocalNote =>
+      'Os dados ficam neste dispositivo; a sincronização está indisponível. Os registos de convidado ficam separados.';
 }

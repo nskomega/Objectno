@@ -59,5 +59,20 @@
   "languageGerman": "Deutsch",
   "languageItalian": "Italiano",
   "languagePortuguese": "Português",
-  "languageTurkish": "Türkçe"
+  "languageTurkish": "Türkçe",
+  "account": "Conta",
+  "signIn": "Entrar",
+  "register": "Criar conta",
+  "email": "E-mail",
+  "password": "Palavra-passe",
+  "signOut": "Sair",
+  "deleteAccount": "Eliminar conta",
+  "deleteAccountBody": "Introduza a palavra-passe para eliminar permanentemente a conta e os seus dados neste dispositivo.",
+  "authUnavailable": "O início de sessão está indisponível. Pode continuar a usar o diário local.",
+  "authFailure": "Não foi possível concluir o pedido. Tente novamente.",
+  "authInvalidCredentials": "Verifique o e-mail e a palavra-passe.",
+  "authPasswordRule": "Use pelo menos 12 caracteres e no máximo 72 bytes UTF-8.",
+  "authNetwork": "Falha na ligação. Tente novamente.",
+  "authStorage": "O armazenamento seguro está indisponível. Tente novamente.",
+  "authLocalNote": "Os dados ficam neste dispositivo; a sincronização está indisponível. Os registos de convidado ficam separados."
 }

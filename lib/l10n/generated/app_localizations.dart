@@ -469,6 +469,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Türkçe'**
   String get languageTurkish;
+
+  /// Account screen: account
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get account;
+
+  /// Account screen: signIn
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
+  /// Account screen: register
+  ///
+  /// In en, this message translates to:
+  /// **'Create account'**
+  String get register;
+
+  /// Account screen: email
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// Account screen: password
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// Account screen: signOut
+  ///
+  /// In en, this message translates to:
+  /// **'Sign out'**
+  String get signOut;
+
+  /// Account screen: deleteAccount
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get deleteAccount;
+
+  /// Account screen: deleteAccountBody
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your password to permanently delete your account and its data on this device.'**
+  String get deleteAccountBody;
+
+  /// Account screen: authUnavailable
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in is unavailable. You can continue using the local journal.'**
+  String get authUnavailable;
+
+  /// Account screen: authFailure
+  ///
+  /// In en, this message translates to:
+  /// **'Could not complete the request. Please try again.'**
+  String get authFailure;
+
+  /// Account screen: authInvalidCredentials
+  ///
+  /// In en, this message translates to:
+  /// **'Check your email and password.'**
+  String get authInvalidCredentials;
+
+  /// Account screen: authPasswordRule
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 12 characters and no more than 72 UTF-8 bytes.'**
+  String get authPasswordRule;
+
+  /// Account screen: authNetwork
+  ///
+  /// In en, this message translates to:
+  /// **'Connection failed. Please try again.'**
+  String get authNetwork;
+
+  /// Account screen: authStorage
+  ///
+  /// In en, this message translates to:
+  /// **'Secure storage is unavailable. Please try again.'**
+  String get authStorage;
+
+  /// Account screen: authLocalNote
+  ///
+  /// In en, this message translates to:
+  /// **'Account data stays on this device; sync is not available. Guest entries remain separate.'**
+  String get authLocalNote;
 }
 
 class _AppLocalizationsDelegate

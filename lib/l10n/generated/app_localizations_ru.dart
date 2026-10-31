@@ -195,4 +195,54 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get languageTurkish => 'Türkçe';
+
+  @override
+  String get account => 'Аккаунт';
+
+  @override
+  String get signIn => 'Войти';
+
+  @override
+  String get register => 'Создать аккаунт';
+
+  @override
+  String get email => 'Электронная почта';
+
+  @override
+  String get password => 'Пароль';
+
+  @override
+  String get signOut => 'Выйти';
+
+  @override
+  String get deleteAccount => 'Удалить аккаунт';
+
+  @override
+  String get deleteAccountBody =>
+      'Введите пароль, чтобы навсегда удалить аккаунт и его данные на этом устройстве.';
+
+  @override
+  String get authUnavailable =>
+      'Вход пока недоступен. Можно продолжать работать с локальным журналом.';
+
+  @override
+  String get authFailure => 'Не удалось выполнить запрос. Попробуйте ещё раз.';
+
+  @override
+  String get authInvalidCredentials => 'Проверьте почту и пароль.';
+
+  @override
+  String get authPasswordRule =>
+      'Не менее 12 символов и не более 72 байт UTF-8.';
+
+  @override
+  String get authNetwork => 'Нет соединения. Попробуйте ещё раз.';
+
+  @override
+  String get authStorage =>
+      'Защищённое хранилище недоступно. Попробуйте ещё раз.';
+
+  @override
+  String get authLocalNote =>
+      'Данные аккаунта остаются на этом устройстве, синхронизации пока нет. Гостевые записи хранятся отдельно.';
 }

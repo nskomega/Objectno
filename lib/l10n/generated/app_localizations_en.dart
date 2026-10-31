@@ -194,4 +194,53 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get languageTurkish => 'Türkçe';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get signIn => 'Sign in';
+
+  @override
+  String get register => 'Create account';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get signOut => 'Sign out';
+
+  @override
+  String get deleteAccount => 'Delete account';
+
+  @override
+  String get deleteAccountBody =>
+      'Enter your password to permanently delete your account and its data on this device.';
+
+  @override
+  String get authUnavailable =>
+      'Sign-in is unavailable. You can continue using the local journal.';
+
+  @override
+  String get authFailure => 'Could not complete the request. Please try again.';
+
+  @override
+  String get authInvalidCredentials => 'Check your email and password.';
+
+  @override
+  String get authPasswordRule =>
+      'Use at least 12 characters and no more than 72 UTF-8 bytes.';
+
+  @override
+  String get authNetwork => 'Connection failed. Please try again.';
+
+  @override
+  String get authStorage => 'Secure storage is unavailable. Please try again.';
+
+  @override
+  String get authLocalNote =>
+      'Account data stays on this device; sync is not available. Guest entries remain separate.';
 }
