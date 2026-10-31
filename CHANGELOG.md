@@ -1,5 +1,9 @@
 # Изменения
 
+## 0.1.0-dev.17 - 2026-10-31
+- Recorded owner-confirmed camera capture, issue photo save and persistence after full app close/reopen on iPhone 6s / iOS 15.8.8 (installed build 14). No app code changes or store publication.
+
+
 ## 0.1.0-dev.16 - 2026-10-31
 - Recorded owner-confirmed launch of installed build 14 on the physical iPhone 6s (iOS 15.8.8): the home screen opens. No application code changed; camera and session checks remain pending.
 

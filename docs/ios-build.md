@@ -29,3 +29,6 @@ Verified build 14 installation completed on the connected phone with the new ico
 
 ## Hardware launch confirmation
 The owner confirmed that the installed build 14 opens the home screen on iPhone 6s / iOS 15.8.8. Recorded in dev.16. Camera, persistence and secure-storage checks remain separate, pending checks. No App Store publication is implied.
+
+## Camera and data persistence
+The owner completed the physical-device scenario on installed build 14: create property, add issue, capture and save a photo, force-close the app and reopen the same issue. The saved photo remained visible. Recorded in dev.17. Denied permissions, interrupted capture and secure storage are separate unverified scenarios.
