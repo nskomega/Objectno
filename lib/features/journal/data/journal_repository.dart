@@ -1,10 +1,27 @@
 import 'package:sembast/sembast.dart';
 
 class JournalRepository {
-  JournalRepository(this.database);
+  JournalRepository(this.database, {String? accountId})
+    : objects = intMapStoreFactory.store(
+        accountId == null ? 'objects' : 'account-$accountId-objects',
+      ),
+      issues = intMapStoreFactory.store(
+        accountId == null ? 'issues' : 'account-$accountId-issues',
+      );
+
+  JournalRepository inAccount(String? accountId) =>
+      JournalRepository(database, accountId: accountId);
+  Future<void> clearAccount(String accountId) async {
+    final scope = inAccount(accountId);
+    await database.transaction((txn) async {
+      await scope.issues.delete(txn);
+      await scope.objects.delete(txn);
+    });
+  }
+
   final Database database;
-  final objects = intMapStoreFactory.store('objects');
-  final issues = intMapStoreFactory.store('issues');
+  final StoreRef<int, Map<String, Object?>> objects;
+  final StoreRef<int, Map<String, Object?>> issues;
   final settings = stringMapStoreFactory.store('settings');
 
   Stream<List<RecordSnapshot<int, Map<String, Object?>>>> watchObjects() =>
