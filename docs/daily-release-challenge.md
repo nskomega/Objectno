@@ -25,3 +25,5 @@ flutter doctor 31.10.2026: Flutter установлен; полный Xcode от
 Java runtime обнаружен внутри GoLand, Android debug-сборка запущена с JAVA_HOME этого runtime. Итог сборки ещё уточняется; общий системный Java не устанавливался.
 
 Android debug-сборка с runtime GoLand не прошла: отсутствует jlink. Это не полноценный JDK. Запущена установка OpenJDK 17 через Homebrew; результат ещё не подтверждён.
+
+Повторная Android debug-сборка с OpenJDK 17 успешна: build/app/outputs/flutter-apk/app-debug.apk. Это debug APK для локального тестирования, не подписанный production AAB и не публикация в Google Play.
