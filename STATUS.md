@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.17.
+Обновлено: 31.10.2026. Исходники: 0.1.0-dev.18.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -53,3 +53,8 @@ On 2026-10-31 the owner opened the installed app on iPhone 6s / iOS 15.8.8 and r
 
 ## Camera and persistence - dev.17
 Owner-confirmed on physical iPhone 6s / iOS 15.8.8, installed build 14: create test property, add issue, capture photo, save, fully close the app, reopen the same issue; the photo remains visible. This is manual test evidence provided by the owner. Gallery import, denied permissions, interrupted capture, storage exhaustion, account isolation and secure storage have not been verified on hardware. No application behavior changed in this documentation version.
+
+## Profile and tabs - dev.18
+Two bottom root tabs, Properties and Profile. Appearance/language now open full scrollable selection pages from Profile; old app-bar popup menus removed. Local profile name can be edited and is isolated per guest/account. Authentication remains in the account screen; public API is still missing. No server profile-name sync claimed.
+
+Validation: dart analysis clean, all 48 Flutter tests passed. New profile tests cover 320x568 at 3x text in both themes; regression tests cover language persistence, account switching and profile-name isolation. Web release and iOS release build succeeded. Browser screenshots inspected: output/preview/profile-tabs-web.png, profile-light-web.png; selection pages observed through accessibility. Build 18 signed and installed successfully, installed CFBundleVersion independently queried as 18. Existing stores were not migrated or deleted, but physical-device photo retention after this update remains unconfirmed. Previous hardware camera/persistence checks were on build 14.

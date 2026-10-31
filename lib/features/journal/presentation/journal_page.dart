@@ -16,21 +16,8 @@ void showFailure(BuildContext context) {
 }
 
 class JournalPage extends StatelessWidget {
-  const JournalPage({
-    super.key,
-    required this.repository,
-    required this.themeMode,
-    required this.onThemeChanged,
-    this.languageCode = 'system',
-    this.onLanguageChanged,
-    this.onAccount,
-  });
-  final VoidCallback? onAccount;
+  const JournalPage({super.key, required this.repository});
   final JournalRepository repository;
-  final ThemeMode themeMode;
-  final Future<void> Function(ThemeMode) onThemeChanged;
-  final String languageCode;
-  final Future<void> Function(String)? onLanguageChanged;
 
   Future<void> _create(BuildContext context) async {
     final name = await showDialog<String>(
@@ -47,62 +34,7 @@ class JournalPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: Text(context.l10n.appName),
-      actions: [
-        if (onAccount != null)
-          IconButton(
-            onPressed: onAccount,
-            tooltip: context.l10n.account,
-            icon: const Icon(Icons.person_outline),
-          ),
-        if (onLanguageChanged != null)
-          PopupMenuButton<String>(
-            tooltip: context.l10n.language,
-            initialValue: languageCode,
-            icon: const Icon(Icons.language_outlined),
-            onSelected: (code) async {
-              try {
-                await onLanguageChanged!(code);
-              } catch (_) {
-                if (context.mounted) showFailure(context);
-              }
-            },
-            itemBuilder: (context) => languageNames(context.l10n).entries
-                .map(
-                  (entry) =>
-                      PopupMenuItem(value: entry.key, child: Text(entry.value)),
-                )
-                .toList(),
-          ),
-        PopupMenuButton<ThemeMode>(
-          tooltip: context.l10n.appearance,
-          initialValue: themeMode,
-          icon: const Icon(Icons.contrast_outlined),
-          onSelected: (mode) async {
-            try {
-              await onThemeChanged(mode);
-            } catch (_) {
-              if (context.mounted) showFailure(context);
-            }
-          },
-          itemBuilder: (context) => [
-            PopupMenuItem(
-              value: ThemeMode.system,
-              child: Text(context.l10n.followSystem),
-            ),
-            PopupMenuItem(
-              value: ThemeMode.light,
-              child: Text(context.l10n.lightTheme),
-            ),
-            PopupMenuItem(
-              value: ThemeMode.dark,
-              child: Text(context.l10n.darkTheme),
-            ),
-          ],
-        ),
-      ],
-    ),
+    appBar: AppBar(title: Text(context.l10n.appName)),
     body: SafeArea(
       child: Align(
         alignment: Alignment.topCenter,

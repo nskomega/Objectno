@@ -93,5 +93,12 @@
   "roomKitchen": "Cucina",
   "roomBedroom": "Camera da letto",
   "roomLiving": "Soggiorno",
-  "roomOther": "Altro"
+  "roomOther": "Altro",
+  "profile": "Profilo",
+  "propertiesTab": "Immobili",
+  "guestProfile": "Profilo ospite",
+  "profileName": "Il tuo nome",
+  "editProfileName": "Modifica nome",
+  "settings": "Impostazioni",
+  "save": "Salva"
 }

@@ -93,5 +93,12 @@
   "roomKitchen": "Mutfak",
   "roomBedroom": "Yatak odası",
   "roomLiving": "Oturma odası",
-  "roomOther": "Diğer"
+  "roomOther": "Diğer",
+  "profile": "Profil",
+  "propertiesTab": "Mülkler",
+  "guestProfile": "Misafir profili",
+  "profileName": "Adınız",
+  "editProfileName": "Adı düzenle",
+  "settings": "Ayarlar",
+  "save": "Kaydet"
 }

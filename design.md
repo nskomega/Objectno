@@ -164,3 +164,6 @@ Use light system status text in the graphite theme and dark system status text i
 
 ## Application icon
 Graphite background and a saturated orange geometric room-plan mark, without text. Source and store sizes: assets/branding/. Background fills the full square; platform masks add their own corners. iOS assets are opaque RGB. Android adaptive foreground has an inset to preserve the mark under launcher masks. Generate platform rasters using python3 scripts/generate-icons.py on macOS. Initial source created with imagegen; exact pixel colours may vary slightly from UI tokens. Icon completeness does not imply store approval.
+
+## Profile and bottom tabs (user revision)
+Two root destinations: properties and profile. Language and appearance leave the object app bar. Profile shows a locally saved name, account access and settings rows; no fictional identity in guest mode. Each preference opens a full-height scrollable selection page with a checkmark, applies/saves selection and returns. No popup menus. Bottom tabs retain labels, selected semantics and outlined/filled icon pairs, grow with text rather than fixing bar height. Detail and editing routes cover the tab bar. Names are local per-account preferences until server profile sync exists. Both themes and eight languages are required.

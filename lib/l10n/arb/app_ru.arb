@@ -93,5 +93,12 @@
   "roomKitchen": "Кухня",
   "roomBedroom": "Спальня",
   "roomLiving": "Гостиная",
-  "roomOther": "Другое"
+  "roomOther": "Другое",
+  "profile": "Профиль",
+  "propertiesTab": "Объекты",
+  "guestProfile": "Гостевой профиль",
+  "profileName": "Ваше имя",
+  "editProfileName": "Изменить имя",
+  "settings": "Настройки",
+  "save": "Сохранить"
 }

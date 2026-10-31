@@ -308,4 +308,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get roomOther => 'Другое';
+
+  @override
+  String get profile => 'Профиль';
+
+  @override
+  String get propertiesTab => 'Объекты';
+
+  @override
+  String get guestProfile => 'Гостевой профиль';
+
+  @override
+  String get profileName => 'Ваше имя';
+
+  @override
+  String get editProfileName => 'Изменить имя';
+
+  @override
+  String get settings => 'Настройки';
+
+  @override
+  String get save => 'Сохранить';
 }

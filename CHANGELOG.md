@@ -1,5 +1,13 @@
 # Изменения
 
+## 0.1.0-dev.18 - 2026-10-31
+- Added bottom Properties/Profile tabs. Moved language, appearance and account access into Profile; removed language/theme popup menus from the object app bar.
+- Added scrollable selection screens with current-choice indicators and a local per-account editable profile name. Tab labels grow with system text scaling.
+- All new strings translated into eight languages. Existing guest data/stores retained.
+- Clean dart analysis; all 48 tests passed, including profile editing at 3x text on 320x568, preference persistence, account navigation and name isolation. Web release and unsigned iOS release build passed; browser profile/theme/language views checked.
+- Build 18 signed locally and successfully installed over the existing iPhone app. Device launch of this update and retention of existing photos await user confirmation.
+
+
 ## 0.1.0-dev.17 - 2026-10-31
 - Recorded owner-confirmed camera capture, issue photo save and persistence after full app close/reopen on iPhone 6s / iOS 15.8.8 (installed build 14). No app code changes or store publication.
 

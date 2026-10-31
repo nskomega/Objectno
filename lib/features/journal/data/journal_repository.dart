@@ -3,7 +3,10 @@ import 'package:sembast/sembast.dart';
 
 class JournalRepository {
   JournalRepository(this.database, {String? accountId})
-    : objects = intMapStoreFactory.store(
+    : _profileKey = accountId == null
+          ? 'guest-profile'
+          : 'account-$accountId-profile',
+      objects = intMapStoreFactory.store(
         accountId == null ? 'objects' : 'account-$accountId-objects',
       ),
       rooms = intMapStoreFactory.store(
@@ -18,10 +21,21 @@ class JournalRepository {
   Future<void> clearAccount(String accountId) async {
     final scope = inAccount(accountId);
     await database.transaction((txn) async {
+      await settings.record(scope._profileKey).delete(txn);
       await scope.rooms.delete(txn);
       await scope.issues.delete(txn);
       await scope.objects.delete(txn);
     });
+  }
+
+  final String _profileKey;
+  Future<String?> readProfileName() async =>
+      (await settings.record(_profileKey).get(database))?['name'] as String?;
+  Future<void> saveProfileName(String name) async {
+    if (name.trim().isEmpty || name.runes.length > 120) {
+      throw ArgumentError('Invalid profile name');
+    }
+    await settings.record(_profileKey).put(database, {'name': name.trim()});
   }
 
   final Database database;

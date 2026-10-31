@@ -33,11 +33,7 @@ void main() {
               ).copyWith(textScaler: TextScaler.linear(scale)),
               child: child!,
             ),
-            home: JournalPage(
-              repository: repo,
-              themeMode: ThemeMode.system,
-              onThemeChanged: (_) async {},
-            ),
+            home: JournalPage(repository: repo),
           ),
         );
         await tester.pumpAndSettle();
