@@ -1,7 +1,7 @@
 name: objectno
 description: "Objectno renovation project journal"
 publish_to: 'none'
-version: 0.1.0-dev.5+5
+version: 0.1.0-dev.6+6
 
 environment:
   sdk: ^3.12.2
@@ -16,6 +16,8 @@ dependencies:
   sembast: ^3.9.0
   sembast_web: ^2.4.6+1
   intl: any
+  http: ^1.6.0
+  flutter_secure_storage: ^11.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
