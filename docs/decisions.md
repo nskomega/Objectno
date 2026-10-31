@@ -79,4 +79,7 @@
 Bottom Properties/Profile tabs replace app-bar preference menus. Preferences use dedicated selection screens, local display name and account access live in Profile. Details: decisions/003-profile-navigation.md.
 
 ## Unified object revision - accepted from user correction
-An object is the renovation project, with initial photo/wishes, proposals, work progress and final result in one history. Measurements are inline; existing issues and room data are preserved. ADR: decisions/004-unified-object-history.md. Proposal generation remains unimplemented.
+An object is the renovation project, with initial photo/wishes, proposals, work progress and final result in one history. Measurements are inline; existing issues and room data are preserved. ADR: decisions/004-unified-object-history.md. Proposal generation remains unimplemented in the app.
+
+## Локальный разбор снимка — проверка, не выбор модели (01.11.2026)
+Сначала отдельный шаг проверяет, что на фото помещение, и кратко описывает видимое. План по пожеланиям запрашивается только после этого. Неподходящий кадр не получает этапы и материалы. Кандидат Qwen3-VL-4B-Instruct-4bit ещё не принят: пробные ответы смешивают языки и слишком общи. В интерфейс они не выводятся. Платные API моделей не используются.
