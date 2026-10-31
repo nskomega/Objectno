@@ -246,4 +246,67 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get authLocalNote =>
       'Os dados ficam neste dispositivo; a sincronização está indisponível. Os registos de convidado ficam separados.';
+
+  @override
+  String get rooms => 'Divisões';
+
+  @override
+  String get newRoom => 'Adicionar divisão';
+
+  @override
+  String get roomType => 'Tipo de divisão';
+
+  @override
+  String get roomName => 'Nome da divisão';
+
+  @override
+  String get lengthMetres => 'Comprimento, m';
+
+  @override
+  String get widthMetres => 'Largura, m';
+
+  @override
+  String get heightMetres => 'Altura, m';
+
+  @override
+  String get renovationWish => 'O que pretende alterar?';
+
+  @override
+  String get saveRoom => 'Guardar divisão';
+
+  @override
+  String get invalidDimension =>
+      'Introduza uma medida entre 0,001 e 1000 metros (até 3 casas decimais).';
+
+  @override
+  String get roomGeometryNote =>
+      'Divisão retangular. As aberturas ainda não foram descontadas; confirme portas, janelas e zonas de trabalho antes de calcular materiais.';
+
+  @override
+  String floorArea(String value) {
+    return 'Pavimento: $value m²';
+  }
+
+  @override
+  String wallArea(String value) {
+    return 'Paredes sem descontar aberturas: $value m²';
+  }
+
+  @override
+  String get roomBathroom => 'Casa de banho';
+
+  @override
+  String get roomToilet => 'WC';
+
+  @override
+  String get roomKitchen => 'Cozinha';
+
+  @override
+  String get roomBedroom => 'Quarto';
+
+  @override
+  String get roomLiving => 'Sala';
+
+  @override
+  String get roomOther => 'Outra';
 }

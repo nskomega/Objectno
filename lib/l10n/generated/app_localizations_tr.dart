@@ -243,4 +243,67 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get authLocalNote =>
       'Hesap verileri bu cihazda kalır; eşitleme kullanılamıyor. Misafir kayıtları ayrı tutulur.';
+
+  @override
+  String get rooms => 'Odalar';
+
+  @override
+  String get newRoom => 'Oda ekle';
+
+  @override
+  String get roomType => 'Oda türü';
+
+  @override
+  String get roomName => 'Oda adı';
+
+  @override
+  String get lengthMetres => 'Uzunluk, m';
+
+  @override
+  String get widthMetres => 'Genişlik, m';
+
+  @override
+  String get heightMetres => 'Yükseklik, m';
+
+  @override
+  String get renovationWish => 'Neyi değiştirmek istiyorsunuz?';
+
+  @override
+  String get saveRoom => 'Odayı kaydet';
+
+  @override
+  String get invalidDimension =>
+      '0,001 ile 1000 metre arasında bir ölçü girin (en fazla 3 ondalık basamak).';
+
+  @override
+  String get roomGeometryNote =>
+      'Dikdörtgen oda. Açıklıklar henüz çıkarılmadı; malzeme hesabından önce kapıları, pencereleri ve çalışma alanlarını doğrulayın.';
+
+  @override
+  String floorArea(String value) {
+    return 'Zemin: $value m²';
+  }
+
+  @override
+  String wallArea(String value) {
+    return 'Açıklıklar çıkarılmadan duvarlar: $value m²';
+  }
+
+  @override
+  String get roomBathroom => 'Banyo';
+
+  @override
+  String get roomToilet => 'Tuvalet';
+
+  @override
+  String get roomKitchen => 'Mutfak';
+
+  @override
+  String get roomBedroom => 'Yatak odası';
+
+  @override
+  String get roomLiving => 'Oturma odası';
+
+  @override
+  String get roomOther => 'Diğer';
 }

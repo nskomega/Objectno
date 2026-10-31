@@ -245,4 +245,67 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get authLocalNote =>
       'Данные аккаунта остаются на этом устройстве, синхронизации пока нет. Гостевые записи хранятся отдельно.';
+
+  @override
+  String get rooms => 'Помещения';
+
+  @override
+  String get newRoom => 'Добавить помещение';
+
+  @override
+  String get roomType => 'Тип помещения';
+
+  @override
+  String get roomName => 'Название помещения';
+
+  @override
+  String get lengthMetres => 'Длина, м';
+
+  @override
+  String get widthMetres => 'Ширина, м';
+
+  @override
+  String get heightMetres => 'Высота, м';
+
+  @override
+  String get renovationWish => 'Что хотите изменить?';
+
+  @override
+  String get saveRoom => 'Сохранить помещение';
+
+  @override
+  String get invalidDimension =>
+      'Введите размер от 0,001 до 1000 метров (до 3 знаков после запятой).';
+
+  @override
+  String get roomGeometryNote =>
+      'Прямоугольное помещение. Проёмы пока не вычтены; перед расчётом материалов нужно подтвердить двери, окна и зоны работ.';
+
+  @override
+  String floorArea(String value) {
+    return 'Пол: $value м²';
+  }
+
+  @override
+  String wallArea(String value) {
+    return 'Стены без вычета проёмов: $value м²';
+  }
+
+  @override
+  String get roomBathroom => 'Ванная';
+
+  @override
+  String get roomToilet => 'Санузел';
+
+  @override
+  String get roomKitchen => 'Кухня';
+
+  @override
+  String get roomBedroom => 'Спальня';
+
+  @override
+  String get roomLiving => 'Гостиная';
+
+  @override
+  String get roomOther => 'Другое';
 }

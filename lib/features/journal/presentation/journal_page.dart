@@ -1,3 +1,4 @@
+import '../../renovation/presentation/rooms_page.dart';
 import '../../../l10n/l10n.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -288,6 +289,19 @@ class _IssuesPageState extends State<IssuesPage> {
     appBar: AppBar(
       title: Text(widget.objectName),
       actions: [
+        IconButton(
+          tooltip: context.l10n.rooms,
+          icon: const Icon(Icons.meeting_room_outlined),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (_) => RoomsPage(
+                repository: widget.repository,
+                objectId: widget.objectId,
+              ),
+            ),
+          ),
+        ),
         IconButton(
           tooltip: context.l10n.deleteObject,
           onPressed: _deleteObject,

@@ -243,4 +243,67 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get authLocalNote =>
       'Account data stays on this device; sync is not available. Guest entries remain separate.';
+
+  @override
+  String get rooms => 'Rooms';
+
+  @override
+  String get newRoom => 'Add room';
+
+  @override
+  String get roomType => 'Room type';
+
+  @override
+  String get roomName => 'Room name';
+
+  @override
+  String get lengthMetres => 'Length, m';
+
+  @override
+  String get widthMetres => 'Width, m';
+
+  @override
+  String get heightMetres => 'Height, m';
+
+  @override
+  String get renovationWish => 'What would you like to change?';
+
+  @override
+  String get saveRoom => 'Save room';
+
+  @override
+  String get invalidDimension =>
+      'Enter a size from 0.001 to 1000 metres (up to 3 decimal places).';
+
+  @override
+  String get roomGeometryNote =>
+      'Rectangular room. Areas exclude no openings yet; confirm doors, windows and work zones before calculating materials.';
+
+  @override
+  String floorArea(String value) {
+    return 'Floor: $value m²';
+  }
+
+  @override
+  String wallArea(String value) {
+    return 'Walls before openings: $value m²';
+  }
+
+  @override
+  String get roomBathroom => 'Bathroom';
+
+  @override
+  String get roomToilet => 'Toilet';
+
+  @override
+  String get roomKitchen => 'Kitchen';
+
+  @override
+  String get roomBedroom => 'Bedroom';
+
+  @override
+  String get roomLiving => 'Living room';
+
+  @override
+  String get roomOther => 'Other';
 }

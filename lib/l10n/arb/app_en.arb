@@ -299,5 +299,91 @@
   },
   "@authLocalNote": {
     "description": "Account screen: authLocalNote"
+  },
+  "rooms": "Rooms",
+  "newRoom": "Add room",
+  "roomType": "Room type",
+  "roomName": "Room name",
+  "lengthMetres": "Length, m",
+  "widthMetres": "Width, m",
+  "heightMetres": "Height, m",
+  "renovationWish": "What would you like to change?",
+  "saveRoom": "Save room",
+  "invalidDimension": "Enter a size from 0.001 to 1000 metres (up to 3 decimal places).",
+  "roomGeometryNote": "Rectangular room. Areas exclude no openings yet; confirm doors, windows and work zones before calculating materials.",
+  "floorArea": "Floor: {value} m²",
+  "wallArea": "Walls before openings: {value} m²",
+  "roomBathroom": "Bathroom",
+  "roomToilet": "Toilet",
+  "roomKitchen": "Kitchen",
+  "roomBedroom": "Bedroom",
+  "roomLiving": "Living room",
+  "roomOther": "Other",
+  "@rooms": {
+    "description": "Renovation room UI: rooms"
+  },
+  "@newRoom": {
+    "description": "Renovation room UI: newRoom"
+  },
+  "@roomType": {
+    "description": "Renovation room UI: roomType"
+  },
+  "@roomName": {
+    "description": "Renovation room UI: roomName"
+  },
+  "@lengthMetres": {
+    "description": "Renovation room UI: lengthMetres"
+  },
+  "@widthMetres": {
+    "description": "Renovation room UI: widthMetres"
+  },
+  "@heightMetres": {
+    "description": "Renovation room UI: heightMetres"
+  },
+  "@renovationWish": {
+    "description": "Renovation room UI: renovationWish"
+  },
+  "@saveRoom": {
+    "description": "Renovation room UI: saveRoom"
+  },
+  "@invalidDimension": {
+    "description": "Renovation room UI: invalidDimension"
+  },
+  "@roomGeometryNote": {
+    "description": "Renovation room UI: roomGeometryNote"
+  },
+  "@floorArea": {
+    "description": "Renovation room UI: floorArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallArea": {
+    "description": "Renovation room UI: wallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@roomBathroom": {
+    "description": "Renovation room UI: roomBathroom"
+  },
+  "@roomToilet": {
+    "description": "Renovation room UI: roomToilet"
+  },
+  "@roomKitchen": {
+    "description": "Renovation room UI: roomKitchen"
+  },
+  "@roomBedroom": {
+    "description": "Renovation room UI: roomBedroom"
+  },
+  "@roomLiving": {
+    "description": "Renovation room UI: roomLiving"
+  },
+  "@roomOther": {
+    "description": "Renovation room UI: roomOther"
   }
 }

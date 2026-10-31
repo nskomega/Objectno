@@ -245,4 +245,67 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get authLocalNote =>
       'Les données du compte restent sur cet appareil ; la synchronisation est indisponible. Les entrées invité restent séparées.';
+
+  @override
+  String get rooms => 'Pièces';
+
+  @override
+  String get newRoom => 'Ajouter une pièce';
+
+  @override
+  String get roomType => 'Type de pièce';
+
+  @override
+  String get roomName => 'Nom de la pièce';
+
+  @override
+  String get lengthMetres => 'Longueur, m';
+
+  @override
+  String get widthMetres => 'Largeur, m';
+
+  @override
+  String get heightMetres => 'Hauteur, m';
+
+  @override
+  String get renovationWish => 'Que souhaitez-vous modifier ?';
+
+  @override
+  String get saveRoom => 'Enregistrer la pièce';
+
+  @override
+  String get invalidDimension =>
+      'Saisissez une dimension de 0,001 à 1000 mètres (3 décimales maximum).';
+
+  @override
+  String get roomGeometryNote =>
+      'Pièce rectangulaire. Les ouvertures ne sont pas encore déduites ; confirmez portes, fenêtres et zones de travaux avant de calculer les matériaux.';
+
+  @override
+  String floorArea(String value) {
+    return 'Sol : $value m²';
+  }
+
+  @override
+  String wallArea(String value) {
+    return 'Murs avant déduction des ouvertures : $value m²';
+  }
+
+  @override
+  String get roomBathroom => 'Salle de bains';
+
+  @override
+  String get roomToilet => 'Toilettes';
+
+  @override
+  String get roomKitchen => 'Cuisine';
+
+  @override
+  String get roomBedroom => 'Chambre';
+
+  @override
+  String get roomLiving => 'Salon';
+
+  @override
+  String get roomOther => 'Autre';
 }

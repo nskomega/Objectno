@@ -1,9 +1,13 @@
+import '../../renovation/domain/quantity_calculator.dart';
 import 'package:sembast/sembast.dart';
 
 class JournalRepository {
   JournalRepository(this.database, {String? accountId})
     : objects = intMapStoreFactory.store(
         accountId == null ? 'objects' : 'account-$accountId-objects',
+      ),
+      rooms = intMapStoreFactory.store(
+        accountId == null ? 'rooms' : 'account-$accountId-rooms',
       ),
       issues = intMapStoreFactory.store(
         accountId == null ? 'issues' : 'account-$accountId-issues',
@@ -14,12 +18,14 @@ class JournalRepository {
   Future<void> clearAccount(String accountId) async {
     final scope = inAccount(accountId);
     await database.transaction((txn) async {
+      await scope.rooms.delete(txn);
       await scope.issues.delete(txn);
       await scope.objects.delete(txn);
     });
   }
 
   final Database database;
+  final StoreRef<int, Map<String, Object?>> rooms;
   final StoreRef<int, Map<String, Object?>> objects;
   final StoreRef<int, Map<String, Object?>> issues;
   final settings = stringMapStoreFactory.store('settings');
@@ -39,6 +45,53 @@ class JournalRepository {
         ),
       )
       .onSnapshots(database);
+
+  Stream<List<RecordSnapshot<int, Map<String, Object?>>>> watchRooms(
+    int objectId,
+  ) => rooms
+      .query(
+        finder: Finder(
+          filter: Filter.equals('objectId', objectId),
+          sortOrders: [SortOrder('createdAt', false)],
+        ),
+      )
+      .onSnapshots(database);
+
+  Future<int> addRoom(
+    int objectId, {
+    required String name,
+    required RoomKind kind,
+    required int lengthMm,
+    required int widthMm,
+    required int heightMm,
+    required String wish,
+  }) async {
+    if (name.trim().isEmpty || wish.trim().isEmpty) {
+      throw ArgumentError('Missing room description');
+    }
+    for (final size in [lengthMm, widthMm, heightMm]) {
+      if (size <= 0 || size > 1000000) {
+        throw ArgumentError('Invalid room dimensions');
+      }
+    }
+    return database.transaction((txn) async {
+      if (!await objects.record(objectId).exists(txn)) {
+        throw StateError('Object not found');
+      }
+      return rooms.add(txn, {
+        'objectId': objectId,
+        'name': name.trim(),
+        'kind': kind.name,
+        'lengthMm': lengthMm,
+        'widthMm': widthMm,
+        'heightMm': heightMm,
+        'wish': wish.trim(),
+        'geometry': 'rectangular',
+        'schemaVersion': 1,
+        'createdAt': DateTime.now().toUtc().toIso8601String(),
+      });
+    });
+  }
 
   Future<int> addObject(String name) {
     if (name.trim().isEmpty) throw ArgumentError('Empty object name');
@@ -82,6 +135,10 @@ class JournalRepository {
   }
 
   Future<void> deleteObject(int id) => database.transaction((txn) async {
+    await rooms.delete(
+      txn,
+      finder: Finder(filter: Filter.equals('objectId', id)),
+    );
     await issues.delete(
       txn,
       finder: Finder(filter: Filter.equals('objectId', id)),
