@@ -21,3 +21,8 @@ ios/Flutter/Generated.xcconfig
 ios/Flutter/flutter_export_environment.sh
 **/xcuserdata/
 private/
+
+.flutter-plugins-dependencies
+
+# Generated previews
+/output/
