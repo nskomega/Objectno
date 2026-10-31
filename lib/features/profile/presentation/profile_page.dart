@@ -79,6 +79,8 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
+    final registered =
+        widget.session.user != null && !widget.session.user!.isGuest;
     final themes = {
       ThemeMode.system: l.followSystem,
       ThemeMode.light: l.lightTheme,
@@ -119,14 +121,10 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         const SizedBox(height: 16),
                         Text(
-                          _name ??
-                              (widget.session.user == null
-                                  ? l.guestProfile
-                                  : l.profile),
+                          _name ?? (!registered ? l.guestProfile : l.profile),
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
-                        if (widget.session.user != null)
-                          Text(widget.session.user!.email),
+                        if (registered) Text(widget.session.user!.email),
                         const SizedBox(height: 8),
                         Align(
                           alignment: Alignment.centerLeft,
@@ -176,9 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: _SettingsRow(
                     icon: Icons.manage_accounts_outlined,
                     title: l.account,
-                    value: widget.session.user == null
-                        ? l.signIn
-                        : widget.session.user!.email,
+                    value: !registered ? l.signIn : widget.session.user!.email,
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute<void>(

@@ -86,6 +86,46 @@ void main() {
     await tester.pumpWidget(const SizedBox());
   });
 
+  testWidgets('anonymous analysis session keeps the guest journal visible', (
+    tester,
+  ) async {
+    final db = await databaseFactoryMemory.openDatabase('guest-analysis-root');
+    addTearDown(db.close);
+    final repo = JournalRepository(db);
+    await tester.runAsync(() async {
+      await repo.addObject('Guest renovation');
+      await repo.saveLanguage('en');
+    });
+    final session = SessionController(
+      vault: MemorySessionVault(),
+      api: AuthApi(
+        baseUrl: 'https://example.com',
+        client: MockClient(
+          (_) async => http.Response(
+            jsonEncode({
+              'access_token': 'a',
+              'refresh_token': 'r',
+              'expires_in': 900,
+              'user': {'id': 'anonymous-id', 'email': '', 'guest': true},
+            }),
+            200,
+          ),
+        ),
+      ),
+    );
+    addTearDown(session.dispose);
+    await tester.pumpWidget(ObjectnoApp(repository: repo, session: session));
+    await tester.pumpAndSettle();
+    await tester.runAsync(session.accessToken);
+    await tester.pumpAndSettle();
+    expect(find.text('Guest renovation'), findsOneWidget);
+    await tester.tap(find.text('Profile'));
+    await tester.pumpAndSettle();
+    expect(find.text('Guest profile'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    await tester.pumpWidget(const SizedBox());
+  });
+
   for (final brightness in Brightness.values) {
     testWidgets('registration validation remains usable at 3x: $brightness', (
       tester,

@@ -9,16 +9,21 @@ class AuthFailure implements Exception {
 }
 
 class AccountUser {
-  const AccountUser({required this.id, required this.email});
+  const AccountUser({
+    required this.id,
+    required this.email,
+    this.isGuest = false,
+  });
   final String id;
   final String email;
+  final bool isGuest;
   factory AccountUser.fromJson(Map<String, dynamic> value) {
     final id = value['id'];
     final email = value['email'];
     if (id is! String || id.isEmpty || email is! String) {
       throw const AuthFailure('server_error');
     }
-    return AccountUser(id: id, email: email);
+    return AccountUser(id: id, email: email, isGuest: value['guest'] == true);
   }
 }
 
@@ -129,6 +134,8 @@ class AuthApi {
     }
   }
 
+  Future<AuthTokens> guest() async =>
+      AuthTokens.fromJson(await _request('POST', '/v1/auth/guest', body: {}));
   Future<AuthTokens> signIn(
     String email,
     String password, {

@@ -54,7 +54,8 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     final l = context.l10n;
-    final signedIn = widget.session.user != null;
+    final signedIn =
+        widget.session.user != null && !widget.session.user!.isGuest;
     final enabled = widget.session.api.enabled;
     final error = switch (_error) {
       null => null,

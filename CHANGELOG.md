@@ -1,5 +1,11 @@
 # Изменения
 
+## 0.1.0-dev.23 - 2026-11-01
+- Added revocable anonymous sessions for authenticated analysis without forcing account registration or inventing guest email/password data.
+- Anonymous sessions retain the existing guest journal scope and guest profile UI; registered accounts retain their separate stores.
+- Go guest rotation/logout test passed with race detection; 53 Flutter tests passed before adding the root-scope regression, and all four account widget tests passed afterwards. Local inference is still being connected separately.
+
+
 ## 0.1.0-dev.22 - 2026-11-01
 - Recorded owner-confirmed build 20 hardware checks: existing issue/photo preserved in the new history, and a new object created with wishes/photo opens with its Before entry. Documentation only; no new device binary or store publication.
 

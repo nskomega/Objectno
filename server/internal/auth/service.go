@@ -36,6 +36,7 @@ const accessLifetime = 15 * time.Minute
 const sessionLifetime = 30 * 24 * time.Hour
 
 type User struct {
+	Guest bool   `json:"guest,omitempty"`
 	ID    string `json:"id"`
 	Email string `json:"email"`
 }
@@ -141,6 +142,25 @@ func normalizeEmail(email string) (string, error) {
 }
 func validPassword(p string) bool {
 	return utf8.ValidString(p) && utf8.RuneCountInString(p) >= 12 && len([]byte(p)) <= 72
+}
+
+// Guest issues a normal revocable session without a fabricated email or password.
+func (s *Service) Guest() (Tokens, error) {
+	id, err := randomString()
+	if err != nil {
+		return Tokens{}, err
+	}
+	u := storedUser{User: User{ID: id, Guest: true}}
+	var result Tokens
+	err = s.db.Update(func(tx *bolt.Tx) error {
+		if err := putJSON(tx.Bucket(usersBucket), id, u); err != nil {
+			return err
+		}
+		var err error
+		result, err = s.newSession(tx, u.User)
+		return err
+	})
+	return result, err
 }
 
 func (s *Service) Register(email, password string) (Tokens, error) {

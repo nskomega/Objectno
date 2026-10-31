@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.22.
+Обновлено: 31.10.2026. Исходники: 0.1.0-dev.23.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -79,3 +79,6 @@ The owner confirmed both scenarios on the physical iPhone with installed build 2
 - Existing object: legacy issue and keyboard photo remain visible in the unified renovation history after updating.
 - New object: entering wishes and an initial photo, then saving, opens its history with the Before entry and the supplied photo.
 These are owner-reported manual results, separate from automated widget/database tests. Progress/final entries, inline measurements on hardware, local-model inference and end-to-end authenticated operation are not proven by these checks. Installed device build remains 20; dev.22 records evidence only.
+
+## Anonymous analysis sessions - dev.23
+The client can obtain a normal revocable JWT/refresh session lazily for a guest when an authenticated API operation is requested. No fabricated email/password; guest user flag is explicit. The local journal remains in the existing guest namespace and the profile still offers sign-in. Registered account data remains separate. Go race test covers independent guest identities, rotation and revocation; Flutter tests cover coalescing initial guest requests and preservation of visible guest records. The model/API integration remains work in progress.
