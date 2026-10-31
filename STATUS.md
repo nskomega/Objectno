@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.11.
+Обновлено: 31.10.2026. Исходники: 0.1.0-dev.12.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -32,3 +32,6 @@ Telegram: docs/telegram-mini-app.md. BDUI: docs/bdui-proposal.md. Они не з
 ## Rooms - dev.10 / documentation dev.11
 The room icon inside a property opens rooms and a measurement form: room type, name, length/width/height, wishes. Areas are gross; openings are not deducted and materials are not calculated on screen. Measurements are stored exactly in mm. Data survives reopen and follows per-account stores and cascade deletion. Eight languages and both themes supported. All 46 tests passed, including the 3x-text room creation flow, dropdown selection, persistence and account isolation; dart analysis clean and web release built. New screen visual verification on a real device remains pending. Native artifacts remain iOS dev.8 / Android dev.3.
 Next renovation step: openings, work selection and connecting the calculation core; then photos/local models and real product data. No product rates or supplier links are invented.
+
+## iOS simulator - dev.12
+Apple Development and Distribution identities are present; no physical iPhone detected. Simulator build and launch succeeded on iPhone 18 Pro (arm64). Initial home screenshot output/preview/ios-first-launch.png was inspected: app renders, but status bar text needs a light-theme contrast fix. Rooms were not manually exercised on iOS yet. scripts/build-ios-simulator.sh passed; artifact short version 0.1.0 and build number 12 verified. Signing/provisioning and store upload remain pending. Details: docs/ios-build.md.
