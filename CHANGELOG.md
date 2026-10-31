@@ -1,5 +1,11 @@
 # Изменения
 
+## 0.1.0-dev.24 - 2026-11-01
+- Добавлен локальный воркер зрения и `POST /v1/analysis`: сессия проверяется до и после расчёта, принимаются только JPEG/PNG в заданных пределах, ответ с чужого адреса и сломанный JSON отклоняются.
+- Снимок сначала описывается и классифицируется. План ремонта запрашивается только если это интерьер; для клавиатуры и других неподходящих кадров план не создаётся.
+- В приложение результат не выводится. Пробный прогон 4-битной Qwen3-VL-4B ещё смешивает языки и предлагает слишком общие работы. Это не выбранная продуктовая модель.
+
+
 ## 0.1.0-dev.23 - 2026-11-01
 - Added revocable anonymous sessions for authenticated analysis without forcing account registration or inventing guest email/password data.
 - Anonymous sessions retain the existing guest journal scope and guest profile UI; registered accounts retain their separate stores.

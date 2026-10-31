@@ -29,3 +29,6 @@ private/
 
 __pycache__/
 *.pyc
+
+# Local inference environment and downloaded model weights
+ml/.venv/

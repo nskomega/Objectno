@@ -1,0 +1,9 @@
+[project]
+name = "objectno-local-vision"
+version = "0.1.0"
+description = "Local vision-language inference worker for Objectno"
+requires-python = ">=3.11,<3.12"
+dependencies = ["mlx-vlm==0.7.11"]
+
+[tool.uv]
+package = false

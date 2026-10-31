@@ -6,6 +6,7 @@ import (
 	"errors"
 	"log"
 	"net/http"
+	"objectno/server/internal/analysis"
 	"objectno/server/internal/auth"
 	"os"
 	"os/signal"
@@ -40,7 +41,15 @@ func main() {
 	if address == "" {
 		address = "127.0.0.1:8080"
 	}
-	server := &http.Server{Addr: address, Handler: service.Handler(strings.Split(os.Getenv("ALLOWED_ORIGINS"), ",")), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, WriteTimeout: 15 * time.Second, IdleTimeout: 60 * time.Second, MaxHeaderBytes: 16 * 1024}
+	origins := strings.Split(os.Getenv("ALLOWED_ORIGINS"), ",")
+	mux := http.NewServeMux()
+	mux.Handle("/v1/analysis", analysis.NewHandler(func(token string) error {
+		_, _, err := service.Authenticate(token)
+		return err
+	}, os.Getenv("LOCAL_VISION_URL"), origins))
+	mux.Handle("/", service.Handler(origins))
+	server := &http.Server{Addr: address, Handler: mux, ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 20 * time.Second, WriteTimeout: 170 * time.Second, IdleTimeout: 60 * time.Second, MaxHeaderBytes: 16 * 1024}
+
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 	go func() {

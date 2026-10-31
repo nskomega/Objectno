@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.23.
+Обновлено: 01.11.2026. Исходники: 0.1.0-dev.24.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -82,3 +82,10 @@ These are owner-reported manual results, separate from automated widget/database
 
 ## Anonymous analysis sessions - dev.23
 The client can obtain a normal revocable JWT/refresh session lazily for a guest when an authenticated API operation is requested. No fabricated email/password; guest user flag is explicit. The local journal remains in the existing guest namespace and the profile still offers sign-in. Registered account data remains separate. Go race test covers independent guest identities, rotation and revocation; Flutter tests cover coalescing initial guest requests and preservation of visible guest records. The model/API integration remains work in progress.
+
+## Локальный разбор снимка — dev.24
+Кандидат для проверки на своём компьютере: `mlx-community/Qwen3-VL-4B-Instruct-4bit`, ревизия `2fd8dacbdb8f1e54b8c005f081ec5bf79c56376b`. Веса лежат в `private/` и в Git не входят. Воркер слушает только localhost. Go принимает запрос лишь с действующей сессией, проверяет размер и формат снимка и форму ответа. Одновременно выполняется один разбор.
+
+Сначала модель описывает кадр и выбирает тип сцены. План по пожеланиям строится только для интерьера. Если снимок не подходит, этапы и материалы не возвращаются.
+
+`go test ./internal/analysis/` прошёл. Flutter-клиент этот ответ не показывает: пробный разбор кухни ещё вставляет английские слова и предлагает слишком общие работы. Модель не принята как продуктовая. На телефоне по-прежнему сборка 20.
