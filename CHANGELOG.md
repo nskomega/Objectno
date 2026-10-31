@@ -1,5 +1,9 @@
 # Изменения
 
+## 0.1.0-dev.21 - 2026-11-01
+- Recorded verified development signing and successful installation of build 20 on the reconnected iPhone, without uninstalling the app. Installed version independently queried as 20; hardware verification of the updated history is pending. No app behavior changes.
+
+
 ## 0.1.0-dev.20
 - Объект стал единым проектом ремонта: создание с исходным фото и пожеланиями, общая история с датами и этапами «До ремонта», «Ход работ», «Результат».
 - Обмеры и ранее созданные помещения отображаются внутри объекта; отдельный переход в список помещений убран. Старые замечания и фотографии сохранены и видны в истории, управление их статусами доступно дополнительно.
