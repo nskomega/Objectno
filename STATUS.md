@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.9.
+Обновлено: 31.10.2026. Исходники: 0.1.0-dev.11.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -28,3 +28,7 @@ Telegram: docs/telegram-mini-app.md. BDUI: docs/bdui-proposal.md. Они не з
 
 ## Расчёты dev.9
 Добавлено общее ядро подтверждённых поверхностей и проёмов с расчётом потребности/упаковок по норме продукта, слоям и запасу. Все восемь новых тестов прошли native/Chrome, анализ без замечаний. Подробнее docs/quantity-calculation.md. UI, каталог и сохранение результатов ещё не подключены; это не готовый сквозной помощник по ремонту.
+
+## Rooms - dev.10 / documentation dev.11
+The room icon inside a property opens rooms and a measurement form: room type, name, length/width/height, wishes. Areas are gross; openings are not deducted and materials are not calculated on screen. Measurements are stored exactly in mm. Data survives reopen and follows per-account stores and cascade deletion. Eight languages and both themes supported. All 46 tests passed, including the 3x-text room creation flow, dropdown selection, persistence and account isolation; dart analysis clean and web release built. New screen visual verification on a real device remains pending. Native artifacts remain iOS dev.8 / Android dev.3.
+Next renovation step: openings, work selection and connecting the calculation core; then photos/local models and real product data. No product rates or supplier links are invented.

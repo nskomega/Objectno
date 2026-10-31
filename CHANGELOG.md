@@ -1,5 +1,15 @@
 # Изменения
 
+## 0.1.0-dev.11 - 2026-10-31
+- Documentation follow-up for dev.10: recorded delivered room entry, validation, storage, and verification. No app behavior changes.
+
+## 0.1.0-dev.10 - 2026-10-31
+- Added rooms inside a property: type, name, rectangular room dimensions and renovation wishes. Bathroom, toilet, kitchen, bedroom, living room and other types supported.
+- Metres with comma or dot parse exactly into millimetres. Cards show floor area and gross wall area with an explicit note that openings are not yet deducted.
+- Local room records follow account isolation and cascade deletion. UI strings translated into all eight languages.
+- Validation: clean dart analysis, all 46 Flutter tests passed, web release built. Opening entry, work selection and material calculations are not connected to this screen yet.
+
+
 ## 0.1.0-dev.9 — 31.10.2026
 - Добавлено общее расчётное ядро для помещений, поверхностей и проёмов: проверка геометрии, нетто-площадь, норма продукта, слои, запас и упаковки.
 - Промежуточные вычисления BigInt; отсутствующие данные не подменяются нулевым расходом. Каталог, экран расчёта и инженерные трассы ещё не подключены.
