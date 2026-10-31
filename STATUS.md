@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.13.
+Обновлено: 31.10.2026. Исходники: 0.1.0-dev.14.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -38,3 +38,9 @@ Apple Development and Distribution identities are present; no physical iPhone de
 
 ## Native appearance check - dev.13
 Fixed status-bar contrast using theme-specific system overlay styles. Simulator app build 13 (short version 0.1.0) built and launched successfully. Inspected output/preview/ios-light-statusbar.png and ios-dark-statusbar.png: home renders and status text is readable in each theme. Eight existing journal theme/scale tests passed and dart analysis is clean. This checks native home appearance, not camera, secure storage, room creation, physical-device signing or store readiness.
+
+## App icon - dev.14
+Custom icon replaces the Flutter placeholder on iOS, Android and web. Source: assets/branding/objectno-icon-source.png (AI-generated using the imagegen skill); distribution assets are derived with scripts/generate-icons.py. All 19 iOS asset entries checked for exact pixel dimensions and no alpha; actool compilation passed. Android debug APK dev.14 built successfully with adaptive launcher resources. No store upload performed.
+
+## iPhone 6s connection
+Finder and ideviceinfo confirm iOS 15.8.8 and working USB trust. Xcode 27.2 supports deployment targets starting at iOS 15 but physical-device development only from iOS 17 (Apple system requirements). Local wildcard development profile includes this phone. Direct manual xcodebuild signing failed due package targets/profile selection and duplicate certificate names. Next attempt: sign a release app with the matching local certificate and install via libimobiledevice, without relying on Xcode debugging. No phone installation has succeeded yet. Xcode's automatic project migration is still uncommitted separately from the icon change.

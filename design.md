@@ -161,3 +161,6 @@
 
 ## System status bar
 Use light system status text in the graphite theme and dark system status text in the milky theme. Set AppBarTheme.systemOverlayStyle explicitly because a transparent app bar can otherwise infer the wrong contrast. Native home screenshots in both appearances inspected in dev.13.
+
+## Application icon
+Graphite background and a saturated orange geometric room-plan mark, without text. Source and store sizes: assets/branding/. Background fills the full square; platform masks add their own corners. iOS assets are opaque RGB. Android adaptive foreground has an inset to preserve the mark under launcher masks. Generate platform rasters using python3 scripts/generate-icons.py on macOS. Initial source created with imagegen; exact pixel colours may vary slightly from UI tokens. Icon completeness does not imply store approval.

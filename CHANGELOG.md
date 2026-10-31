@@ -1,5 +1,11 @@
 # Изменения
 
+## 0.1.0-dev.14 - 2026-10-31
+- Replaced the Flutter placeholder icon with the Objectno orange room-plan mark on graphite. Original generated source and 1024/512 store assets included.
+- Generated all iOS sizes, Android density/adaptive launcher icons, web and maskable icons; added reproducible macOS asset generation script.
+- Validated all 19 iOS catalog entries for pixel sizes and RGB/no alpha. Apple asset compiler passed; Android debug APK built successfully.
+
+
 ## 0.1.0-dev.13 - 2026-10-31
 - Set system status-bar appearance explicitly for light and dark themes. Fixed white status text on the light background found during native simulator review.
 - Verified iOS simulator build and launch, inspected screenshots in both appearances; dart analysis clean and eight existing theme/text-scale journal tests passed.
