@@ -1,0 +1,243 @@
+{
+  "@@locale": "en",
+  "appName": "Objectno",
+  "@appName": {
+    "description": "Objectno UI: appName"
+  },
+  "saveFailure": "Could not save the change. Please try again.",
+  "@saveFailure": {
+    "description": "Objectno UI: saveFailure"
+  },
+  "appearance": "Appearance",
+  "@appearance": {
+    "description": "Objectno UI: appearance"
+  },
+  "followSystem": "Follow system",
+  "@followSystem": {
+    "description": "Objectno UI: followSystem"
+  },
+  "lightTheme": "Light",
+  "@lightTheme": {
+    "description": "Objectno UI: lightTheme"
+  },
+  "darkTheme": "Dark",
+  "@darkTheme": {
+    "description": "Objectno UI: darkTheme"
+  },
+  "objectsLoadFailure": "Could not load properties",
+  "@objectsLoadFailure": {
+    "description": "Objectno UI: objectsLoadFailure"
+  },
+  "restartRetry": "Restart the app and try again.",
+  "@restartRetry": {
+    "description": "Objectno UI: restartRetry"
+  },
+  "objectsHeading": "Your properties",
+  "@objectsHeading": {
+    "description": "Objectno UI: objectsHeading"
+  },
+  "objectsIntro": "Record issues, add photos and track what has been fixed.",
+  "@objectsIntro": {
+    "description": "Objectno UI: objectsIntro"
+  },
+  "emptyObjectsTitle": "Start with your first property",
+  "@emptyObjectsTitle": {
+    "description": "Objectno UI: emptyObjectsTitle"
+  },
+  "emptyObjectsBody": "Add an apartment, room or another property you are inspecting.",
+  "@emptyObjectsBody": {
+    "description": "Objectno UI: emptyObjectsBody"
+  },
+  "createObject": "Add property",
+  "@createObject": {
+    "description": "Objectno UI: createObject"
+  },
+  "newObject": "New property",
+  "@newObject": {
+    "description": "Objectno UI: newObject"
+  },
+  "objectName": "Property name",
+  "@objectName": {
+    "description": "Objectno UI: objectName"
+  },
+  "objectNameHint": "For example, Oak Street apartment",
+  "@objectNameHint": {
+    "description": "Objectno UI: objectNameHint"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Objectno UI: cancel"
+  },
+  "create": "Create",
+  "@create": {
+    "description": "Objectno UI: create"
+  },
+  "deleteObjectTitle": "Delete property?",
+  "@deleteObjectTitle": {
+    "description": "Objectno UI: deleteObjectTitle"
+  },
+  "deleteObjectBody": "The property, all its issues and photos will be deleted from this device.",
+  "@deleteObjectBody": {
+    "description": "Objectno UI: deleteObjectBody"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Objectno UI: delete"
+  },
+  "deleteObject": "Delete property",
+  "@deleteObject": {
+    "description": "Objectno UI: deleteObject"
+  },
+  "issuesLoadFailure": "Could not load issues",
+  "@issuesLoadFailure": {
+    "description": "Objectno UI: issuesLoadFailure"
+  },
+  "reopenObject": "Try reopening the property.",
+  "@reopenObject": {
+    "description": "Objectno UI: reopenObject"
+  },
+  "issuesHeading": "Issues",
+  "@issuesHeading": {
+    "description": "Objectno UI: issuesHeading"
+  },
+  "filterAll": "All",
+  "@filterAll": {
+    "description": "Objectno UI: filterAll"
+  },
+  "statusOpen": "Open",
+  "@statusOpen": {
+    "description": "Objectno UI: statusOpen"
+  },
+  "statusDone": "Fixed",
+  "@statusDone": {
+    "description": "Objectno UI: statusDone"
+  },
+  "noIssuesTitle": "No issues yet",
+  "@noIssuesTitle": {
+    "description": "Objectno UI: noIssuesTitle"
+  },
+  "noMatchesTitle": "Nothing here yet",
+  "@noMatchesTitle": {
+    "description": "Objectno UI: noMatchesTitle"
+  },
+  "noIssuesBody": "Add a description and a photo of what needs fixing.",
+  "@noIssuesBody": {
+    "description": "Objectno UI: noIssuesBody"
+  },
+  "noMatchesBody": "Try choosing a different filter.",
+  "@noMatchesBody": {
+    "description": "Objectno UI: noMatchesBody"
+  },
+  "issuePhoto": "Issue photo",
+  "@issuePhoto": {
+    "description": "Objectno UI: issuePhoto"
+  },
+  "photoLoadFailure": "Could not open photo",
+  "@photoLoadFailure": {
+    "description": "Objectno UI: photoLoadFailure"
+  },
+  "reopenIssue": "Reopen",
+  "@reopenIssue": {
+    "description": "Objectno UI: reopenIssue"
+  },
+  "markDone": "Mark as fixed",
+  "@markDone": {
+    "description": "Objectno UI: markDone"
+  },
+  "addIssue": "Add issue",
+  "@addIssue": {
+    "description": "Objectno UI: addIssue"
+  },
+  "newIssue": "New issue",
+  "@newIssue": {
+    "description": "Objectno UI: newIssue"
+  },
+  "photoPickFailure": "Could not add photo. Check permissions and choose a file up to 8 MB.",
+  "@photoPickFailure": {
+    "description": "Objectno UI: photoPickFailure"
+  },
+  "saveIssueFailure": "Could not save. Your text is still in the form. Please try again.",
+  "@saveIssueFailure": {
+    "description": "Objectno UI: saveIssueFailure"
+  },
+  "pleaseWait": "Please wait…",
+  "@pleaseWait": {
+    "description": "Objectno UI: pleaseWait"
+  },
+  "saveIssue": "Save issue",
+  "@saveIssue": {
+    "description": "Objectno UI: saveIssue"
+  },
+  "issueDescriptionLabel": "What needs fixing?",
+  "@issueDescriptionLabel": {
+    "description": "Objectno UI: issueDescriptionLabel"
+  },
+  "issueDescriptionHint": "Describe the location and issue",
+  "@issueDescriptionHint": {
+    "description": "Objectno UI: issueDescriptionHint"
+  },
+  "removePhoto": "Remove photo",
+  "@removePhoto": {
+    "description": "Objectno UI: removePhoto"
+  },
+  "takePhoto": "Take photo",
+  "@takePhoto": {
+    "description": "Objectno UI: takePhoto"
+  },
+  "fromGallery": "From gallery",
+  "@fromGallery": {
+    "description": "Objectno UI: fromGallery"
+  },
+  "localStorageNote": "Data and photos are saved on this device. Sync is not available yet.",
+  "@localStorageNote": {
+    "description": "Objectno UI: localStorageNote"
+  },
+  "requiredField": "This field is required",
+  "@requiredField": {
+    "description": "Objectno UI: requiredField"
+  },
+  "databaseOpenFailure": "Could not open data",
+  "@databaseOpenFailure": {
+    "description": "Objectno UI: databaseOpenFailure"
+  },
+  "retry": "Try again",
+  "@retry": {
+    "description": "Objectno UI: retry"
+  },
+  "language": "App language",
+  "@language": {
+    "description": "Objectno UI: language"
+  },
+  "languageRussian": "Русский",
+  "@languageRussian": {
+    "description": "Language name shown in its own language"
+  },
+  "languageEnglish": "English",
+  "@languageEnglish": {
+    "description": "Language name shown in its own language"
+  },
+  "languageSpanish": "Español",
+  "@languageSpanish": {
+    "description": "Language name shown in its own language"
+  },
+  "languageFrench": "Français",
+  "@languageFrench": {
+    "description": "Language name shown in its own language"
+  },
+  "languageGerman": "Deutsch",
+  "@languageGerman": {
+    "description": "Language name shown in its own language"
+  },
+  "languageItalian": "Italiano",
+  "@languageItalian": {
+    "description": "Language name shown in its own language"
+  },
+  "languagePortuguese": "Português",
+  "@languagePortuguese": {
+    "description": "Language name shown in its own language"
+  },
+  "languageTurkish": "Türkçe",
+  "@languageTurkish": {
+    "description": "Language name shown in its own language"
+  }
+}

@@ -1,3 +1,4 @@
+import '../../l10n/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LabeledField extends StatelessWidget {
@@ -31,8 +32,9 @@ class LabeledField extends StatelessWidget {
           maxLength: maxLength,
           textCapitalization: TextCapitalization.sentences,
           decoration: InputDecoration(hintText: hint),
-          validator: (value) =>
-              value == null || value.trim().isEmpty ? 'Заполните поле' : null,
+          validator: (value) => value == null || value.trim().isEmpty
+              ? context.l10n.requiredField
+              : null,
         ),
       ),
     ],

@@ -1,3 +1,4 @@
+import 'package:objectno/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sembast/sembast_memory.dart';
@@ -22,6 +23,9 @@ void main() {
         final repo = JournalRepository(db);
         await tester.pumpWidget(
           MaterialApp(
+            locale: const Locale('ru'),
+            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
             theme: objectnoTheme(brightness),
             builder: (context, child) => MediaQuery(
               data: MediaQuery.of(

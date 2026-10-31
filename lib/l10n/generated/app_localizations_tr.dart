@@ -1,0 +1,197 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Turkish (`tr`).
+class AppLocalizationsTr extends AppLocalizations {
+  AppLocalizationsTr([String locale = 'tr']) : super(locale);
+
+  @override
+  String get appName => 'Objectno';
+
+  @override
+  String get saveFailure => 'Değişiklik kaydedilemedi. Lütfen tekrar deneyin.';
+
+  @override
+  String get appearance => 'Görünüm';
+
+  @override
+  String get followSystem => 'Sistem ayarı';
+
+  @override
+  String get lightTheme => 'Açık';
+
+  @override
+  String get darkTheme => 'Koyu';
+
+  @override
+  String get objectsLoadFailure => 'Mülkler yüklenemedi';
+
+  @override
+  String get restartRetry => 'Uygulamayı yeniden başlatıp tekrar deneyin.';
+
+  @override
+  String get objectsHeading => 'Mülkleriniz';
+
+  @override
+  String get objectsIntro =>
+      'Sorunları kaydedin, fotoğraf ekleyin ve düzeltmeleri takip edin.';
+
+  @override
+  String get emptyObjectsTitle => 'İlk mülkünüzü ekleyin';
+
+  @override
+  String get emptyObjectsBody =>
+      'İncelediğiniz bir daireyi, odayı veya başka bir mülkü ekleyin.';
+
+  @override
+  String get createObject => 'Mülk ekle';
+
+  @override
+  String get newObject => 'Yeni mülk';
+
+  @override
+  String get objectName => 'Mülk adı';
+
+  @override
+  String get objectNameHint => 'Örneğin, Meşe Sokak dairesi';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get create => 'Oluştur';
+
+  @override
+  String get deleteObjectTitle => 'Mülk silinsin mi?';
+
+  @override
+  String get deleteObjectBody =>
+      'Mülk, tüm sorunları ve fotoğrafları bu cihazdan silinecek.';
+
+  @override
+  String get delete => 'Sil';
+
+  @override
+  String get deleteObject => 'Mülkü sil';
+
+  @override
+  String get issuesLoadFailure => 'Sorunlar yüklenemedi';
+
+  @override
+  String get reopenObject => 'Mülkü yeniden açmayı deneyin.';
+
+  @override
+  String get issuesHeading => 'Sorunlar';
+
+  @override
+  String get filterAll => 'Tümü';
+
+  @override
+  String get statusOpen => 'Açık';
+
+  @override
+  String get statusDone => 'Düzeltildi';
+
+  @override
+  String get noIssuesTitle => 'Henüz sorun yok';
+
+  @override
+  String get noMatchesTitle => 'Burada henüz bir şey yok';
+
+  @override
+  String get noIssuesBody =>
+      'Düzeltilmesi gereken şeyin açıklamasını ve fotoğrafını ekleyin.';
+
+  @override
+  String get noMatchesBody => 'Başka bir filtre seçmeyi deneyin.';
+
+  @override
+  String get issuePhoto => 'Sorun fotoğrafı';
+
+  @override
+  String get photoLoadFailure => 'Fotoğraf açılamadı';
+
+  @override
+  String get reopenIssue => 'Yeniden aç';
+
+  @override
+  String get markDone => 'Düzeltildi olarak işaretle';
+
+  @override
+  String get addIssue => 'Sorun ekle';
+
+  @override
+  String get newIssue => 'Yeni sorun';
+
+  @override
+  String get photoPickFailure =>
+      'Fotoğraf eklenemedi. İzinleri kontrol edip en fazla 8 MB bir dosya seçin.';
+
+  @override
+  String get saveIssueFailure =>
+      'Kaydedilemedi. Metniniz formda duruyor. Lütfen tekrar deneyin.';
+
+  @override
+  String get pleaseWait => 'Lütfen bekleyin…';
+
+  @override
+  String get saveIssue => 'Sorunu kaydet';
+
+  @override
+  String get issueDescriptionLabel => 'Ne düzeltilmeli?';
+
+  @override
+  String get issueDescriptionHint => 'Yeri ve sorunu açıklayın';
+
+  @override
+  String get removePhoto => 'Fotoğrafı kaldır';
+
+  @override
+  String get takePhoto => 'Fotoğraf çek';
+
+  @override
+  String get fromGallery => 'Galeriden';
+
+  @override
+  String get localStorageNote =>
+      'Veriler ve fotoğraflar bu cihazda saklanır. Eşitleme henüz kullanılamıyor.';
+
+  @override
+  String get requiredField => 'Bu alan zorunludur';
+
+  @override
+  String get databaseOpenFailure => 'Veriler açılamadı';
+
+  @override
+  String get retry => 'Tekrar dene';
+
+  @override
+  String get language => 'Uygulama dili';
+
+  @override
+  String get languageRussian => 'Русский';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageSpanish => 'Español';
+
+  @override
+  String get languageFrench => 'Français';
+
+  @override
+  String get languageGerman => 'Deutsch';
+
+  @override
+  String get languageItalian => 'Italiano';
+
+  @override
+  String get languagePortuguese => 'Português';
+
+  @override
+  String get languageTurkish => 'Türkçe';
+}

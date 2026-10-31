@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "Объектно";
+"NSCameraUsageDescription" = "Камера нужна для фотографий замечаний на объекте.";
+"NSPhotoLibraryUsageDescription" = "Выберите фотографию, чтобы прикрепить её к замечанию.";

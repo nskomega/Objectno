@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "Objectno";
+"NSCameraUsageDescription" = "Verwende die Kamera, um Mängel an einem Objekt zu fotografieren.";
+"NSPhotoLibraryUsageDescription" = "Wähle ein Foto aus, um es einem Mangel hinzuzufügen.";

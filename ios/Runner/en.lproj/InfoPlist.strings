@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "Objectno";
+"NSCameraUsageDescription" = "Use the camera to photograph issues at a property.";
+"NSPhotoLibraryUsageDescription" = "Choose a photo to attach to an issue.";

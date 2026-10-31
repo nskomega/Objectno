@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "Objectno";
+"NSCameraUsageDescription" = "Usa la cámara para fotografiar incidencias en un inmueble.";
+"NSPhotoLibraryUsageDescription" = "Elige una foto para adjuntarla a una incidencia.";
