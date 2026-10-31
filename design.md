@@ -158,3 +158,6 @@
 
 ## Помещения и обмеры
 Из объекта доступен список помещений и форма добавления: тип, название, длина/ширина/высота в метрах и пожелания. Размеры с десятичной запятой или точкой; до миллиметра. Форма прокручивается целиком с сохранением валидации всех полей. Подписи над рамкой, действия через общую тему. В карточке выводятся площадь пола и площадь стен до вычета проёмов с явным пояснением. Не называть эти площади готовым расходом материалов. Проёмы, состав работ и расчёт конкретного продукта будут отдельными шагами. Все подписи локализованы на восемь языков.
+
+## System status bar
+Use light system status text in the graphite theme and dark system status text in the milky theme. Set AppBarTheme.systemOverlayStyle explicitly because a transparent app bar can otherwise infer the wrong contrast. Native home screenshots in both appearances inspected in dev.13.

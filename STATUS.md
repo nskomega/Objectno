@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.12.
+Обновлено: 31.10.2026. Исходники: 0.1.0-dev.13.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -35,3 +35,6 @@ Next renovation step: openings, work selection and connecting the calculation co
 
 ## iOS simulator - dev.12
 Apple Development and Distribution identities are present; no physical iPhone detected. Simulator build and launch succeeded on iPhone 18 Pro (arm64). Initial home screenshot output/preview/ios-first-launch.png was inspected: app renders, but status bar text needs a light-theme contrast fix. Rooms were not manually exercised on iOS yet. scripts/build-ios-simulator.sh passed; artifact short version 0.1.0 and build number 12 verified. Signing/provisioning and store upload remain pending. Details: docs/ios-build.md.
+
+## Native appearance check - dev.13
+Fixed status-bar contrast using theme-specific system overlay styles. Simulator app build 13 (short version 0.1.0) built and launched successfully. Inspected output/preview/ios-light-statusbar.png and ios-dark-statusbar.png: home renders and status text is readable in each theme. Eight existing journal theme/scale tests passed and dart analysis is clean. This checks native home appearance, not camera, secure storage, room creation, physical-device signing or store readiness.
