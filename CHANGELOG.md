@@ -1,5 +1,11 @@
 # Изменения
 
+## 0.1.0-dev.12 - 2026-10-31
+- Added reproducible single-architecture iOS simulator build script, avoiding the Flutter 3.44.2/Xcode 27 multi-architecture lipo failure without changing the shared SDK.
+- Build names now explicitly separate the three-component release version from the numeric build number in this script.
+- Verified simulator build and launch (dev.11); script build dev.12 passed with version 0.1.0, build 12. Local signing identities are available; no physical device, signed archive or store upload verified.
+
+
 ## 0.1.0-dev.11 - 2026-10-31
 - Documentation follow-up for dev.10: recorded delivered room entry, validation, storage, and verification. No app behavior changes.
 

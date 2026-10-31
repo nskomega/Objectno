@@ -1,7 +1,7 @@
 name: objectno
 description: "Objectno renovation project journal"
 publish_to: 'none'
-version: 0.1.0-dev.11+11
+version: 0.1.0-dev.12+12
 
 environment:
   sdk: ^3.12.2
