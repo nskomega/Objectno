@@ -37,7 +37,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get objectsIntro =>
-      'Record issues, add photos and track what has been fixed.';
+      'From the first photo and idea to work progress and the finished result.';
 
   @override
   String get emptyObjectsTitle => 'Start with your first property';
@@ -327,4 +327,48 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get projectHistory => 'Renovation history';
+
+  @override
+  String get beforeStage => 'Before';
+
+  @override
+  String get proposalStage => 'Proposals';
+
+  @override
+  String get progressStage => 'Work progress';
+
+  @override
+  String get resultStage => 'Result';
+
+  @override
+  String get addUpdate => 'Add update';
+
+  @override
+  String get newProject => 'New renovation project';
+
+  @override
+  String get projectWish => 'What would you like to change?';
+
+  @override
+  String get measurements => 'Project measurements';
+
+  @override
+  String get addMeasurements => 'Save measurements';
+
+  @override
+  String get proposalPending =>
+      'Photo analysis and proposal generation are not connected yet. Solutions for this project will appear here.';
+
+  @override
+  String get photoRequired => 'Add a photo of the initial state.';
+
+  @override
+  String get entryStage => 'Stage';
+
+  @override
+  String get historyEmpty =>
+      'Add an initial photo and your wishes to start the project history.';
 }

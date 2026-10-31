@@ -37,7 +37,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get objectsIntro =>
-      'Sorunları kaydedin, fotoğraf ekleyin ve düzeltmeleri takip edin.';
+      'İlk fotoğraf ve fikirden çalışma ilerlemesine ve tamamlanan sonuca.';
 
   @override
   String get emptyObjectsTitle => 'İlk mülkünüzü ekleyin';
@@ -327,4 +327,48 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get save => 'Kaydet';
+
+  @override
+  String get projectHistory => 'Yenileme geçmişi';
+
+  @override
+  String get beforeStage => 'Önce';
+
+  @override
+  String get proposalStage => 'Öneriler';
+
+  @override
+  String get progressStage => 'Çalışma ilerlemesi';
+
+  @override
+  String get resultStage => 'Sonuç';
+
+  @override
+  String get addUpdate => 'Güncelleme ekle';
+
+  @override
+  String get newProject => 'Yeni yenileme projesi';
+
+  @override
+  String get projectWish => 'Neyi değiştirmek istiyorsunuz?';
+
+  @override
+  String get measurements => 'Proje ölçüleri';
+
+  @override
+  String get addMeasurements => 'Ölçüleri kaydet';
+
+  @override
+  String get proposalPending =>
+      'Fotoğraf analizi ve öneri üretimi henüz bağlı değil. Bu proje için çözümler burada görünecek.';
+
+  @override
+  String get photoRequired => 'Başlangıç durumunun fotoğrafını ekleyin.';
+
+  @override
+  String get entryStage => 'Aşama';
+
+  @override
+  String get historyEmpty =>
+      'Geçmişi başlatmak için başlangıç fotoğrafı ve isteklerinizi ekleyin.';
 }

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import '../../renovation/domain/quantity_calculator.dart';
 import 'package:sembast/sembast.dart';
 
@@ -8,6 +9,9 @@ class JournalRepository {
           : 'account-$accountId-profile',
       objects = intMapStoreFactory.store(
         accountId == null ? 'objects' : 'account-$accountId-objects',
+      ),
+      history = intMapStoreFactory.store(
+        accountId == null ? 'history' : 'account-$accountId-history',
       ),
       rooms = intMapStoreFactory.store(
         accountId == null ? 'rooms' : 'account-$accountId-rooms',
@@ -22,6 +26,7 @@ class JournalRepository {
     final scope = inAccount(accountId);
     await database.transaction((txn) async {
       await settings.record(scope._profileKey).delete(txn);
+      await scope.history.delete(txn);
       await scope.rooms.delete(txn);
       await scope.issues.delete(txn);
       await scope.objects.delete(txn);
@@ -38,6 +43,7 @@ class JournalRepository {
     await settings.record(_profileKey).put(database, {'name': name.trim()});
   }
 
+  final StoreRef<int, Map<String, Object?>> history;
   final Database database;
   final StoreRef<int, Map<String, Object?>> rooms;
   final StoreRef<int, Map<String, Object?>> objects;
@@ -80,7 +86,7 @@ class JournalRepository {
     required int heightMm,
     required String wish,
   }) async {
-    if (name.trim().isEmpty || wish.trim().isEmpty) {
+    if (name.trim().isEmpty) {
       throw ArgumentError('Missing room description');
     }
     for (final size in [lengthMm, widthMm, heightMm]) {
@@ -104,6 +110,71 @@ class JournalRepository {
         'schemaVersion': 1,
         'createdAt': DateTime.now().toUtc().toIso8601String(),
       });
+    });
+  }
+
+  Stream<List<RecordSnapshot<int, Map<String, Object?>>>> watchHistory(
+    int objectId,
+  ) => history
+      .query(
+        finder: Finder(
+          filter: Filter.equals('objectId', objectId),
+          sortOrders: [SortOrder('createdAt')],
+        ),
+      )
+      .onSnapshots(database);
+
+  Map<String, Object?> _historyValue(
+    int objectId,
+    String description,
+    String phase,
+    String? photo,
+  ) {
+    if (description.trim().isEmpty ||
+        !['before', 'progress', 'result'].contains(phase)) {
+      throw ArgumentError('Invalid history entry');
+    }
+    if (phase == 'before' && (photo == null || photo.isEmpty)) {
+      throw ArgumentError('Initial photo required');
+    }
+    if (photo != null && base64Decode(photo).length > 8 * 1024 * 1024) {
+      throw ArgumentError('Photo too large');
+    }
+    return {
+      'objectId': objectId,
+      'description': description.trim(),
+      'phase': phase,
+      'photo': photo,
+      'origin': 'user',
+      'createdAt': DateTime.now().toUtc().toIso8601String(),
+    };
+  }
+
+  Future<int> createRenovation(String name, String wish, String photo) async {
+    if (name.trim().isEmpty) throw ArgumentError('Empty name');
+    final value = _historyValue(0, wish, 'before', photo);
+    return database.transaction((txn) async {
+      final id = await objects.add(txn, {
+        'name': name.trim(),
+        'createdAt': value['createdAt'],
+      });
+      await history.add(txn, {...value, 'objectId': id});
+      return id;
+    });
+  }
+
+  Future<int> addHistory(
+    int objectId,
+    String description, {
+    required String phase,
+    String? photo,
+  }) async {
+    final value = _historyValue(objectId, description, phase, photo);
+    return database.transaction((txn) async {
+      if (!await objects.record(objectId).exists(txn)) {
+        throw StateError('Object not found');
+      }
+      return history.add(txn, value);
     });
   }
 
@@ -149,6 +220,10 @@ class JournalRepository {
   }
 
   Future<void> deleteObject(int id) => database.transaction((txn) async {
+    await history.delete(
+      txn,
+      finder: Finder(filter: Filter.equals('objectId', id)),
+    );
     await rooms.delete(
       txn,
       finder: Finder(filter: Filter.equals('objectId', id)),

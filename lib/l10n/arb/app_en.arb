@@ -36,7 +36,7 @@
   "@objectsHeading": {
     "description": "Objectno UI: objectsHeading"
   },
-  "objectsIntro": "Record issues, add photos and track what has been fixed.",
+  "objectsIntro": "From the first photo and idea to work progress and the finished result.",
   "@objectsIntro": {
     "description": "Objectno UI: objectsIntro"
   },
@@ -413,5 +413,61 @@
   "save": "Save",
   "@save": {
     "description": "Save profile changes"
+  },
+  "projectHistory": "Renovation history",
+  "beforeStage": "Before",
+  "proposalStage": "Proposals",
+  "progressStage": "Work progress",
+  "resultStage": "Result",
+  "addUpdate": "Add update",
+  "newProject": "New renovation project",
+  "projectWish": "What would you like to change?",
+  "measurements": "Project measurements",
+  "addMeasurements": "Save measurements",
+  "proposalPending": "Photo analysis and proposal generation are not connected yet. Solutions for this project will appear here.",
+  "photoRequired": "Add a photo of the initial state.",
+  "entryStage": "Stage",
+  "historyEmpty": "Add an initial photo and your wishes to start the project history.",
+  "@projectHistory": {
+    "description": "Unified renovation object: projectHistory"
+  },
+  "@beforeStage": {
+    "description": "Unified renovation object: beforeStage"
+  },
+  "@proposalStage": {
+    "description": "Unified renovation object: proposalStage"
+  },
+  "@progressStage": {
+    "description": "Unified renovation object: progressStage"
+  },
+  "@resultStage": {
+    "description": "Unified renovation object: resultStage"
+  },
+  "@addUpdate": {
+    "description": "Unified renovation object: addUpdate"
+  },
+  "@newProject": {
+    "description": "Unified renovation object: newProject"
+  },
+  "@projectWish": {
+    "description": "Unified renovation object: projectWish"
+  },
+  "@measurements": {
+    "description": "Unified renovation object: measurements"
+  },
+  "@addMeasurements": {
+    "description": "Unified renovation object: addMeasurements"
+  },
+  "@proposalPending": {
+    "description": "Unified renovation object: proposalPending"
+  },
+  "@photoRequired": {
+    "description": "Unified renovation object: photoRequired"
+  },
+  "@entryStage": {
+    "description": "Unified renovation object: entryStage"
+  },
+  "@historyEmpty": {
+    "description": "Unified renovation object: historyEmpty"
   }
 }

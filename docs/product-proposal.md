@@ -31,3 +31,6 @@
 
 ## Публичная история
 Отдельный Git приложения, содержательные коммиты и версии. Открытая лицензия ещё не выбрана, GitHub и магазины ещё не опубликованы. Не публиковать личные материалы поиска работы. Не обещать дату одобрения магазинами.
+
+## Unified renovation object - user clarification
+One object is the renovation project itself (a bathroom, kitchen, bedroom or larger space). Its main screen is a chronological record: initial photo and wishes, actual proposals, progress photos/notes and final result. Measurements belong to that object and appear on the same screen; they are not another disconnected navigation hierarchy. Previous room measurements and issue photos must remain visible, linked by their existing objectId. No generated proposal is shown as real before inference exists. Larger multi-room projects may keep named measurement snapshots, but they do not replace the object's common history.

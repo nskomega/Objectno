@@ -1,4 +1,4 @@
-import '../../renovation/presentation/rooms_page.dart';
+import '../../renovation/presentation/object_history_page.dart';
 import '../../../l10n/l10n.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
@@ -20,16 +20,25 @@ class JournalPage extends StatelessWidget {
   final JournalRepository repository;
 
   Future<void> _create(BuildContext context) async {
-    final name = await showDialog<String>(
-      context: context,
-      builder: (_) => const _ObjectDialog(),
+    final id = await Navigator.push<int>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => HistoryEntryForm(repository: repository),
+      ),
     );
-    if (name == null) return;
-    try {
-      await repository.addObject(name);
-    } catch (_) {
-      if (context.mounted) showFailure(context);
-    }
+    if (id == null || !context.mounted) return;
+    final record = await repository.objects.record(id).get(repository.database);
+    if (!context.mounted || record == null) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute<void>(
+        builder: (_) => ObjectHistoryPage(
+          repository: repository,
+          objectId: id,
+          name: record['name'] as String,
+        ),
+      ),
+    );
   }
 
   @override
@@ -76,10 +85,10 @@ class JournalPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                           onTap: () => Navigator.of(context).push(
                             MaterialPageRoute<void>(
-                              builder: (_) => IssuesPage(
+                              builder: (_) => ObjectHistoryPage(
                                 repository: repository,
                                 objectId: entry.key,
-                                objectName: entry.value['name'] as String,
+                                name: entry.value['name'] as String,
                               ),
                             ),
                           ),
@@ -123,52 +132,6 @@ class JournalPage extends StatelessWidget {
         label: Text(context.l10n.createObject),
       ),
     ),
-  );
-}
-
-class _ObjectDialog extends StatefulWidget {
-  const _ObjectDialog();
-  @override
-  State<_ObjectDialog> createState() => _ObjectDialogState();
-}
-
-class _ObjectDialogState extends State<_ObjectDialog> {
-  final controller = TextEditingController();
-  final form = GlobalKey<FormState>();
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) => AlertDialog(
-    title: Text(context.l10n.newObject),
-    content: SingleChildScrollView(
-      child: Form(
-        key: form,
-        child: LabeledField(
-          label: context.l10n.objectName,
-          controller: controller,
-          hint: context.l10n.objectNameHint,
-          autofocus: true,
-        ),
-      ),
-    ),
-    actions: [
-      TextButton(
-        onPressed: () => Navigator.pop(context),
-        child: Text(context.l10n.cancel),
-      ),
-      FilledButton(
-        onPressed: () {
-          if (form.currentState!.validate()) {
-            Navigator.pop(context, controller.text.trim());
-          }
-        },
-        child: Text(context.l10n.create),
-      ),
-    ],
   );
 }
 
@@ -221,19 +184,6 @@ class _IssuesPageState extends State<IssuesPage> {
     appBar: AppBar(
       title: Text(widget.objectName),
       actions: [
-        IconButton(
-          tooltip: context.l10n.rooms,
-          icon: const Icon(Icons.meeting_room_outlined),
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute<void>(
-              builder: (_) => RoomsPage(
-                repository: widget.repository,
-                objectId: widget.objectId,
-              ),
-            ),
-          ),
-        ),
         IconButton(
           tooltip: context.l10n.deleteObject,
           onPressed: _deleteObject,

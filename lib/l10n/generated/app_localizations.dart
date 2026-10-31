@@ -167,7 +167,7 @@ abstract class AppLocalizations {
   /// Objectno UI: objectsIntro
   ///
   /// In en, this message translates to:
-  /// **'Record issues, add photos and track what has been fixed.'**
+  /// **'From the first photo and idea to work progress and the finished result.'**
   String get objectsIntro;
 
   /// Objectno UI: emptyObjectsTitle
@@ -715,6 +715,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
+
+  /// Unified renovation object: projectHistory
+  ///
+  /// In en, this message translates to:
+  /// **'Renovation history'**
+  String get projectHistory;
+
+  /// Unified renovation object: beforeStage
+  ///
+  /// In en, this message translates to:
+  /// **'Before'**
+  String get beforeStage;
+
+  /// Unified renovation object: proposalStage
+  ///
+  /// In en, this message translates to:
+  /// **'Proposals'**
+  String get proposalStage;
+
+  /// Unified renovation object: progressStage
+  ///
+  /// In en, this message translates to:
+  /// **'Work progress'**
+  String get progressStage;
+
+  /// Unified renovation object: resultStage
+  ///
+  /// In en, this message translates to:
+  /// **'Result'**
+  String get resultStage;
+
+  /// Unified renovation object: addUpdate
+  ///
+  /// In en, this message translates to:
+  /// **'Add update'**
+  String get addUpdate;
+
+  /// Unified renovation object: newProject
+  ///
+  /// In en, this message translates to:
+  /// **'New renovation project'**
+  String get newProject;
+
+  /// Unified renovation object: projectWish
+  ///
+  /// In en, this message translates to:
+  /// **'What would you like to change?'**
+  String get projectWish;
+
+  /// Unified renovation object: measurements
+  ///
+  /// In en, this message translates to:
+  /// **'Project measurements'**
+  String get measurements;
+
+  /// Unified renovation object: addMeasurements
+  ///
+  /// In en, this message translates to:
+  /// **'Save measurements'**
+  String get addMeasurements;
+
+  /// Unified renovation object: proposalPending
+  ///
+  /// In en, this message translates to:
+  /// **'Photo analysis and proposal generation are not connected yet. Solutions for this project will appear here.'**
+  String get proposalPending;
+
+  /// Unified renovation object: photoRequired
+  ///
+  /// In en, this message translates to:
+  /// **'Add a photo of the initial state.'**
+  String get photoRequired;
+
+  /// Unified renovation object: entryStage
+  ///
+  /// In en, this message translates to:
+  /// **'Stage'**
+  String get entryStage;
+
+  /// Unified renovation object: historyEmpty
+  ///
+  /// In en, this message translates to:
+  /// **'Add an initial photo and your wishes to start the project history.'**
+  String get historyEmpty;
 }
 
 class _AppLocalizationsDelegate

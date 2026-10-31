@@ -54,10 +54,11 @@ void main() {
         await tester.tap(find.text(l10n.createObject));
         await tester.pumpAndSettle();
         expect(find.text(l10n.objectName), findsOneWidget);
-        await tester.ensureVisible(find.text(l10n.create));
-        await tester.tap(find.text(l10n.create));
+        await tester.ensureVisible(find.text(l10n.save));
         await tester.pumpAndSettle();
-        expect(find.text(l10n.requiredField), findsOneWidget);
+        await tester.tap(find.text(l10n.save));
+        await tester.pumpAndSettle();
+        expect(find.text(l10n.requiredField), findsNWidgets(2));
         expect(tester.takeException(), isNull);
       });
     }
