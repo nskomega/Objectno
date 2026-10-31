@@ -29,3 +29,6 @@ Memory MCP рассмотрен, но не установлен: локальн�
 - https://github.com/flutter/agent-plugins
 - https://github.com/modelcontextprotocol/servers/tree/main/src/memory
 - https://developers.openai.com/plugins/build/plugins
+
+## Android toolchain
+Установлен OpenJDK 17 через Homebrew. Локальная debug-сборка: scripts/build-android-debug.sh. Скрипт использует JAVA_HOME, а на этом Mac при его отсутствии — Homebrew JDK. Глобальные Java-настройки не изменены. Runtime GoLand не содержит jlink и для этой Android-сборки не подходит.
