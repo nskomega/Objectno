@@ -44,6 +44,7 @@ class _HomeShellState extends State<HomeShell> {
       ],
     ),
     bottomNavigationBar: DecoratedBox(
+      key: const ValueKey('root-tab-bar'),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surface,
         border: Border(
@@ -78,20 +79,24 @@ class _HomeShellState extends State<HomeShell> {
         child: InkWell(
           onTap: () => setState(() => _index = index),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(selected ? selectedIcon : icon, color: color),
-                const SizedBox(height: 4),
-                Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.labelLarge?.copyWith(color: color),
-                ),
-              ],
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 40),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(selected ? selectedIcon : icon, color: color, size: 22),
+                  const SizedBox(height: 2),
+                  Text(
+                    label,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(
+                      context,
+                    ).textTheme.labelSmall?.copyWith(color: color),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

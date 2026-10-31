@@ -167,3 +167,9 @@ Graphite background and a saturated orange geometric room-plan mark, without tex
 
 ## Profile and bottom tabs (user revision)
 Two root destinations: properties and profile. Language and appearance leave the object app bar. Profile shows a locally saved name, account access and settings rows; no fictional identity in guest mode. Each preference opens a full-height scrollable selection page with a checkmark, applies/saves selection and returns. No popup menus. Bottom tabs retain labels, selected semantics and outlined/filled icon pairs, grow with text rather than fixing bar height. Detail and editing routes cover the tab bar. Names are local per-account preferences until server profile sync exists. Both themes and eight languages are required.
+
+## Compact tab bar revision
+Normal text: about 50 logical pixels before device bottom safe area, with 22px icons, 2px gap, labelSmall and 5px vertical padding. Minimum tap target remains 48px; system text scaling grows content naturally. No fixed maximum height or text-scale clamp. This replaces the original 12px padding/24px icons that consumed too much iPhone 6s space.
+
+## Unified object history
+Object card opens the renovation history. Create object collects its name, initial photo and wishes together. Existing objects remain readable without fabricating a starting photo. Initial state, proposal, work progress and final result are visible phases; actual records contain dates and photos. Proposal availability is explicit until local inference is connected. Measurement summary and an expandable measurement form live within the same object page. Old issues appear as legacy issue records in the chronology and retain status controls; measurements retain existing names/data. No separate rooms-list shortcut on the main object screen.

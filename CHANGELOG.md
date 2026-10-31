@@ -1,5 +1,10 @@
 # Изменения
 
+## 0.1.0-dev.19 - 2026-10-31
+- Reduced root tab bar to about 50 logical pixels at standard text size, keeping 48px tap targets and content growth for accessibility text.
+- Both existing 3x-text profile tests passed. Documented the next unified-object revision requested by the owner; that workflow is not implemented in this commit.
+
+
 ## 0.1.0-dev.18 - 2026-10-31
 - Added bottom Properties/Profile tabs. Moved language, appearance and account access into Profile; removed language/theme popup menus from the object app bar.
 - Added scrollable selection screens with current-choice indicators and a local per-account editable profile name. Tab labels grow with system text scaling.
