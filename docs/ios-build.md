@@ -26,3 +26,6 @@ ideviceinstaller list -b dev.objectno.objectno
 Requires libimobiledevice and ideviceinstaller from Homebrew. The helper only uses an existing unexpired wildcard development profile containing the connected phone and a certificate whose private key is already available locally. It signs embedded frameworks and the app, embeds the profile, expands app/keychain identifiers and verifies the signatures. It does not register devices, request new profiles or export private keys. Profiles and signed artifacts remain under ignored build/ and outside Git. Pin iOS 15 explicitly after Xcode's automatic project migration.
 
 Verified build 14 installation completed on the connected phone with the new icon. Launch confirmation and functional hardware testing remain pending. This is development signing, not App Store distribution.
+
+## Hardware launch confirmation
+The owner confirmed that the installed build 14 opens the home screen on iPhone 6s / iOS 15.8.8. Recorded in dev.16. Camera, persistence and secure-storage checks remain separate, pending checks. No App Store publication is implied.

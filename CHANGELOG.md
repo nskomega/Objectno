@@ -1,5 +1,9 @@
 # Изменения
 
+## 0.1.0-dev.16 - 2026-10-31
+- Recorded owner-confirmed launch of installed build 14 on the physical iPhone 6s (iOS 15.8.8): the home screen opens. No application code changed; camera and session checks remain pending.
+
+
 ## 0.1.0-dev.15 - 2026-10-31
 - Added local development-signing helper: selects an existing wildcard profile that already includes the connected device and a matching available signing identity; no portal registration or private-key export.
 - Retained Xcode project/scheme migration and pinned all explicit deployment targets to iOS 15 to avoid an automatic increase to the SDK's recommended version.
