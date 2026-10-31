@@ -195,4 +195,54 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get languageTurkish => 'Türkçe';
+
+  @override
+  String get account => 'Compte';
+
+  @override
+  String get signIn => 'Se connecter';
+
+  @override
+  String get register => 'Créer un compte';
+
+  @override
+  String get email => 'Adresse e-mail';
+
+  @override
+  String get password => 'Mot de passe';
+
+  @override
+  String get signOut => 'Se déconnecter';
+
+  @override
+  String get deleteAccount => 'Supprimer le compte';
+
+  @override
+  String get deleteAccountBody =>
+      'Saisissez votre mot de passe pour supprimer définitivement votre compte et ses données sur cet appareil.';
+
+  @override
+  String get authUnavailable =>
+      'La connexion est indisponible. Vous pouvez continuer à utiliser le journal local.';
+
+  @override
+  String get authFailure => 'La demande a échoué. Réessayez.';
+
+  @override
+  String get authInvalidCredentials =>
+      'Vérifiez votre adresse e-mail et votre mot de passe.';
+
+  @override
+  String get authPasswordRule =>
+      'Utilisez au moins 12 caractères et au maximum 72 octets UTF-8.';
+
+  @override
+  String get authNetwork => 'Échec de connexion. Réessayez.';
+
+  @override
+  String get authStorage => 'Le stockage sécurisé est indisponible. Réessayez.';
+
+  @override
+  String get authLocalNote =>
+      'Les données du compte restent sur cet appareil ; la synchronisation est indisponible. Les entrées invité restent séparées.';
 }

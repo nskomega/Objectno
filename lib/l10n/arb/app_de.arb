@@ -59,5 +59,20 @@
   "languageGerman": "Deutsch",
   "languageItalian": "Italiano",
   "languagePortuguese": "Português",
-  "languageTurkish": "Türkçe"
+  "languageTurkish": "Türkçe",
+  "account": "Konto",
+  "signIn": "Anmelden",
+  "register": "Konto erstellen",
+  "email": "E-Mail",
+  "password": "Passwort",
+  "signOut": "Abmelden",
+  "deleteAccount": "Konto löschen",
+  "deleteAccountBody": "Gib dein Passwort ein, um dein Konto und dessen Daten auf diesem Gerät dauerhaft zu löschen.",
+  "authUnavailable": "Die Anmeldung ist nicht verfügbar. Das lokale Journal kann weiter genutzt werden.",
+  "authFailure": "Die Anfrage ist fehlgeschlagen. Bitte erneut versuchen.",
+  "authInvalidCredentials": "Prüfe E-Mail und Passwort.",
+  "authPasswordRule": "Mindestens 12 Zeichen und höchstens 72 UTF-8-Bytes verwenden.",
+  "authNetwork": "Verbindung fehlgeschlagen. Bitte erneut versuchen.",
+  "authStorage": "Sicherer Speicher ist nicht verfügbar. Bitte erneut versuchen.",
+  "authLocalNote": "Kontodaten bleiben auf diesem Gerät; keine Synchronisierung verfügbar. Gasteinträge bleiben getrennt."
 }

@@ -59,5 +59,20 @@
   "languageGerman": "Deutsch",
   "languageItalian": "Italiano",
   "languagePortuguese": "Português",
-  "languageTurkish": "Türkçe"
+  "languageTurkish": "Türkçe",
+  "account": "Аккаунт",
+  "signIn": "Войти",
+  "register": "Создать аккаунт",
+  "email": "Электронная почта",
+  "password": "Пароль",
+  "signOut": "Выйти",
+  "deleteAccount": "Удалить аккаунт",
+  "deleteAccountBody": "Введите пароль, чтобы навсегда удалить аккаунт и его данные на этом устройстве.",
+  "authUnavailable": "Вход пока недоступен. Можно продолжать работать с локальным журналом.",
+  "authFailure": "Не удалось выполнить запрос. Попробуйте ещё раз.",
+  "authInvalidCredentials": "Проверьте почту и пароль.",
+  "authPasswordRule": "Не менее 12 символов и не более 72 байт UTF-8.",
+  "authNetwork": "Нет соединения. Попробуйте ещё раз.",
+  "authStorage": "Защищённое хранилище недоступно. Попробуйте ещё раз.",
+  "authLocalNote": "Данные аккаунта остаются на этом устройстве, синхронизации пока нет. Гостевые записи хранятся отдельно."
 }

@@ -59,5 +59,20 @@
   "languageGerman": "Deutsch",
   "languageItalian": "Italiano",
   "languagePortuguese": "Português",
-  "languageTurkish": "Türkçe"
+  "languageTurkish": "Türkçe",
+  "account": "Compte",
+  "signIn": "Se connecter",
+  "register": "Créer un compte",
+  "email": "Adresse e-mail",
+  "password": "Mot de passe",
+  "signOut": "Se déconnecter",
+  "deleteAccount": "Supprimer le compte",
+  "deleteAccountBody": "Saisissez votre mot de passe pour supprimer définitivement votre compte et ses données sur cet appareil.",
+  "authUnavailable": "La connexion est indisponible. Vous pouvez continuer à utiliser le journal local.",
+  "authFailure": "La demande a échoué. Réessayez.",
+  "authInvalidCredentials": "Vérifiez votre adresse e-mail et votre mot de passe.",
+  "authPasswordRule": "Utilisez au moins 12 caractères et au maximum 72 octets UTF-8.",
+  "authNetwork": "Échec de connexion. Réessayez.",
+  "authStorage": "Le stockage sécurisé est indisponible. Réessayez.",
+  "authLocalNote": "Les données du compte restent sur cet appareil ; la synchronisation est indisponible. Les entrées invité restent séparées."
 }

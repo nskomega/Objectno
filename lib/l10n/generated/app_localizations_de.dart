@@ -195,4 +195,56 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get languageTurkish => 'Türkçe';
+
+  @override
+  String get account => 'Konto';
+
+  @override
+  String get signIn => 'Anmelden';
+
+  @override
+  String get register => 'Konto erstellen';
+
+  @override
+  String get email => 'E-Mail';
+
+  @override
+  String get password => 'Passwort';
+
+  @override
+  String get signOut => 'Abmelden';
+
+  @override
+  String get deleteAccount => 'Konto löschen';
+
+  @override
+  String get deleteAccountBody =>
+      'Gib dein Passwort ein, um dein Konto und dessen Daten auf diesem Gerät dauerhaft zu löschen.';
+
+  @override
+  String get authUnavailable =>
+      'Die Anmeldung ist nicht verfügbar. Das lokale Journal kann weiter genutzt werden.';
+
+  @override
+  String get authFailure =>
+      'Die Anfrage ist fehlgeschlagen. Bitte erneut versuchen.';
+
+  @override
+  String get authInvalidCredentials => 'Prüfe E-Mail und Passwort.';
+
+  @override
+  String get authPasswordRule =>
+      'Mindestens 12 Zeichen und höchstens 72 UTF-8-Bytes verwenden.';
+
+  @override
+  String get authNetwork =>
+      'Verbindung fehlgeschlagen. Bitte erneut versuchen.';
+
+  @override
+  String get authStorage =>
+      'Sicherer Speicher ist nicht verfügbar. Bitte erneut versuchen.';
+
+  @override
+  String get authLocalNote =>
+      'Kontodaten bleiben auf diesem Gerät; keine Synchronisierung verfügbar. Gasteinträge bleiben getrennt.';
 }

@@ -194,4 +194,53 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get languageTurkish => 'Türkçe';
+
+  @override
+  String get account => 'Account';
+
+  @override
+  String get signIn => 'Accedi';
+
+  @override
+  String get register => 'Crea account';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get signOut => 'Esci';
+
+  @override
+  String get deleteAccount => 'Elimina account';
+
+  @override
+  String get deleteAccountBody =>
+      'Inserisci la password per eliminare definitivamente il tuo account e i suoi dati su questo dispositivo.';
+
+  @override
+  String get authUnavailable =>
+      'Accesso non disponibile. Puoi continuare a usare il diario locale.';
+
+  @override
+  String get authFailure => 'Impossibile completare la richiesta. Riprova.';
+
+  @override
+  String get authInvalidCredentials => 'Controlla email e password.';
+
+  @override
+  String get authPasswordRule =>
+      'Usa almeno 12 caratteri e non più di 72 byte UTF-8.';
+
+  @override
+  String get authNetwork => 'Connessione non riuscita. Riprova.';
+
+  @override
+  String get authStorage => 'Archiviazione sicura non disponibile. Riprova.';
+
+  @override
+  String get authLocalNote =>
+      'I dati restano su questo dispositivo; la sincronizzazione non è disponibile. Le voci ospite restano separate.';
 }

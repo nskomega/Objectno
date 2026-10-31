@@ -239,5 +239,65 @@
   "languageTurkish": "Türkçe",
   "@languageTurkish": {
     "description": "Language name shown in its own language"
+  },
+  "account": "Account",
+  "signIn": "Sign in",
+  "register": "Create account",
+  "email": "Email",
+  "password": "Password",
+  "signOut": "Sign out",
+  "deleteAccount": "Delete account",
+  "deleteAccountBody": "Enter your password to permanently delete your account and its data on this device.",
+  "authUnavailable": "Sign-in is unavailable. You can continue using the local journal.",
+  "authFailure": "Could not complete the request. Please try again.",
+  "authInvalidCredentials": "Check your email and password.",
+  "authPasswordRule": "Use at least 12 characters and no more than 72 UTF-8 bytes.",
+  "authNetwork": "Connection failed. Please try again.",
+  "authStorage": "Secure storage is unavailable. Please try again.",
+  "authLocalNote": "Account data stays on this device; sync is not available. Guest entries remain separate.",
+  "@account": {
+    "description": "Account screen: account"
+  },
+  "@signIn": {
+    "description": "Account screen: signIn"
+  },
+  "@register": {
+    "description": "Account screen: register"
+  },
+  "@email": {
+    "description": "Account screen: email"
+  },
+  "@password": {
+    "description": "Account screen: password"
+  },
+  "@signOut": {
+    "description": "Account screen: signOut"
+  },
+  "@deleteAccount": {
+    "description": "Account screen: deleteAccount"
+  },
+  "@deleteAccountBody": {
+    "description": "Account screen: deleteAccountBody"
+  },
+  "@authUnavailable": {
+    "description": "Account screen: authUnavailable"
+  },
+  "@authFailure": {
+    "description": "Account screen: authFailure"
+  },
+  "@authInvalidCredentials": {
+    "description": "Account screen: authInvalidCredentials"
+  },
+  "@authPasswordRule": {
+    "description": "Account screen: authPasswordRule"
+  },
+  "@authNetwork": {
+    "description": "Account screen: authNetwork"
+  },
+  "@authStorage": {
+    "description": "Account screen: authStorage"
+  },
+  "@authLocalNote": {
+    "description": "Account screen: authLocalNote"
   }
 }

@@ -22,7 +22,9 @@ class JournalPage extends StatelessWidget {
     required this.onThemeChanged,
     this.languageCode = 'system',
     this.onLanguageChanged,
+    this.onAccount,
   });
+  final VoidCallback? onAccount;
   final JournalRepository repository;
   final ThemeMode themeMode;
   final Future<void> Function(ThemeMode) onThemeChanged;
@@ -47,6 +49,12 @@ class JournalPage extends StatelessWidget {
     appBar: AppBar(
       title: Text(context.l10n.appName),
       actions: [
+        if (onAccount != null)
+          IconButton(
+            onPressed: onAccount,
+            tooltip: context.l10n.account,
+            icon: const Icon(Icons.person_outline),
+          ),
         if (onLanguageChanged != null)
           PopupMenuButton<String>(
             tooltip: context.l10n.language,
