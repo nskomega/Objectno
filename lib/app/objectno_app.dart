@@ -1,13 +1,12 @@
 import '../features/auth/application/session_controller.dart';
 import '../features/auth/data/auth_api.dart';
 import '../features/auth/data/session_vault.dart';
-import '../features/auth/presentation/account_page.dart';
+import 'home_shell.dart';
 import 'package:flutter/material.dart';
 import '../l10n/l10n.dart';
 import '../design_system/theme/objectno_theme.dart';
 import '../features/journal/data/database.dart';
 import '../features/journal/data/journal_repository.dart';
-import '../features/journal/presentation/journal_page.dart';
 
 class ObjectnoApp extends StatefulWidget {
   const ObjectnoApp({super.key, this.repository, this.session});
@@ -142,16 +141,9 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
                       ),
               ),
             )
-          : JournalPage(
+          : HomeShell(
               repository: _repository!.inAccount(_accountId),
-              onAccount: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (_) => AccountPage(
-                    session: _session,
-                    wipeLocal: _repository!.clearAccount,
-                  ),
-                ),
-              ),
+              session: _session,
               themeMode: _theme,
               onThemeChanged: _setTheme,
               languageCode: _language,

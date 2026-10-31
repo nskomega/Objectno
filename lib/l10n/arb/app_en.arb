@@ -385,5 +385,33 @@
   },
   "@roomOther": {
     "description": "Renovation room UI: roomOther"
+  },
+  "profile": "Profile",
+  "propertiesTab": "Properties",
+  "guestProfile": "Guest profile",
+  "profileName": "Your name",
+  "editProfileName": "Edit name",
+  "settings": "Settings",
+  "@profile": {
+    "description": "Profile navigation: profile"
+  },
+  "@propertiesTab": {
+    "description": "Profile navigation: propertiesTab"
+  },
+  "@guestProfile": {
+    "description": "Profile navigation: guestProfile"
+  },
+  "@profileName": {
+    "description": "Profile navigation: profileName"
+  },
+  "@editProfileName": {
+    "description": "Profile navigation: editProfileName"
+  },
+  "@settings": {
+    "description": "Profile navigation: settings"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save profile changes"
   }
 }

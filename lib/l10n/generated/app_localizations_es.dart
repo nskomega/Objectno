@@ -308,4 +308,25 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get roomOther => 'Otra';
+
+  @override
+  String get profile => 'Perfil';
+
+  @override
+  String get propertiesTab => 'Propiedades';
+
+  @override
+  String get guestProfile => 'Perfil de invitado';
+
+  @override
+  String get profileName => 'Tu nombre';
+
+  @override
+  String get editProfileName => 'Editar nombre';
+
+  @override
+  String get settings => 'Ajustes';
+
+  @override
+  String get save => 'Guardar';
 }

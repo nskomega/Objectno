@@ -48,7 +48,14 @@ void main() {
     await tester.pumpWidget(ObjectnoApp(repository: repo, session: session));
     await tester.pumpAndSettle();
     expect(find.text('Guest private object'), findsOneWidget);
-    await tester.tap(find.byTooltip('Account'));
+    await tester.tap(find.text('Profile'));
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Account'),
+      180,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('Account'));
     await tester.pumpAndSettle();
     await tester.enterText(
       find.byType(TextFormField).first,
@@ -61,7 +68,14 @@ void main() {
     expect(find.byType(AccountPage), findsNothing);
     expect(find.text('Guest private object'), findsNothing);
     expect(find.text('Alice private object'), findsOneWidget);
-    await tester.tap(find.byTooltip('Account'));
+    await tester.tap(find.text('Profile'));
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Account'),
+      180,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('Account'));
     await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(FilledButton, 'Sign out'));
     await tester.pumpAndSettle();

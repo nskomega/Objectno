@@ -74,3 +74,6 @@
 - Точные количества рассчитывать воспроизводимо по подтверждённым данным; результаты генерации не считать обмерами.
 
 - Расчётное ядро dev.9: целые мм и мм², BigInt для промежуточных произведений; формула и ограничения в docs/quantity-calculation.md. Тип комнаты не подменяет выбранные поверхности и работы.
+
+## Profile navigation revision - accepted from user feedback
+Bottom Properties/Profile tabs replace app-bar preference menus. Preferences use dedicated selection screens, local display name and account access live in Profile. Details: decisions/003-profile-navigation.md.

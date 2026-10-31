@@ -14,6 +14,9 @@ void main() {
         final guest = JournalRepository(db);
         final alice = guest.inAccount('alice');
         final bob = guest.inAccount('bob');
+        await alice.saveProfileName('Alice');
+        await bob.saveProfileName('Bob');
+        await guest.saveProfileName('Guest');
         final guestId = await guest.addObject('Guest');
         final aliceId = await alice.addObject('Alice');
         final bobId = await bob.addObject('Bob');
@@ -47,6 +50,9 @@ void main() {
           'Bob private',
         );
         await guest.clearAccount('alice');
+        expect(await alice.readProfileName(), isNull);
+        expect(await bob.readProfileName(), 'Bob');
+        expect(await guest.readProfileName(), 'Guest');
         expect(await alice.watchRooms(aliceId).first, isEmpty);
         expect(await bob.watchRooms(bobId).first, hasLength(1));
         expect(await alice.watchObjects().first, isEmpty);

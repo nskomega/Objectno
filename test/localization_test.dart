@@ -46,11 +46,7 @@ void main() {
               ).copyWith(textScaler: const TextScaler.linear(2)),
               child: child!,
             ),
-            home: JournalPage(
-              repository: JournalRepository(db),
-              themeMode: ThemeMode.system,
-              onThemeChanged: (_) async {},
-            ),
+            home: JournalPage(repository: JournalRepository(db)),
           ),
         );
         await tester.pumpAndSettle();
@@ -80,24 +76,30 @@ void main() {
     final de = await AppLocalizations.delegate.load(const Locale('de'));
     final en = await AppLocalizations.delegate.load(const Locale('en'));
     expect(find.text(es.objectsHeading), findsOneWidget);
-    await tester.tap(find.byTooltip(es.language));
+    await tester.tap(find.text(es.profile));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text(es.language));
+    await tester.tap(find.text(es.language));
     await tester.pumpAndSettle();
     await tester.tap(find.text(es.languageGerman));
     await tester.pumpAndSettle();
-    expect(find.text(de.objectsHeading), findsOneWidget);
+    expect(find.text(de.settings), findsOneWidget);
     expect(await tester.runAsync(repo.readLanguage), 'de');
     tester.binding.platformDispatcher.localesTestValue = const [Locale('en')];
     await tester.pumpAndSettle();
-    expect(find.text(de.objectsHeading), findsOneWidget);
+    expect(find.text(de.settings), findsOneWidget);
     await tester.pumpWidget(const SizedBox());
     await tester.pumpWidget(ObjectnoApp(repository: repo));
     await tester.pumpAndSettle();
     expect(find.text(de.objectsHeading), findsOneWidget);
-    await tester.tap(find.byTooltip(de.language));
+    await tester.tap(find.text(de.profile));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text(de.language));
+    await tester.tap(find.text(de.language));
     await tester.pumpAndSettle();
     await tester.tap(find.text(de.followSystem));
     await tester.pumpAndSettle();
-    expect(find.text(en.objectsHeading), findsOneWidget);
+    expect(find.text(en.settings), findsOneWidget);
     expect(await tester.runAsync(repo.readLanguage), 'system');
   });
 }

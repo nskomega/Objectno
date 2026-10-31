@@ -673,6 +673,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Other'**
   String get roomOther;
+
+  /// Profile navigation: profile
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// Profile navigation: propertiesTab
+  ///
+  /// In en, this message translates to:
+  /// **'Properties'**
+  String get propertiesTab;
+
+  /// Profile navigation: guestProfile
+  ///
+  /// In en, this message translates to:
+  /// **'Guest profile'**
+  String get guestProfile;
+
+  /// Profile navigation: profileName
+  ///
+  /// In en, this message translates to:
+  /// **'Your name'**
+  String get profileName;
+
+  /// Profile navigation: editProfileName
+  ///
+  /// In en, this message translates to:
+  /// **'Edit name'**
+  String get editProfileName;
+
+  /// Profile navigation: settings
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// Save profile changes
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate

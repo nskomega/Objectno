@@ -306,4 +306,25 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get roomOther => 'Diğer';
+
+  @override
+  String get profile => 'Profil';
+
+  @override
+  String get propertiesTab => 'Mülkler';
+
+  @override
+  String get guestProfile => 'Misafir profili';
+
+  @override
+  String get profileName => 'Adınız';
+
+  @override
+  String get editProfileName => 'Adı düzenle';
+
+  @override
+  String get settings => 'Ayarlar';
+
+  @override
+  String get save => 'Kaydet';
 }
