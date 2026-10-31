@@ -32,3 +32,6 @@ The owner confirmed that the installed build 14 opens the home screen on iPhone 
 
 ## Camera and data persistence
 The owner completed the physical-device scenario on installed build 14: create property, add issue, capture and save a photo, force-close the app and reopen the same issue. The saved photo remained visible. Recorded in dev.17. Denied permissions, interrupted capture and secure storage are separate unverified scenarios.
+
+## Unified-history update installed
+On 2026-11-01 build 20 was signed and installed after the owner reconnected the iPhone. Installation completed and the device app query returned build 20. No uninstall was performed. Legacy-photo retention and new-history behavior are pending manual checks; do not infer those from install success. Recorded in documentation version dev.21.
