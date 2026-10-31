@@ -26,3 +26,6 @@ private/
 
 # Generated previews
 /output/
+
+__pycache__/
+*.pyc
