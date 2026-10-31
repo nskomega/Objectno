@@ -56,6 +56,8 @@
 
 | Telegram-бот + Mini App как дополнительный канал | Предложено | Идея Михаила; Flutter Web + общий Go API, пригодность ещё проверить |
 
+| Локализация ru/en/es/fr/de/it/pt/tr с системным и ручным выбором | Принято | Запрос Михаила; новые экраны без строковых литералов UI |
+
 ## ADR
 - [ADR-001: структура](decisions/001-project-structure.md).
 - [ADR-002: Git, релизы и backend](decisions/002-git-releases-backend.md).

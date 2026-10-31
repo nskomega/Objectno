@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Объектно</string>
+	<string>Objectno</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -67,8 +67,19 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>Камера нужна для фотографий замечаний на объекте.</string>
+	<string>Use the camera to photograph issues at a property.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Выберите фотографию, чтобы прикрепить её к замечанию.</string>
+	<string>Choose a photo to attach to an issue.</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>ru</string>
+		<string>en</string>
+		<string>es</string>
+		<string>fr</string>
+		<string>de</string>
+		<string>it</string>
+		<string>pt</string>
+		<string>tr</string>
+	</array>
 </dict>
 </plist>

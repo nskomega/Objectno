@@ -1,0 +1,198 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Russian (`ru`).
+class AppLocalizationsRu extends AppLocalizations {
+  AppLocalizationsRu([String locale = 'ru']) : super(locale);
+
+  @override
+  String get appName => 'Объектно';
+
+  @override
+  String get saveFailure =>
+      'Не удалось сохранить изменение. Попробуйте ещё раз.';
+
+  @override
+  String get appearance => 'Тема оформления';
+
+  @override
+  String get followSystem => 'Как в системе';
+
+  @override
+  String get lightTheme => 'Светлая';
+
+  @override
+  String get darkTheme => 'Тёмная';
+
+  @override
+  String get objectsLoadFailure => 'Не удалось загрузить объекты';
+
+  @override
+  String get restartRetry => 'Перезапустите приложение и попробуйте снова.';
+
+  @override
+  String get objectsHeading => 'Всё по объектам';
+
+  @override
+  String get objectsIntro =>
+      'Фиксируйте замечания, добавляйте фотографии и отмечайте исправленное.';
+
+  @override
+  String get emptyObjectsTitle => 'Начните с первого объекта';
+
+  @override
+  String get emptyObjectsBody =>
+      'Добавьте квартиру, комнату или другой объект, который вы осматриваете.';
+
+  @override
+  String get createObject => 'Создать объект';
+
+  @override
+  String get newObject => 'Новый объект';
+
+  @override
+  String get objectName => 'Название объекта';
+
+  @override
+  String get objectNameHint => 'Например, квартира на Лесной';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get create => 'Создать';
+
+  @override
+  String get deleteObjectTitle => 'Удалить объект?';
+
+  @override
+  String get deleteObjectBody =>
+      'Объект, все его замечания и фотографии будут удалены с этого устройства.';
+
+  @override
+  String get delete => 'Удалить';
+
+  @override
+  String get deleteObject => 'Удалить объект';
+
+  @override
+  String get issuesLoadFailure => 'Не удалось загрузить замечания';
+
+  @override
+  String get reopenObject => 'Попробуйте открыть объект повторно.';
+
+  @override
+  String get issuesHeading => 'Замечания';
+
+  @override
+  String get filterAll => 'Все';
+
+  @override
+  String get statusOpen => 'Открыто';
+
+  @override
+  String get statusDone => 'Исправлено';
+
+  @override
+  String get noIssuesTitle => 'Пока нет замечаний';
+
+  @override
+  String get noMatchesTitle => 'Здесь пока пусто';
+
+  @override
+  String get noIssuesBody =>
+      'Добавьте описание и фотографию того, что нужно исправить.';
+
+  @override
+  String get noMatchesBody => 'Попробуйте выбрать другой фильтр.';
+
+  @override
+  String get issuePhoto => 'Фотография замечания';
+
+  @override
+  String get photoLoadFailure => 'Не удалось открыть фотографию';
+
+  @override
+  String get reopenIssue => 'Снова открыть';
+
+  @override
+  String get markDone => 'Отметить исправленным';
+
+  @override
+  String get addIssue => 'Добавить замечание';
+
+  @override
+  String get newIssue => 'Новое замечание';
+
+  @override
+  String get photoPickFailure =>
+      'Не удалось добавить фото. Проверьте разрешение и выберите файл до 8 МБ.';
+
+  @override
+  String get saveIssueFailure =>
+      'Не удалось сохранить. Ваш текст остался в форме. Попробуйте ещё раз.';
+
+  @override
+  String get pleaseWait => 'Подождите…';
+
+  @override
+  String get saveIssue => 'Сохранить замечание';
+
+  @override
+  String get issueDescriptionLabel => 'Что нужно исправить?';
+
+  @override
+  String get issueDescriptionHint => 'Опишите место и проблему';
+
+  @override
+  String get removePhoto => 'Убрать фотографию';
+
+  @override
+  String get takePhoto => 'Снять фото';
+
+  @override
+  String get fromGallery => 'Из галереи';
+
+  @override
+  String get localStorageNote =>
+      'Данные и фотографии сохраняются на этом устройстве. Синхронизация пока недоступна.';
+
+  @override
+  String get requiredField => 'Заполните поле';
+
+  @override
+  String get databaseOpenFailure => 'Не удалось открыть данные';
+
+  @override
+  String get retry => 'Повторить';
+
+  @override
+  String get language => 'Язык приложения';
+
+  @override
+  String get languageRussian => 'Русский';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageSpanish => 'Español';
+
+  @override
+  String get languageFrench => 'Français';
+
+  @override
+  String get languageGerman => 'Deutsch';
+
+  @override
+  String get languageItalian => 'Italiano';
+
+  @override
+  String get languagePortuguese => 'Português';
+
+  @override
+  String get languageTurkish => 'Türkçe';
+}

@@ -77,4 +77,11 @@ class JournalRepository {
   Future<void> saveTheme(String mode) async {
     await settings.record('appearance').put(database, {'mode': mode});
   }
+
+  Future<String> readLanguage() async =>
+      (await settings.record('language').get(database))?['code'] as String? ??
+      'system';
+  Future<void> saveLanguage(String code) async {
+    await settings.record('language').put(database, {'code': code});
+  }
 }

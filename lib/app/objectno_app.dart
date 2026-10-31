@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import '../l10n/l10n.dart';
 import '../design_system/theme/objectno_theme.dart';
 import '../features/journal/data/database.dart';
 import '../features/journal/data/journal_repository.dart';
@@ -16,6 +16,7 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
   JournalRepository? _repository;
   Object? _error;
   ThemeMode _theme = ThemeMode.system;
+  String _language = 'system';
   @override
   void initState() {
     super.initState();
@@ -23,10 +24,12 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
   }
 
   Future<void> _load() async {
+    JournalRepository? repo;
     try {
-      final repo =
+      repo =
           widget.repository ?? JournalRepository(await openJournalDatabase());
       final mode = await repo.readTheme();
+      final language = await repo.readLanguage();
       if (!mounted) {
         if (widget.repository == null) await repo.database.close();
         return;
@@ -37,9 +40,16 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
           (m) => m.name == mode,
           orElse: () => ThemeMode.system,
         );
+        _language =
+            AppLocalizations.supportedLocales.any(
+              (locale) => locale.languageCode == language,
+            )
+            ? language
+            : 'system';
         _error = null;
       });
     } catch (error) {
+      if (widget.repository == null) await repo?.database.close();
       if (mounted) setState(() => _error = error);
     }
   }
@@ -47,6 +57,17 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
   Future<void> _setTheme(ThemeMode mode) async {
     await _repository!.saveTheme(mode.name);
     if (mounted) setState(() => _theme = mode);
+  }
+
+  Future<void> _setLanguage(String code) async {
+    if (code != 'system' &&
+        !AppLocalizations.supportedLocales.any(
+          (locale) => locale.languageCode == code,
+        )) {
+      return;
+    }
+    await _repository!.saveLanguage(code);
+    if (mounted) setState(() => _language = code);
   }
 
   @override
@@ -57,36 +78,40 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-    title: 'Объектно',
-    locale: const Locale('ru'),
-    supportedLocales: const [Locale('ru')],
-    localizationsDelegates: GlobalMaterialLocalizations.delegates,
+    onGenerateTitle: (context) => context.l10n.appName,
+    locale: _language == 'system' ? null : Locale(_language),
+    supportedLocales: AppLocalizations.supportedLocales,
+    localizationsDelegates: AppLocalizations.localizationsDelegates,
     debugShowCheckedModeBanner: false,
     theme: objectnoTheme(Brightness.light),
     darkTheme: objectnoTheme(Brightness.dark),
     themeMode: _theme,
-    home: _repository == null
-        ? Scaffold(
-            body: Center(
-              child: _error == null
-                  ? const CircularProgressIndicator()
-                  : Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Text('Не удалось открыть данные'),
-                        const SizedBox(height: 16),
-                        FilledButton(
-                          onPressed: _load,
-                          child: const Text('Повторить'),
-                        ),
-                      ],
-                    ),
+    home: Builder(
+      builder: (context) => _repository == null
+          ? Scaffold(
+              body: Center(
+                child: _error == null
+                    ? const CircularProgressIndicator()
+                    : Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(context.l10n.databaseOpenFailure),
+                          const SizedBox(height: 16),
+                          FilledButton(
+                            onPressed: _load,
+                            child: Text(context.l10n.retry),
+                          ),
+                        ],
+                      ),
+              ),
+            )
+          : JournalPage(
+              repository: _repository!,
+              themeMode: _theme,
+              onThemeChanged: _setTheme,
+              languageCode: _language,
+              onLanguageChanged: _setLanguage,
             ),
-          )
-        : JournalPage(
-            repository: _repository!,
-            themeMode: _theme,
-            onThemeChanged: _setTheme,
-          ),
+    ),
   );
 }

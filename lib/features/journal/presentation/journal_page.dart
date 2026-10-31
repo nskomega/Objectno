@@ -1,3 +1,4 @@
+import '../../../l10n/l10n.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,11 +9,9 @@ import '../data/journal_repository.dart';
 typedef Entry = RecordSnapshot<int, Map<String, Object?>>;
 
 void showFailure(BuildContext context) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Text('Не удалось сохранить изменение. Попробуйте ещё раз.'),
-    ),
-  );
+  ScaffoldMessenger.of(
+    context,
+  ).showSnackBar(SnackBar(content: Text(context.l10n.saveFailure)));
 }
 
 class JournalPage extends StatelessWidget {
@@ -21,10 +20,14 @@ class JournalPage extends StatelessWidget {
     required this.repository,
     required this.themeMode,
     required this.onThemeChanged,
+    this.languageCode = 'system',
+    this.onLanguageChanged,
   });
   final JournalRepository repository;
   final ThemeMode themeMode;
   final Future<void> Function(ThemeMode) onThemeChanged;
+  final String languageCode;
+  final Future<void> Function(String)? onLanguageChanged;
 
   Future<void> _create(BuildContext context) async {
     final name = await showDialog<String>(
@@ -42,10 +45,29 @@ class JournalPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(
-      title: const Text('Объектно'),
+      title: Text(context.l10n.appName),
       actions: [
+        if (onLanguageChanged != null)
+          PopupMenuButton<String>(
+            tooltip: context.l10n.language,
+            initialValue: languageCode,
+            icon: const Icon(Icons.language_outlined),
+            onSelected: (code) async {
+              try {
+                await onLanguageChanged!(code);
+              } catch (_) {
+                if (context.mounted) showFailure(context);
+              }
+            },
+            itemBuilder: (context) => languageNames(context.l10n).entries
+                .map(
+                  (entry) =>
+                      PopupMenuItem(value: entry.key, child: Text(entry.value)),
+                )
+                .toList(),
+          ),
         PopupMenuButton<ThemeMode>(
-          tooltip: 'Тема оформления',
+          tooltip: context.l10n.appearance,
           initialValue: themeMode,
           icon: const Icon(Icons.contrast_outlined),
           onSelected: (mode) async {
@@ -55,13 +77,19 @@ class JournalPage extends StatelessWidget {
               if (context.mounted) showFailure(context);
             }
           },
-          itemBuilder: (_) => const [
+          itemBuilder: (context) => [
             PopupMenuItem(
               value: ThemeMode.system,
-              child: Text('Как в системе'),
+              child: Text(context.l10n.followSystem),
             ),
-            PopupMenuItem(value: ThemeMode.light, child: Text('Светлая')),
-            PopupMenuItem(value: ThemeMode.dark, child: Text('Тёмная')),
+            PopupMenuItem(
+              value: ThemeMode.light,
+              child: Text(context.l10n.lightTheme),
+            ),
+            PopupMenuItem(
+              value: ThemeMode.dark,
+              child: Text(context.l10n.darkTheme),
+            ),
           ],
         ),
       ],
@@ -75,9 +103,9 @@ class JournalPage extends StatelessWidget {
             stream: repository.watchObjects(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return const _Message(
-                  title: 'Не удалось загрузить объекты',
-                  text: 'Перезапустите приложение и попробуйте снова.',
+                return _Message(
+                  title: context.l10n.objectsLoadFailure,
+                  text: context.l10n.restartRetry,
                 );
               }
               if (!snapshot.hasData) {
@@ -88,19 +116,16 @@ class JournalPage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 112),
                 children: [
                   Text(
-                    'Всё по объектам',
+                    context.l10n.objectsHeading,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 8),
-                  const Text(
-                    'Фиксируйте замечания, добавляйте фотографии и отмечайте исправленное.',
-                  ),
+                  Text(context.l10n.objectsIntro),
                   const SizedBox(height: 24),
                   if (entries.isEmpty)
-                    const _Message(
-                      title: 'Начните с первого объекта',
-                      text:
-                          'Добавьте квартиру, комнату или другой объект, который вы осматриваете.',
+                    _Message(
+                      title: context.l10n.emptyObjectsTitle,
+                      text: context.l10n.emptyObjectsBody,
                     ),
                   for (final entry in entries)
                     Padding(
@@ -154,7 +179,7 @@ class JournalPage extends StatelessWidget {
       child: FilledButton.icon(
         onPressed: () => _create(context),
         icon: const Icon(Icons.add),
-        label: const Text('Создать объект'),
+        label: Text(context.l10n.createObject),
       ),
     ),
   );
@@ -177,14 +202,14 @@ class _ObjectDialogState extends State<_ObjectDialog> {
 
   @override
   Widget build(BuildContext context) => AlertDialog(
-    title: const Text('Новый объект'),
+    title: Text(context.l10n.newObject),
     content: SingleChildScrollView(
       child: Form(
         key: form,
         child: LabeledField(
-          label: 'Название объекта',
+          label: context.l10n.objectName,
           controller: controller,
-          hint: 'Например, квартира на Лесной',
+          hint: context.l10n.objectNameHint,
           autofocus: true,
         ),
       ),
@@ -192,7 +217,7 @@ class _ObjectDialogState extends State<_ObjectDialog> {
     actions: [
       TextButton(
         onPressed: () => Navigator.pop(context),
-        child: const Text('Отмена'),
+        child: Text(context.l10n.cancel),
       ),
       FilledButton(
         onPressed: () {
@@ -200,7 +225,7 @@ class _ObjectDialogState extends State<_ObjectDialog> {
             Navigator.pop(context, controller.text.trim());
           }
         },
-        child: const Text('Создать'),
+        child: Text(context.l10n.create),
       ),
     ],
   );
@@ -227,18 +252,16 @@ class _IssuesPageState extends State<IssuesPage> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Удалить объект?'),
-        content: const Text(
-          'Объект, все его замечания и фотографии будут удалены с этого устройства.',
-        ),
+        title: Text(context.l10n.deleteObjectTitle),
+        content: Text(context.l10n.deleteObjectBody),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('Отмена'),
+            child: Text(context.l10n.cancel),
           ),
           FilledButton(
             onPressed: () => Navigator.pop(context, true),
-            child: const Text('Удалить'),
+            child: Text(context.l10n.delete),
           ),
         ],
       ),
@@ -258,7 +281,7 @@ class _IssuesPageState extends State<IssuesPage> {
       title: Text(widget.objectName),
       actions: [
         IconButton(
-          tooltip: 'Удалить объект',
+          tooltip: context.l10n.deleteObject,
           onPressed: _deleteObject,
           icon: const Icon(Icons.delete_outline),
         ),
@@ -272,9 +295,9 @@ class _IssuesPageState extends State<IssuesPage> {
             stream: widget.repository.watchIssues(widget.objectId),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
-                return const _Message(
-                  title: 'Не удалось загрузить замечания',
-                  text: 'Попробуйте открыть объект повторно.',
+                return _Message(
+                  title: context.l10n.issuesLoadFailure,
+                  text: context.l10n.reopenObject,
                 );
               }
               if (!snapshot.hasData) {
@@ -292,7 +315,7 @@ class _IssuesPageState extends State<IssuesPage> {
                 padding: const EdgeInsets.fromLTRB(16, 16, 16, 112),
                 children: [
                   Text(
-                    'Замечания',
+                    context.l10n.issuesHeading,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 16),
@@ -302,7 +325,13 @@ class _IssuesPageState extends State<IssuesPage> {
                     children: [
                       for (var i = 0; i < 3; i++)
                         ChoiceChip(
-                          label: Text(['Все', 'Открыто', 'Исправлено'][i]),
+                          label: Text(
+                            [
+                              context.l10n.filterAll,
+                              context.l10n.statusOpen,
+                              context.l10n.statusDone,
+                            ][i],
+                          ),
                           selected: filter == i,
                           labelStyle: TextStyle(
                             color: filter == i
@@ -318,11 +347,11 @@ class _IssuesPageState extends State<IssuesPage> {
                   if (visible.isEmpty)
                     _Message(
                       title: all.isEmpty
-                          ? 'Пока нет замечаний'
-                          : 'Здесь пока пусто',
+                          ? context.l10n.noIssuesTitle
+                          : context.l10n.noMatchesTitle,
                       text: all.isEmpty
-                          ? 'Добавьте описание и фотографию того, что нужно исправить.'
-                          : 'Попробуйте выбрать другой фильтр.',
+                          ? context.l10n.noIssuesBody
+                          : context.l10n.noMatchesBody,
                     ),
                   for (final entry in visible)
                     Padding(
@@ -353,10 +382,9 @@ class _IssuesPageState extends State<IssuesPage> {
                                     base64Decode(photo),
                                     height: 200,
                                     fit: BoxFit.cover,
-                                    semanticLabel: 'Фотография замечания',
-                                    errorBuilder: (_, _, _) => const Text(
-                                      'Не удалось открыть фотографию',
-                                    ),
+                                    semanticLabel: context.l10n.issuePhoto,
+                                    errorBuilder: (_, _, _) =>
+                                        Text(context.l10n.photoLoadFailure),
                                   ),
                                 ),
                               ],
@@ -388,8 +416,8 @@ class _IssuesPageState extends State<IssuesPage> {
                                 ),
                                 label: Text(
                                   entry.value['done'] == true
-                                      ? 'Снова открыть'
-                                      : 'Отметить исправленным',
+                                      ? context.l10n.reopenIssue
+                                      : context.l10n.markDone,
                                 ),
                               ),
                             ],
@@ -417,7 +445,7 @@ class _IssuesPageState extends State<IssuesPage> {
           ),
         ),
         icon: const Icon(Icons.add),
-        label: const Text('Добавить замечание'),
+        label: Text(context.l10n.addIssue),
       ),
     ),
   );
@@ -439,7 +467,7 @@ class _Status extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
-        done ? 'Исправлено' : 'Открыто',
+        done ? context.l10n.statusDone : context.l10n.statusOpen,
         style: TextStyle(color: color),
       ),
     );
@@ -486,10 +514,7 @@ class _IssueFormState extends State<_IssueForm> {
       }
     } catch (_) {
       if (mounted) {
-        setState(
-          () => error =
-              'Не удалось добавить фото. Проверьте разрешение и выберите файл до 8 МБ.',
-        );
+        setState(() => error = 'photo');
       }
     } finally {
       if (mounted) setState(() => busy = false);
@@ -513,8 +538,7 @@ class _IssueFormState extends State<_IssueForm> {
       if (mounted) {
         setState(() {
           busy = false;
-          error =
-              'Не удалось сохранить. Ваш текст остался в форме. Попробуйте ещё раз.';
+          error = 'save';
         });
       }
     }
@@ -524,7 +548,7 @@ class _IssueFormState extends State<_IssueForm> {
   Widget build(BuildContext context) => PopScope(
     canPop: !busy,
     child: Scaffold(
-      appBar: AppBar(title: const Text('Новое замечание')),
+      appBar: AppBar(title: Text(context.l10n.newIssue)),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(
           bottom: MediaQuery.viewInsetsOf(context).bottom,
@@ -533,7 +557,9 @@ class _IssueFormState extends State<_IssueForm> {
           minimum: const EdgeInsets.all(16),
           child: FilledButton(
             onPressed: busy ? null : _save,
-            child: Text(busy ? 'Подождите…' : 'Сохранить замечание'),
+            child: Text(
+              busy ? context.l10n.pleaseWait : context.l10n.saveIssue,
+            ),
           ),
         ),
       ),
@@ -548,9 +574,9 @@ class _IssueFormState extends State<_IssueForm> {
                 padding: const EdgeInsets.all(16),
                 children: [
                   LabeledField(
-                    label: 'Что нужно исправить?',
+                    label: context.l10n.issueDescriptionLabel,
                     controller: controller,
-                    hint: 'Опишите место и проблему',
+                    hint: context.l10n.issueDescriptionHint,
                     maxLines: 5,
                     maxLength: 2000,
                   ),
@@ -568,7 +594,7 @@ class _IssueFormState extends State<_IssueForm> {
                       onPressed: busy
                           ? null
                           : () => setState(() => photo = null),
-                      child: const Text('Убрать фотографию'),
+                      child: Text(context.l10n.removePhoto),
                     ),
                   ],
                   Wrap(
@@ -580,14 +606,14 @@ class _IssueFormState extends State<_IssueForm> {
                             ? null
                             : () => _pick(ImageSource.camera),
                         icon: const Icon(Icons.camera_alt_outlined),
-                        label: const Text('Снять фото'),
+                        label: Text(context.l10n.takePhoto),
                       ),
                       OutlinedButton.icon(
                         onPressed: busy
                             ? null
                             : () => _pick(ImageSource.gallery),
                         icon: const Icon(Icons.photo_outlined),
-                        label: const Text('Из галереи'),
+                        label: Text(context.l10n.fromGallery),
                       ),
                     ],
                   ),
@@ -597,7 +623,9 @@ class _IssueFormState extends State<_IssueForm> {
                       child: Semantics(
                         liveRegion: true,
                         child: Text(
-                          error!,
+                          error == 'photo'
+                              ? context.l10n.photoPickFailure
+                              : context.l10n.saveIssueFailure,
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.error,
                           ),
@@ -605,10 +633,7 @@ class _IssueFormState extends State<_IssueForm> {
                       ),
                     ),
                   const SizedBox(height: 24),
-                  const SizedBox(height: 24),
-                  const Text(
-                    'Данные и фотографии сохраняются на этом устройстве. Синхронизация пока недоступна.',
-                  ),
+                  Text(context.l10n.localStorageNote),
                 ],
               ),
             ),
