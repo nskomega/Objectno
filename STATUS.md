@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 31.10.2026. Исходники: 0.1.0-dev.21.
+Обновлено: 31.10.2026. Исходники: 0.1.0-dev.22.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; конкретные веса и качество ещё не проверены.
@@ -73,3 +73,9 @@ Reduced normal tab height while retaining scalable text. Two 3x profile tests pa
 
 ## Device update - 2026-11-01 / dev.21
 After the owner reconnected the phone, build 20 was signed with the existing local development profile and installed over the existing app. codesign verification passed; ideviceinstaller reported Complete and the installed-app query confirmed CFBundleVersion 20. The prior disconnected-device status above is historical. App launch, display of legacy data in the new history and photo retention on this build require owner confirmation. No app uninstall was performed. dev.21 records installation only; the physical device runs build 20.
+
+## Hardware history checks - 2026-11-01 / dev.22
+The owner confirmed both scenarios on the physical iPhone with installed build 20:
+- Existing object: legacy issue and keyboard photo remain visible in the unified renovation history after updating.
+- New object: entering wishes and an initial photo, then saving, opens its history with the Before entry and the supplied photo.
+These are owner-reported manual results, separate from automated widget/database tests. Progress/final entries, inline measurements on hardware, local-model inference and end-to-end authenticated operation are not proven by these checks. Installed device build remains 20; dev.22 records evidence only.

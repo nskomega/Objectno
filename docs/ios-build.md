@@ -35,3 +35,6 @@ The owner completed the physical-device scenario on installed build 14: create p
 
 ## Unified-history update installed
 On 2026-11-01 build 20 was signed and installed after the owner reconnected the iPhone. Installation completed and the device app query returned build 20. No uninstall was performed. Legacy-photo retention and new-history behavior are pending manual checks; do not infer those from install success. Recorded in documentation version dev.21.
+
+## Build 20 manual checks confirmed
+The owner confirmed legacy issue/photo retention in the updated history and successful creation of a new object with wishes and its initial photo in a Before entry. Recorded 2026-11-01 in dev.22. Progress/result events, measurements and inference remain separate checks/features.

@@ -1,5 +1,9 @@
 # Изменения
 
+## 0.1.0-dev.22 - 2026-11-01
+- Recorded owner-confirmed build 20 hardware checks: existing issue/photo preserved in the new history, and a new object created with wishes/photo opens with its Before entry. Documentation only; no new device binary or store publication.
+
+
 ## 0.1.0-dev.21 - 2026-11-01
 - Recorded verified development signing and successful installation of build 20 on the reconnected iPhone, without uninstalling the app. Installed version independently queried as 20; hardware verification of the updated history is pending. No app behavior changes.
 
