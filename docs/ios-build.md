@@ -1,7 +1,7 @@
 # iOS build and signing
 
 Xcode 27.2 is installed and selected; minimum deployment target is iOS 15.
-Apple Development and Apple Distribution identities are available in the local keychain. The development certificate subject confirms team FKJRTB74YX. No private key was exported. A physical iPhone was not listed during the check; account presence alone does not prove a usable provisioning profile or App Store Connect access.
+Apple Development and Apple Distribution identities are available in the local keychain. The development certificate subject confirms team FKJRTB74YX. No private key was exported. A later check found the connected iPhone 6s on iOS 15.8.8 in Finder and ideviceinfo. Xcode 27.2 physical-device development requires iOS 17+, even though its deployment targets include iOS 15. Source: https://developer.apple.com/xcode/system-requirements . Account presence alone does not prove App Store Connect access.
 
 ## Simulator on this Mac
 Run `scripts/build-ios-simulator.sh` with Flutter on PATH. It generates Flutter configuration, then builds one host architecture using xcodebuild. Artifact: build/ios/Debug-iphonesimulator/Runner.app.
@@ -12,3 +12,17 @@ The script strips the development suffix from VERSION for the platform build nam
 
 ## Remaining gates
 Development team selection and provisioning for a real device; launch and camera/secure storage checks on hardware; signed archive and valid store version/build numbers; App Store Connect record, privacy/support metadata and the full renovation workflow. A simulator app is not a signed store archive. No upload or publication has occurred.
+
+## Installed on iPhone 6s (dev.15 record)
+Build a release app with explicit store-compatible numbers, for example:
+
+```sh
+flutter build ios --release --no-codesign --build-name=0.1.0 --build-number=14
+python3 scripts/sign-ios-development.py build/ios/iphoneos/Runner.app
+ideviceinstaller install build/ios/iphoneos/Runner.app
+ideviceinstaller list -b dev.objectno.objectno
+```
+
+Requires libimobiledevice and ideviceinstaller from Homebrew. The helper only uses an existing unexpired wildcard development profile containing the connected phone and a certificate whose private key is already available locally. It signs embedded frameworks and the app, embeds the profile, expands app/keychain identifiers and verifies the signatures. It does not register devices, request new profiles or export private keys. Profiles and signed artifacts remain under ignored build/ and outside Git. Pin iOS 15 explicitly after Xcode's automatic project migration.
+
+Verified build 14 installation completed on the connected phone with the new icon. Launch confirmation and functional hardware testing remain pending. This is development signing, not App Store distribution.

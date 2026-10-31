@@ -1,5 +1,11 @@
 # Изменения
 
+## 0.1.0-dev.15 - 2026-10-31
+- Added local development-signing helper: selects an existing wildcard profile that already includes the connected device and a matching available signing identity; no portal registration or private-key export.
+- Retained Xcode project/scheme migration and pinned all explicit deployment targets to iOS 15 to avoid an automatic increase to the SDK's recommended version.
+- Release app 0.1.0 build 14 with the new icon built, signed, verified and successfully installed on the connected iPhone 6s (iOS 15.8.8) using ideviceinstaller. App launch on hardware awaits user confirmation; no store upload.
+
+
 ## 0.1.0-dev.14 - 2026-10-31
 - Replaced the Flutter placeholder icon with the Objectno orange room-plan mark on graphite. Original generated source and 1024/512 store assets included.
 - Generated all iOS sizes, Android density/adaptive launcher icons, web and maskable icons; added reproducible macOS asset generation script.
