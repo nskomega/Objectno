@@ -88,7 +88,12 @@ class SessionController extends ChangeNotifier {
 
   Future<String> _rotate() async {
     final token = _refresh;
-    if (token == null) throw const AuthFailure('unauthorized');
+    if (token == null) {
+      if (!api.enabled) throw const AuthFailure('unauthorized');
+      await _accept(await api.guest());
+      _notify();
+      return _access!;
+    }
     try {
       final tokens = await api.refresh(token);
       await _accept(tokens);

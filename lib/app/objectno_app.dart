@@ -46,7 +46,7 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
 
   void _sessionChanged() {
     if (!mounted) return;
-    final id = _session.user?.id;
+    final id = _session.user?.isGuest == true ? null : _session.user?.id;
     if (id != _accountId) {
       setState(() {
         _accountId = id;

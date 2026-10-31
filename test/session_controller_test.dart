@@ -55,6 +55,41 @@ void main() {
     },
   );
 
+  test(
+    'first analysis obtains one anonymous session without changing guest data scope',
+    () async {
+      var calls = 0;
+      final session = SessionController(
+        vault: MemorySessionVault(),
+        api: AuthApi(
+          baseUrl: 'https://example.com',
+          client: MockClient((r) async {
+            expect(r.url.path, '/v1/auth/guest');
+            calls++;
+            return http.Response(
+              jsonEncode({
+                'access_token': 'guest-access',
+                'refresh_token': 'guest-refresh',
+                'expires_in': 900,
+                'user': {'id': 'guest-id', 'email': '', 'guest': true},
+              }),
+              200,
+            );
+          }),
+        ),
+      );
+      addTearDown(session.dispose);
+      final result = await Future.wait([
+        session.accessToken(),
+        session.accessToken(),
+      ]);
+      expect(result, ['guest-access', 'guest-access']);
+      expect(calls, 1);
+      expect(session.user!.isGuest, isTrue);
+      expect(session.user!.email, isEmpty);
+    },
+  );
+
   test('revoked refresh clears secret and identity', () async {
     final vault = MemorySessionVault();
     await vault.write('revoked');

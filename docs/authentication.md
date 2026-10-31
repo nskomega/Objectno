@@ -22,3 +22,6 @@ HTTP-клиент и контроллер реализованы и провер
 
 ## UI dev.7
 Экран аккаунта подключён, локализован на восемь языков, доступен через иконку аккаунта. Смена identity создаёт новый Navigator и раздел журнала. Без API_BASE_URL вход отключён с объяснением, гостевой режим доступен. Тесты UI используют mock HTTP; это не проверка публичного API или Keychain на устройстве.
+
+## Anonymous analysis sessions
+POST /v1/auth/guest issues the same revocable access/rotating refresh session for an explicitly anonymous user, without email or password. Endpoint is behind the existing per-IP auth rate limiter. Guest sessions are created only when accessToken is requested, not on every app start. Client guest identity stays mapped to the original local guest store; signing in to a registered account remains a separate scope. This does not synchronize local objects or store photos on the auth server.

@@ -49,6 +49,18 @@ func (s *Service) Handler(allowedOrigins []string) http.Handler {
 	limits := &limiter{windows: map[string]window{}}
 	workers := make(chan struct{}, 4)
 	mux.HandleFunc("GET /healthz", func(w http.ResponseWriter, r *http.Request) { reply(w, 200, map[string]string{"status": "ok"}) })
+	mux.HandleFunc("POST /v1/auth/guest", func(w http.ResponseWriter, r *http.Request) {
+		var input struct{}
+		if !decode(w, r, &input) {
+			return
+		}
+		tokens, err := s.Guest()
+		if err != nil {
+			replyError(w, err)
+			return
+		}
+		reply(w, 200, tokens)
+	})
 	for path, fn := range map[string]func(string, string) (Tokens, error){"/v1/auth/register": s.Register, "/v1/auth/login": s.Login} {
 		mux.HandleFunc("POST "+path, func(w http.ResponseWriter, r *http.Request) {
 			var body struct {

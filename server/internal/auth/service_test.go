@@ -274,3 +274,35 @@ func TestPruneExpiredPreservesAccount(t *testing.T) {
 		t.Fatal("account removed by pruning: ", e)
 	}
 }
+
+func TestGuestSessionIsRevocableAndHasNoInventedEmail(t *testing.T) {
+	s := serviceForTest(t)
+	a, err := s.Guest()
+	if err != nil {
+		t.Fatal(err)
+	}
+	b, err := s.Guest()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !a.User.Guest || a.User.Email != "" || a.User.ID == b.User.ID {
+		t.Fatal("guest identity invalid")
+	}
+	user, _, err := s.Authenticate(a.AccessToken)
+	if err != nil || !user.Guest {
+		t.Fatal("guest token invalid", err)
+	}
+	rotated, err := s.Refresh(a.RefreshToken)
+	if err != nil || !rotated.User.Guest {
+		t.Fatal("rotation lost guest flag", err)
+	}
+	if err = s.Logout(rotated.RefreshToken); err != nil {
+		t.Fatal(err)
+	}
+	if _, _, err = s.Authenticate(rotated.AccessToken); err == nil {
+		t.Fatal("guest logout did not revoke access")
+	}
+	if _, _, err = s.Authenticate(b.AccessToken); err != nil {
+		t.Fatal("other guest revoked", err)
+	}
+}
