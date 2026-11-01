@@ -81,7 +81,6 @@ class Engine:
             except ValueError as exc:
                 last=exc
                 fixes.add(str(exc))
-                if content is not None:(ROOT/'private'/'last-reject.json').write_text(json.dumps({'error':str(exc),'value':content},ensure_ascii=False,indent=2)+'\n')
                 hints=[]
                 if 'foreign_words' in fixes:hints.append('Только кириллица, без латинских слов.')
                 if 'banned_finish' in fixes or 'invented_surface' in fixes:hints.append('Оставь только краску, напольное покрытие и светильники.')
