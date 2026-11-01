@@ -23,11 +23,11 @@ func photo() string {
 	return base64.StdEncoding.EncodeToString(b.Bytes())
 }
 func inputBody() string {
-	b, _ := json.Marshal(Input{Photo: photo(), Wish: "Refresh room", Language: "ru"})
+	b, _ := json.Marshal(Input{Photo: photo(), Wish: "Refresh room", Language: "ru", WorkScopes: []string{"wall_paint"}})
 	return string(b)
 }
 func sample() Result {
-	return Result{Proposal: Proposal{SceneMatches: true, Observations: []string{"Visible wall"}, Concept: "A lighter finish", WorkSteps: []string{"Confirm scope"}, Materials: []string{"Paint"}, Questions: []string{"Dimensions?"}, Uncertainties: []string{"Hidden services unknown"}}, Model: "test-model", Revision: "test-revision", PromptVersion: 1}
+	return Result{WorkScopes: []string{"wall_paint"}, Proposal: Proposal{SceneMatches: true, Observations: []string{"Visible wall"}, Concept: "A lighter finish", WorkSteps: []string{"Confirm scope"}, Materials: []string{"Paint"}, Questions: []string{"Dimensions?"}, Uncertainties: []string{"Hidden services unknown"}}, Model: "test-model", Revision: "test-revision", PromptVersion: 1}
 }
 func call(h http.Handler, body, token string) *httptest.ResponseRecorder {
 	r := httptest.NewRequest("POST", "/v1/analysis", strings.NewReader(body))
@@ -142,5 +142,30 @@ func TestOnlyOneModelRequestAndExplicitOrigins(t *testing.T) {
 	h.ServeHTTP(w, r)
 	if w.Code != 204 {
 		t.Fatal(w.Code)
+	}
+}
+
+func TestWorkScopesAreExplicitAndCannotBeExpanded(t *testing.T) {
+	var reached atomic.Int32
+	worker := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		reached.Add(1)
+		result := sample()
+		result.WorkScopes = []string{"floor_finish"}
+		_ = json.NewEncoder(w).Encode(result)
+	}))
+	defer worker.Close()
+	handler := NewHandler(func(string) error { return nil }, worker.URL, nil)
+	for _, scopes := range [][]string{nil, {}, {"unknown"}, {"lighting", "lighting"}} {
+		input := Input{Photo: photo(), Wish: "Keep floor", Language: "ru", WorkScopes: scopes}
+		body, _ := json.Marshal(input)
+		if response := call(handler, string(body), "valid"); response.Code != 400 {
+			t.Fatal(response.Code)
+		}
+	}
+	if reached.Load() != 0 {
+		t.Fatal("invalid scope reached worker")
+	}
+	if response := call(handler, inputBody(), "valid"); response.Code != 502 {
+		t.Fatal("expanded scope accepted", response.Code)
 	}
 }

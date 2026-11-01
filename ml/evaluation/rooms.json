@@ -9,7 +9,11 @@
     "source": "https://commons.wikimedia.org/wiki/File:Contemporary_bathroom.jpg",
     "author": "OKJaguar",
     "license": "CC BY 4.0",
-    "sha256": "857f28af460c5321df322830279dd34d420f59d3d282986e133ac28c989d105a"
+    "sha256": "857f28af460c5321df322830279dd34d420f59d3d282986e133ac28c989d105a",
+    "work_scopes": [
+      "wall_paint",
+      "lighting"
+    ]
   },
   {
     "id": "bedroom-preserve",
@@ -21,6 +25,10 @@
     "source": "https://commons.wikimedia.org/wiki/File:Bedroom.jpg",
     "author": "Zolinpiero",
     "license": "CC BY-SA 3.0",
-    "sha256": "f1871661b86ecd215c8360fd1a16c355727f4db0cb77b7805457c97f359904a2"
+    "sha256": "f1871661b86ecd215c8360fd1a16c355727f4db0cb77b7805457c97f359904a2",
+    "work_scopes": [
+      "lighting",
+      "textiles"
+    ]
   }
 ]

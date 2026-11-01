@@ -1,5 +1,10 @@
 # Изменения
 
+## 0.1.0-dev.41 - 2026-11-01
+- Analysis API now requires explicit work_scopes: wall_paint, floor_finish, lighting, textiles. Empty/unknown/duplicate scopes and changed response scopes are rejected. The model grammar restricts step/material categories to the requested selection.
+- Prompt 9 no longer forces three wall/floor/light tasks. The bedroom case now proposes only lighting and textiles and leaves wood unchanged; bathroom returns wall-paint/light work. Real API runs: 15.8 s and 25.9 s. Scene descriptions still contain errors, so quality is not approved.
+- Eleven Python tests and Go analysis race tests passed; vet clean. Flutter selection UI follows in dev.42; old client builds do not supply the new mandatory field.
+
 ## 0.1.0-dev.40 - 2026-11-01
 - Исправлено чтение JPEG/MPO: используется основной кадр, применяется EXIF-ориентация, метаданные удаляются из изображения для модели. Лимиты размера сохранены. Десять Python-тестов прошли.
 - Добавлена воспроизводимая проверка через Go API для ванной и спальни, с источниками/лицензиями/хешами и приватными отчётами. Сами фото в Git не входят.
