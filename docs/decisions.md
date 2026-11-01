@@ -79,10 +79,10 @@
 Bottom Properties/Profile tabs replace app-bar preference menus. Preferences use dedicated selection screens, local display name and account access live in Profile. Details: decisions/003-profile-navigation.md.
 
 ## Unified object revision - accepted from user correction
-An object is the renovation project, with initial photo/wishes, proposals, work progress and final result in one history. Measurements are inline; existing issues and room data are preserved. ADR: decisions/004-unified-object-history.md. Proposal generation remains unimplemented in the app.
+An object is the renovation project, with initial photo/wishes, proposals, work progress and final result in one history. Measurements are inline; existing issues and room data are preserved. ADR: decisions/004-unified-object-history.md. Proposal generation was unimplemented at dev.20; local inference was connected in dev.28 and verified on the simulator in dev.30. See STATUS.md for current limits.
 
 ## Локальный разбор снимка — проверка, не выбор модели (01.11.2026)
-Сначала отдельный шаг проверяет, что на фото помещение, и кратко описывает видимое. План по пожеланиям запрашивается только после этого. Неподходящий кадр не получает этапы и материалы. Кандидат Qwen3-VL-4B-Instruct-4bit ещё не принят. На одном кухонном кадре описание совпало с видимым, план ограничен краской, полом и светом, но рисунок пола в ответе не подтверждён, а другие помещения и посторонний предмет этим текстом запроса не проверены. В интерфейс ответ не выводится. Платные API моделей не используются.
+Сначала отдельный шаг проверяет, что на фото помещение, и кратко описывает видимое. План по пожеланиям запрашивается только после этого. Неподходящий кадр не получает этапы и материалы. Кандидат Qwen3-VL-4B-Instruct-4bit ещё не принят. На одном кухонном кадре описание совпало с видимым, план ограничен краской, полом и светом, но рисунок пола в ответе не подтверждён, а другие помещения и посторонний предмет этим текстом запроса не проверены. На этом раннем этапе ответ в интерфейс не выводился; текущее состояние подключения — STATUS.md. Платные API моделей не используются.
 
 ## Черновик предложения в истории — dev.28
 Ответ локальной модели хранится отдельным этапом proposal с исходной записью и происхождением. Неподходящая сцена не создаёт план. Черновик не подменяет подтверждённые обмеры и расчётное ядро. UI подключён; нативная сквозная проверка пока не пройдена.
