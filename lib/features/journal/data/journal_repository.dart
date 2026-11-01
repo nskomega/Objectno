@@ -1,3 +1,4 @@
+import '../../renovation/domain/rectangular_room.dart';
 import '../../renovation/data/analysis_result.dart' show AnalysisResult;
 import 'dart:convert';
 import '../../renovation/domain/quantity_calculator.dart';
@@ -113,6 +114,45 @@ class JournalRepository {
       });
     });
   }
+
+  Future<void> addRoomOpening(int objectId, int roomId, RoomOpening opening) =>
+      database.transaction((txn) async {
+        final room = await rooms.record(roomId).get(txn);
+        if (room == null ||
+            room['objectId'] != objectId ||
+            !await objects.record(objectId).exists(txn)) {
+          throw StateError('Room not found');
+        }
+        final openings = [
+          ...(room['openings'] as List? ?? []),
+          opening.toJson(),
+        ];
+        final updated = {...room, 'openings': openings, 'schemaVersion': 2};
+        roomFromRecord(
+          updated,
+        ); // Reject intersections and out-of-bounds openings before writing.
+        await rooms.record(roomId).put(txn, updated);
+      });
+
+  Future<void> removeRoomOpening(int objectId, int roomId, int index) =>
+      database.transaction((txn) async {
+        final room = await rooms.record(roomId).get(txn);
+        if (room == null ||
+            room['objectId'] != objectId ||
+            !await objects.record(objectId).exists(txn)) {
+          throw StateError('Room not found');
+        }
+        final openings = [...(room['openings'] as List? ?? [])];
+        if (index < 0 || index >= openings.length) {
+          throw ArgumentError('Opening not found');
+        }
+        openings.removeAt(index);
+        await rooms.record(roomId).put(txn, {
+          ...room,
+          'openings': openings,
+          'schemaVersion': 2,
+        });
+      });
 
   Stream<List<RecordSnapshot<int, Map<String, Object?>>>> watchHistory(
     int objectId,
