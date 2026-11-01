@@ -13,7 +13,7 @@ os.environ.setdefault('HF_HUB_OFFLINE','1')
 os.environ.setdefault('TRANSFORMERS_OFFLINE','1')
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, ConfigDict, Field
-from PIL import Image, UnidentifiedImageError
+from PIL import Image, ImageOps, UnidentifiedImageError
 ROOT=Path(__file__).resolve().parents[1]
 MODEL_PATH=ROOT/'private/models/qwen3-vl-4b-4bit'
 MODEL_ID='mlx-community/Qwen3-VL-4B-Instruct-4bit'
@@ -46,6 +46,23 @@ class Proposal(BaseModel):
     materials:list[str]
     questions:list[str]
     uncertainties:list[str]
+def decode_photo(encoded):
+    try:
+        raw=base64.b64decode(encoded,validate=True)
+        if len(raw)>8*1024*1024:raise ValueError('image_too_large')
+        with Image.open(io.BytesIO(raw)) as source:
+            # MPO is a JPEG container; use its primary photo only.
+            if source.format not in ('JPEG','PNG','MPO'):raise ValueError('unsupported_image')
+            if source.width*source.height>16_000_000:raise ValueError('image_too_large')
+            source.seek(0)
+            source.load()
+            image=ImageOps.exif_transpose(source).convert('RGB')
+        image.thumbnail((768,768))
+        image.info.clear()
+        return image
+    except (UnidentifiedImageError,OSError,Image.DecompressionBombError) as exc:
+        raise ValueError('invalid_image') from exc
+
 class Engine:
     def __init__(self):
         self.model=self.processor=None
@@ -91,14 +108,7 @@ class Engine:
         raise last
     def analyze(self,request):
         if request.language not in LANGUAGES:raise ValueError('unsupported_language')
-        try:
-            raw=base64.b64decode(request.photo,validate=True)
-            if len(raw)>8*1024*1024:raise ValueError('image_too_large')
-            image=Image.open(io.BytesIO(raw))
-            if image.format not in ('JPEG','PNG'):raise ValueError('unsupported_image')
-            image.load();image=image.convert('RGB');image.thumbnail((768,768))
-        except (UnidentifiedImageError,OSError,Image.DecompressionBombError) as exc:
-            raise ValueError('invalid_image') from exc
+        image=decode_photo(request.photo)
         self.load()
         import mlx.core as mx
         mx.reset_peak_memory();started=time.monotonic()
