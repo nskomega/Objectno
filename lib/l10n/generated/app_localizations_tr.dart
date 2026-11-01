@@ -435,4 +435,69 @@ class AppLocalizationsTr extends AppLocalizations {
   String wallNumber(int number) {
     return 'Duvar $number';
   }
+
+  @override
+  String get estimateStage => 'Malzeme hesabı';
+
+  @override
+  String get calculateMaterials => 'Malzeme hesapla';
+
+  @override
+  String get estimateSourceNote =>
+      'Ürünün etiketinden veya üretici belgesinden tüketim değerini girin. Katalog bağlı değil; bilgileri siz sağlar ve doğrularsınız.';
+
+  @override
+  String get selectedSurfaces => 'İş yüzeyleri';
+
+  @override
+  String get floorSurface => 'Zemin';
+
+  @override
+  String get ceilingSurface => 'Tavan';
+
+  @override
+  String get productReference => 'Ürün adı ve kodu';
+
+  @override
+  String get consumptionSource => 'Tüketim kaynağı';
+
+  @override
+  String get consumptionPerLayer => 'Kat başına m² tüketimi';
+
+  @override
+  String get packageSize => 'Paket miktarı';
+
+  @override
+  String get materialLayers => 'Kat sayısı';
+
+  @override
+  String get wastePercent => 'Fire, %';
+
+  @override
+  String get unitGrams => 'g';
+
+  @override
+  String get unitMillilitres => 'ml';
+
+  @override
+  String get unitPieces => 'adet';
+
+  @override
+  String estimateRequired(String value, String unit) {
+    return 'Gereken: $value $unit';
+  }
+
+  @override
+  String estimatePackages(int value) {
+    return 'Paket: $value';
+  }
+
+  @override
+  String estimateArea(String value) {
+    return 'İş alanı: $value m²';
+  }
+
+  @override
+  String get estimateInvalid =>
+      'Yüzey ve birim seçin; tüketim, paket, kat ve fireyi kontrol edin.';
 }

@@ -437,4 +437,69 @@ class AppLocalizationsRu extends AppLocalizations {
   String wallNumber(int number) {
     return 'Стена $number';
   }
+
+  @override
+  String get estimateStage => 'Расчёт материалов';
+
+  @override
+  String get calculateMaterials => 'Рассчитать материал';
+
+  @override
+  String get estimateSourceNote =>
+      'Введите норму конкретного продукта с упаковки или из документации изготовителя. Каталог пока не подключён; эти сведения вводите и проверяете вы.';
+
+  @override
+  String get selectedSurfaces => 'Поверхности для работ';
+
+  @override
+  String get floorSurface => 'Пол';
+
+  @override
+  String get ceilingSurface => 'Потолок';
+
+  @override
+  String get productReference => 'Название и артикул продукта';
+
+  @override
+  String get consumptionSource => 'Источник нормы расхода';
+
+  @override
+  String get consumptionPerLayer => 'Расход на 1 м² за один слой';
+
+  @override
+  String get packageSize => 'Количество в упаковке';
+
+  @override
+  String get materialLayers => 'Количество слоёв';
+
+  @override
+  String get wastePercent => 'Запас, %';
+
+  @override
+  String get unitGrams => 'г';
+
+  @override
+  String get unitMillilitres => 'мл';
+
+  @override
+  String get unitPieces => 'шт.';
+
+  @override
+  String estimateRequired(String value, String unit) {
+    return 'Потребность: $value $unit';
+  }
+
+  @override
+  String estimatePackages(int value) {
+    return 'Упаковок: $value';
+  }
+
+  @override
+  String estimateArea(String value) {
+    return 'Площадь работ: $value м²';
+  }
+
+  @override
+  String get estimateInvalid =>
+      'Выберите поверхности и единицы; проверьте норму, фасовку, слои и запас.';
 }

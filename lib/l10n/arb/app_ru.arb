@@ -196,5 +196,99 @@
         "type": "int"
       }
     }
+  },
+  "estimateStage": "Расчёт материалов",
+  "calculateMaterials": "Рассчитать материал",
+  "estimateSourceNote": "Введите норму конкретного продукта с упаковки или из документации изготовителя. Каталог пока не подключён; эти сведения вводите и проверяете вы.",
+  "selectedSurfaces": "Поверхности для работ",
+  "floorSurface": "Пол",
+  "ceilingSurface": "Потолок",
+  "productReference": "Название и артикул продукта",
+  "consumptionSource": "Источник нормы расхода",
+  "consumptionPerLayer": "Расход на 1 м² за один слой",
+  "packageSize": "Количество в упаковке",
+  "materialLayers": "Количество слоёв",
+  "wastePercent": "Запас, %",
+  "unitGrams": "г",
+  "unitMillilitres": "мл",
+  "unitPieces": "шт.",
+  "estimateRequired": "Потребность: {value} {unit}",
+  "estimatePackages": "Упаковок: {value}",
+  "estimateArea": "Площадь работ: {value} м²",
+  "estimateInvalid": "Выберите поверхности и единицы; проверьте норму, фасовку, слои и запас.",
+  "@estimateStage": {
+    "description": "estimateStage"
+  },
+  "@calculateMaterials": {
+    "description": "calculateMaterials"
+  },
+  "@estimateSourceNote": {
+    "description": "estimateSourceNote"
+  },
+  "@selectedSurfaces": {
+    "description": "selectedSurfaces"
+  },
+  "@floorSurface": {
+    "description": "floorSurface"
+  },
+  "@ceilingSurface": {
+    "description": "ceilingSurface"
+  },
+  "@productReference": {
+    "description": "productReference"
+  },
+  "@consumptionSource": {
+    "description": "consumptionSource"
+  },
+  "@consumptionPerLayer": {
+    "description": "consumptionPerLayer"
+  },
+  "@packageSize": {
+    "description": "packageSize"
+  },
+  "@materialLayers": {
+    "description": "materialLayers"
+  },
+  "@wastePercent": {
+    "description": "wastePercent"
+  },
+  "@unitGrams": {
+    "description": "unitGrams"
+  },
+  "@unitMillilitres": {
+    "description": "unitMillilitres"
+  },
+  "@unitPieces": {
+    "description": "unitPieces"
+  },
+  "@estimateRequired": {
+    "description": "estimateRequired",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "@estimatePackages": {
+    "description": "estimatePackages",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "@estimateArea": {
+    "description": "estimateArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@estimateInvalid": {
+    "description": "estimateInvalid"
   }
 }

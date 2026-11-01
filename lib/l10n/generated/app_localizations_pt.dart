@@ -437,4 +437,69 @@ class AppLocalizationsPt extends AppLocalizations {
   String wallNumber(int number) {
     return 'Parede $number';
   }
+
+  @override
+  String get estimateStage => 'Cálculo de materiais';
+
+  @override
+  String get calculateMaterials => 'Calcular material';
+
+  @override
+  String get estimateSourceNote =>
+      'Informe o consumo do produto conforme o rótulo ou documentação do fabricante. Nenhum catálogo conectado; você fornece e verifica os dados.';
+
+  @override
+  String get selectedSurfaces => 'Superfícies de trabalho';
+
+  @override
+  String get floorSurface => 'Piso';
+
+  @override
+  String get ceilingSurface => 'Teto';
+
+  @override
+  String get productReference => 'Nome e referência do produto';
+
+  @override
+  String get consumptionSource => 'Fonte do consumo';
+
+  @override
+  String get consumptionPerLayer => 'Consumo por m² por demão';
+
+  @override
+  String get packageSize => 'Quantidade por embalagem';
+
+  @override
+  String get materialLayers => 'Número de demãos';
+
+  @override
+  String get wastePercent => 'Reserva, %';
+
+  @override
+  String get unitGrams => 'g';
+
+  @override
+  String get unitMillilitres => 'ml';
+
+  @override
+  String get unitPieces => 'un.';
+
+  @override
+  String estimateRequired(String value, String unit) {
+    return 'Necessário: $value $unit';
+  }
+
+  @override
+  String estimatePackages(int value) {
+    return 'Embalagens: $value';
+  }
+
+  @override
+  String estimateArea(String value) {
+    return 'Área: $value m²';
+  }
+
+  @override
+  String get estimateInvalid =>
+      'Escolha superfícies e unidades; verifique consumo, embalagem, demãos e reserva.';
 }

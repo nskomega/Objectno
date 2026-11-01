@@ -907,6 +907,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Wall {number}'**
   String wallNumber(int number);
+
+  /// estimateStage
+  ///
+  /// In en, this message translates to:
+  /// **'Material estimate'**
+  String get estimateStage;
+
+  /// calculateMaterials
+  ///
+  /// In en, this message translates to:
+  /// **'Calculate material'**
+  String get calculateMaterials;
+
+  /// estimateSourceNote
+  ///
+  /// In en, this message translates to:
+  /// **'Enter consumption for the specific product from its label or manufacturer documentation. No catalog is connected; you supply and verify these details.'**
+  String get estimateSourceNote;
+
+  /// selectedSurfaces
+  ///
+  /// In en, this message translates to:
+  /// **'Work surfaces'**
+  String get selectedSurfaces;
+
+  /// floorSurface
+  ///
+  /// In en, this message translates to:
+  /// **'Floor'**
+  String get floorSurface;
+
+  /// ceilingSurface
+  ///
+  /// In en, this message translates to:
+  /// **'Ceiling'**
+  String get ceilingSurface;
+
+  /// productReference
+  ///
+  /// In en, this message translates to:
+  /// **'Product name and reference'**
+  String get productReference;
+
+  /// consumptionSource
+  ///
+  /// In en, this message translates to:
+  /// **'Consumption source'**
+  String get consumptionSource;
+
+  /// consumptionPerLayer
+  ///
+  /// In en, this message translates to:
+  /// **'Consumption per m² per coat'**
+  String get consumptionPerLayer;
+
+  /// packageSize
+  ///
+  /// In en, this message translates to:
+  /// **'Quantity per package'**
+  String get packageSize;
+
+  /// materialLayers
+  ///
+  /// In en, this message translates to:
+  /// **'Number of coats'**
+  String get materialLayers;
+
+  /// wastePercent
+  ///
+  /// In en, this message translates to:
+  /// **'Waste, %'**
+  String get wastePercent;
+
+  /// unitGrams
+  ///
+  /// In en, this message translates to:
+  /// **'g'**
+  String get unitGrams;
+
+  /// unitMillilitres
+  ///
+  /// In en, this message translates to:
+  /// **'ml'**
+  String get unitMillilitres;
+
+  /// unitPieces
+  ///
+  /// In en, this message translates to:
+  /// **'pcs'**
+  String get unitPieces;
+
+  /// estimateRequired
+  ///
+  /// In en, this message translates to:
+  /// **'Required: {value} {unit}'**
+  String estimateRequired(String value, String unit);
+
+  /// estimatePackages
+  ///
+  /// In en, this message translates to:
+  /// **'Packages: {value}'**
+  String estimatePackages(int value);
+
+  /// estimateArea
+  ///
+  /// In en, this message translates to:
+  /// **'Work area: {value} m²'**
+  String estimateArea(String value);
+
+  /// estimateInvalid
+  ///
+  /// In en, this message translates to:
+  /// **'Select surfaces and units; check consumption, package size, coats and waste.'**
+  String get estimateInvalid;
 }
 
 class _AppLocalizationsDelegate

@@ -196,5 +196,99 @@
         "type": "int"
       }
     }
+  },
+  "estimateStage": "Calcul des matériaux",
+  "calculateMaterials": "Calculer le matériau",
+  "estimateSourceNote": "Saisissez la consommation du produit indiquée sur son étiquette ou sa documentation. Aucun catalogue connecté ; vous fournissez et vérifiez ces données.",
+  "selectedSurfaces": "Surfaces à traiter",
+  "floorSurface": "Sol",
+  "ceilingSurface": "Plafond",
+  "productReference": "Nom et référence du produit",
+  "consumptionSource": "Source de consommation",
+  "consumptionPerLayer": "Consommation par m² par couche",
+  "packageSize": "Quantité par emballage",
+  "materialLayers": "Nombre de couches",
+  "wastePercent": "Marge, %",
+  "unitGrams": "g",
+  "unitMillilitres": "ml",
+  "unitPieces": "pièces",
+  "estimateRequired": "Besoin : {value} {unit}",
+  "estimatePackages": "Emballages : {value}",
+  "estimateArea": "Surface : {value} m²",
+  "estimateInvalid": "Choisissez les surfaces et unités ; vérifiez consommation, emballage, couches et marge.",
+  "@estimateStage": {
+    "description": "estimateStage"
+  },
+  "@calculateMaterials": {
+    "description": "calculateMaterials"
+  },
+  "@estimateSourceNote": {
+    "description": "estimateSourceNote"
+  },
+  "@selectedSurfaces": {
+    "description": "selectedSurfaces"
+  },
+  "@floorSurface": {
+    "description": "floorSurface"
+  },
+  "@ceilingSurface": {
+    "description": "ceilingSurface"
+  },
+  "@productReference": {
+    "description": "productReference"
+  },
+  "@consumptionSource": {
+    "description": "consumptionSource"
+  },
+  "@consumptionPerLayer": {
+    "description": "consumptionPerLayer"
+  },
+  "@packageSize": {
+    "description": "packageSize"
+  },
+  "@materialLayers": {
+    "description": "materialLayers"
+  },
+  "@wastePercent": {
+    "description": "wastePercent"
+  },
+  "@unitGrams": {
+    "description": "unitGrams"
+  },
+  "@unitMillilitres": {
+    "description": "unitMillilitres"
+  },
+  "@unitPieces": {
+    "description": "unitPieces"
+  },
+  "@estimateRequired": {
+    "description": "estimateRequired",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "@estimatePackages": {
+    "description": "estimatePackages",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "@estimateArea": {
+    "description": "estimateArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@estimateInvalid": {
+    "description": "estimateInvalid"
   }
 }

@@ -196,5 +196,99 @@
         "type": "int"
       }
     }
+  },
+  "estimateStage": "Malzeme hesabı",
+  "calculateMaterials": "Malzeme hesapla",
+  "estimateSourceNote": "Ürünün etiketinden veya üretici belgesinden tüketim değerini girin. Katalog bağlı değil; bilgileri siz sağlar ve doğrularsınız.",
+  "selectedSurfaces": "İş yüzeyleri",
+  "floorSurface": "Zemin",
+  "ceilingSurface": "Tavan",
+  "productReference": "Ürün adı ve kodu",
+  "consumptionSource": "Tüketim kaynağı",
+  "consumptionPerLayer": "Kat başına m² tüketimi",
+  "packageSize": "Paket miktarı",
+  "materialLayers": "Kat sayısı",
+  "wastePercent": "Fire, %",
+  "unitGrams": "g",
+  "unitMillilitres": "ml",
+  "unitPieces": "adet",
+  "estimateRequired": "Gereken: {value} {unit}",
+  "estimatePackages": "Paket: {value}",
+  "estimateArea": "İş alanı: {value} m²",
+  "estimateInvalid": "Yüzey ve birim seçin; tüketim, paket, kat ve fireyi kontrol edin.",
+  "@estimateStage": {
+    "description": "estimateStage"
+  },
+  "@calculateMaterials": {
+    "description": "calculateMaterials"
+  },
+  "@estimateSourceNote": {
+    "description": "estimateSourceNote"
+  },
+  "@selectedSurfaces": {
+    "description": "selectedSurfaces"
+  },
+  "@floorSurface": {
+    "description": "floorSurface"
+  },
+  "@ceilingSurface": {
+    "description": "ceilingSurface"
+  },
+  "@productReference": {
+    "description": "productReference"
+  },
+  "@consumptionSource": {
+    "description": "consumptionSource"
+  },
+  "@consumptionPerLayer": {
+    "description": "consumptionPerLayer"
+  },
+  "@packageSize": {
+    "description": "packageSize"
+  },
+  "@materialLayers": {
+    "description": "materialLayers"
+  },
+  "@wastePercent": {
+    "description": "wastePercent"
+  },
+  "@unitGrams": {
+    "description": "unitGrams"
+  },
+  "@unitMillilitres": {
+    "description": "unitMillilitres"
+  },
+  "@unitPieces": {
+    "description": "unitPieces"
+  },
+  "@estimateRequired": {
+    "description": "estimateRequired",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "@estimatePackages": {
+    "description": "estimatePackages",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "@estimateArea": {
+    "description": "estimateArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@estimateInvalid": {
+    "description": "estimateInvalid"
   }
 }
