@@ -18,7 +18,8 @@ import 'object_history_test.dart' show photo;
 Map<String, dynamic> draft({bool matches = true}) => {
   'model': 'test-model',
   'revision': 'pinned-revision',
-  'prompt_version': 7,
+  'prompt_version': 9,
+  'work_scopes': ['lighting'],
   'proposal': {
     'scene_matches': matches,
     'concept': matches ? 'Light walls, keep furniture.' : '',
@@ -102,6 +103,7 @@ void main() {
         photo: photo,
         wish: 'Light finish',
         language: 'en',
+        workScopes: {WorkScope.lighting},
       );
       await Future<void>.delayed(Duration.zero);
       session.user = const AccountUser(id: 'other', email: 'other@example.com');
@@ -164,6 +166,7 @@ void main() {
         session,
         client: MockClient((r) async {
           expect(jsonDecode(r.body)['wish'], 'Updated wishes');
+          expect(jsonDecode(r.body)['work_scopes'], ['lighting']);
           return http.Response(jsonEncode(draft()), 200);
         }),
       );
@@ -196,6 +199,18 @@ void main() {
         350,
         scrollable: find.byType(Scrollable).first,
       );
+      expect(
+        tester
+            .widget<FilledButton>(
+              find.widgetWithText(FilledButton, 'Get a proposal').last,
+            )
+            .onPressed,
+        isNull,
+      );
+      await tester.ensureVisible(find.text('Lighting').last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Lighting').last);
+      await tester.pumpAndSettle();
       await tester.ensureVisible(find.text('Get a proposal').last);
       await tester.pumpAndSettle();
       await tester.tap(find.text('Get a proposal').last);
@@ -221,6 +236,41 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+  test('client rejects expanded work selection in a response', () async {
+    final session = SessionController(
+      vault: MemorySessionVault(),
+      api: AuthApi(
+        baseUrl: 'https://example.com',
+        client: MockClient(
+          (r) async => http.Response(
+            jsonEncode({
+              'access_token': 'access',
+              'refresh_token': 'refresh',
+              'expires_in': 900,
+              'user': {'id': 'guest', 'email': '', 'guest': true},
+            }),
+            200,
+          ),
+        ),
+      ),
+    );
+    addTearDown(session.dispose);
+    final expanded = draft()..['work_scopes'] = ['lighting', 'floor_finish'];
+    final service = AnalysisService(
+      session,
+      client: MockClient((r) async => http.Response(jsonEncode(expanded), 200)),
+    );
+    addTearDown(service.close);
+    await expectLater(
+      service.analyze(
+        photo: photo,
+        wish: 'Keep floor',
+        language: 'en',
+        workScopes: {WorkScope.lighting},
+      ),
+      throwsA(isA<AnalysisFailure>().having((e) => e.code, 'code', 'invalid')),
+    );
+  });
   test('malformed plan and non-room with work steps fail closed', () {
     final value = draft(matches: false);
     (value['proposal'] as Map)['work_steps'] = ['Invented plan'];

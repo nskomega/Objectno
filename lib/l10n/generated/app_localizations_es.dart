@@ -508,4 +508,23 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Vista superior. Huecos en naranja; no se modelan hojas ni instalaciones. Los números corresponden a las paredes.';
+
+  @override
+  String get analysisWorkScope => '¿Qué trabajos proponer?';
+
+  @override
+  String get scopeWallPaint => 'Pintura de paredes';
+
+  @override
+  String get scopeFloorFinish => 'Revestimiento del suelo';
+
+  @override
+  String get scopeLighting => 'Iluminación';
+
+  @override
+  String get scopeTextiles => 'Textiles';
+
+  @override
+  String get analysisScopeHelp =>
+      'Elige categorías. Las no seleccionadas se excluyen de la solicitud; indica qué conservar en tus preferencias.';
 }

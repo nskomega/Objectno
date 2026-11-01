@@ -298,5 +298,29 @@
   },
   "@measuredPlanNote": {
     "description": "measuredPlanNote"
+  },
+  "analysisWorkScope": "Hangi işler önerilsin?",
+  "scopeWallPaint": "Duvar boyası",
+  "scopeFloorFinish": "Zemin kaplaması",
+  "scopeLighting": "Aydınlatma",
+  "scopeTextiles": "Tekstil",
+  "analysisScopeHelp": "İş kategorilerini seçin. Seçilmeyenler isteğe dahil edilmez; korunacak öğeleri isteklerinizde belirtin.",
+  "@analysisWorkScope": {
+    "description": "analysisWorkScope"
+  },
+  "@scopeWallPaint": {
+    "description": "scopeWallPaint"
+  },
+  "@scopeFloorFinish": {
+    "description": "scopeFloorFinish"
+  },
+  "@scopeLighting": {
+    "description": "scopeLighting"
+  },
+  "@scopeTextiles": {
+    "description": "scopeTextiles"
+  },
+  "@analysisScopeHelp": {
+    "description": "analysisScopeHelp"
   }
 }

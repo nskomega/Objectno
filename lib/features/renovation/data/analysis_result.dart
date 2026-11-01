@@ -5,6 +5,16 @@ class AnalysisFailure implements Exception {
   final String code;
 }
 
+enum WorkScope {
+  wallPaint('wall_paint'),
+  floorFinish('floor_finish'),
+  lighting('lighting'),
+  textiles('textiles');
+
+  const WorkScope(this.value);
+  final String value;
+}
+
 class AnalysisResult {
   AnalysisResult._(this.json);
   final Map<String, dynamic> json;
@@ -13,6 +23,14 @@ class AnalysisResult {
   String get concept => proposal['concept'] as String;
   factory AnalysisResult.fromJson(Map<String, dynamic> json) {
     final p = json['proposal'];
+    final scopes = json['work_scopes'];
+    if (scopes is! List ||
+        scopes.isEmpty ||
+        scopes.length > 4 ||
+        scopes.toSet().length != scopes.length ||
+        scopes.any((v) => !WorkScope.values.any((scope) => scope.value == v))) {
+      throw const AnalysisFailure('invalid');
+    }
     if (p is! Map<String, dynamic> ||
         p['scene_matches'] is! bool ||
         p['concept'] is! String ||

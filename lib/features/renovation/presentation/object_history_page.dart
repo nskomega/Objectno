@@ -14,6 +14,13 @@ import '../domain/quantity_calculator.dart';
 import '../domain/room_dimensions.dart';
 import 'rooms_page.dart' show roomKindLabel;
 
+String workScopeLabel(AppLocalizations l, WorkScope scope) => switch (scope) {
+  WorkScope.wallPaint => l.scopeWallPaint,
+  WorkScope.floorFinish => l.scopeFloorFinish,
+  WorkScope.lighting => l.scopeLighting,
+  WorkScope.textiles => l.scopeTextiles,
+};
+
 String phaseLabel(AppLocalizations l, String phase) => switch (phase) {
   'before' => l.beforeStage,
   'progress' => l.progressStage,
@@ -160,6 +167,7 @@ class _GenerateProposal extends StatefulWidget {
 }
 
 class _GenerateProposalState extends State<_GenerateProposal> {
+  final _workScopes = <WorkScope>{};
   bool _busy = false;
   String? _error;
   Future<void> _run(AnalysisService service) async {
@@ -173,6 +181,7 @@ class _GenerateProposalState extends State<_GenerateProposal> {
         photo: widget.source.value['photo'] as String,
         wish: widget.source.value['description'] as String,
         language: language,
+        workScopes: Set.of(_workScopes),
       );
       if (!mounted) return;
       if (!result.matches) {
@@ -217,6 +226,34 @@ class _GenerateProposalState extends State<_GenerateProposal> {
             ),
             const SizedBox(height: 8),
             Text(l.analysisDraft),
+            const SizedBox(height: 12),
+            Text(
+              l.analysisWorkScope,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                for (final scope in WorkScope.values)
+                  FilterChip(
+                    label: Text(workScopeLabel(l, scope)),
+                    selected: _workScopes.contains(scope),
+                    onSelected: _busy
+                        ? null
+                        : (selected) => setState(() {
+                            if (selected) {
+                              _workScopes.add(scope);
+                            } else {
+                              _workScopes.remove(scope);
+                            }
+                            _error = null;
+                          }),
+                  ),
+              ],
+            ),
+            Text(l.analysisScopeHelp),
             if (service?.enabled != true) Text(l.proposalPending),
             if (_busy) ...[
               const SizedBox(height: 12),
@@ -230,7 +267,8 @@ class _GenerateProposalState extends State<_GenerateProposal> {
               ),
             const SizedBox(height: 12),
             FilledButton(
-              onPressed: _busy || service?.enabled != true
+              onPressed:
+                  _busy || _workScopes.isEmpty || service?.enabled != true
                   ? null
                   : () => _run(service!),
               child: Text(l.analyzePhoto),
@@ -254,6 +292,17 @@ class _ProposalDetails extends StatelessWidget {
       children: [
         const SizedBox(height: 12),
         Text(l.analysisDraft),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: [
+            for (final scope in WorkScope.values)
+              if ((analysis['work_scopes'] as List? ?? []).contains(
+                scope.value,
+              ))
+                Chip(label: Text(workScopeLabel(l, scope))),
+          ],
+        ),
         for (final section in [
           (l.analysisObservations, 'observations'),
           (l.analysisSteps, 'work_steps'),

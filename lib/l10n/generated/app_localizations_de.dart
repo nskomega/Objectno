@@ -511,4 +511,23 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Draufsicht. Öffnungen sind orange; Türblätter und Leitungen werden nicht dargestellt. Nummern entsprechen den Wänden.';
+
+  @override
+  String get analysisWorkScope => 'Welche Arbeiten vorschlagen?';
+
+  @override
+  String get scopeWallPaint => 'Wandfarbe';
+
+  @override
+  String get scopeFloorFinish => 'Bodenbelag';
+
+  @override
+  String get scopeLighting => 'Leuchten';
+
+  @override
+  String get scopeTextiles => 'Textilien';
+
+  @override
+  String get analysisScopeHelp =>
+      'Kategorien auswählen. Nicht gewählte Kategorien werden ausgeschlossen; zu erhaltende Elemente in den Wünschen angeben.';
 }

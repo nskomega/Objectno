@@ -506,4 +506,23 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Vista dall’alto. Aperture in arancione; ante e impianti non sono modellati. I numeri corrispondono alle pareti.';
+
+  @override
+  String get analysisWorkScope => 'Quali lavori proporre?';
+
+  @override
+  String get scopeWallPaint => 'Pittura pareti';
+
+  @override
+  String get scopeFloorFinish => 'Rivestimento pavimento';
+
+  @override
+  String get scopeLighting => 'Illuminazione';
+
+  @override
+  String get scopeTextiles => 'Tessuti';
+
+  @override
+  String get analysisScopeHelp =>
+      'Scegli le categorie. Le altre sono escluse dalla richiesta; indica cosa conservare nelle preferenze.';
 }

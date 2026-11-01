@@ -509,4 +509,23 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Vista superior. Vãos em laranja; folhas e instalações não são modeladas. Os números correspondem às paredes.';
+
+  @override
+  String get analysisWorkScope => 'Que trabalhos sugerir?';
+
+  @override
+  String get scopeWallPaint => 'Pintura das paredes';
+
+  @override
+  String get scopeFloorFinish => 'Revestimento do piso';
+
+  @override
+  String get scopeLighting => 'Iluminação';
+
+  @override
+  String get scopeTextiles => 'Têxteis';
+
+  @override
+  String get analysisScopeHelp =>
+      'Escolha categorias. As demais ficam fora do pedido; indique o que preservar nas preferências.';
 }

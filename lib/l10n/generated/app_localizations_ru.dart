@@ -509,4 +509,23 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Вид сверху. Проёмы выделены оранжевым; створки и инженерные сети не моделируются. Номера соответствуют выбранным стенам.';
+
+  @override
+  String get analysisWorkScope => 'Какие работы предложить?';
+
+  @override
+  String get scopeWallPaint => 'Покраска стен';
+
+  @override
+  String get scopeFloorFinish => 'Покрытие пола';
+
+  @override
+  String get scopeLighting => 'Светильники';
+
+  @override
+  String get scopeTextiles => 'Текстиль';
+
+  @override
+  String get analysisScopeHelp =>
+      'Выберите работы. Невыбранные категории не включаются в запрос; что нужно сохранить, укажите в пожеланиях.';
 }

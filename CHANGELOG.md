@@ -1,5 +1,10 @@
 # Изменения
 
+## 0.1.0-dev.42 - 2026-11-01
+- Добавлен выбор работ у исходного фото: покраска стен, пол, светильники и текстиль. До выбора анализ отключён; выбранные категории передаются в API и сохраняются с предложением. Восемь языков.
+- Клиент отклоняет ответ с расширенным набором работ. Все 70 Flutter-тестов прошли, включая 3x в обеих темах; анализ чистый. Сборка 42 успешно установлена на симулятор.
+- Нативно проверено отключение кнопки без выбора. Положительный запрос с выбором отложен: Mac повторно заблокирован. Сквозные серверные проверки ванной и спальни относятся к dev.41.
+
 ## 0.1.0-dev.41 - 2026-11-01
 - Analysis API now requires explicit work_scopes: wall_paint, floor_finish, lighting, textiles. Empty/unknown/duplicate scopes and changed response scopes are rejected. The model grammar restricts step/material categories to the requested selection.
 - Prompt 9 no longer forces three wall/floor/light tasks. The bedroom case now proposes only lighting and textiles and leaves wood unchanged; bathroom returns wall-paint/light work. Real API runs: 15.8 s and 25.9 s. Scene descriptions still contain errors, so quality is not approved.

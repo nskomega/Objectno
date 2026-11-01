@@ -298,5 +298,29 @@
   },
   "@measuredPlanNote": {
     "description": "measuredPlanNote"
+  },
+  "analysisWorkScope": "Какие работы предложить?",
+  "scopeWallPaint": "Покраска стен",
+  "scopeFloorFinish": "Покрытие пола",
+  "scopeLighting": "Светильники",
+  "scopeTextiles": "Текстиль",
+  "analysisScopeHelp": "Выберите работы. Невыбранные категории не включаются в запрос; что нужно сохранить, укажите в пожеланиях.",
+  "@analysisWorkScope": {
+    "description": "analysisWorkScope"
+  },
+  "@scopeWallPaint": {
+    "description": "scopeWallPaint"
+  },
+  "@scopeFloorFinish": {
+    "description": "scopeFloorFinish"
+  },
+  "@scopeLighting": {
+    "description": "scopeLighting"
+  },
+  "@scopeTextiles": {
+    "description": "scopeTextiles"
+  },
+  "@analysisScopeHelp": {
+    "description": "analysisScopeHelp"
   }
 }

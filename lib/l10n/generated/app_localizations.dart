@@ -1033,6 +1033,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Top view. Openings are orange; door leaves and utility routes are not modeled. Numbers match the selected walls.'**
   String get measuredPlanNote;
+
+  /// analysisWorkScope
+  ///
+  /// In en, this message translates to:
+  /// **'Which work should be proposed?'**
+  String get analysisWorkScope;
+
+  /// scopeWallPaint
+  ///
+  /// In en, this message translates to:
+  /// **'Wall paint'**
+  String get scopeWallPaint;
+
+  /// scopeFloorFinish
+  ///
+  /// In en, this message translates to:
+  /// **'Floor finish'**
+  String get scopeFloorFinish;
+
+  /// scopeLighting
+  ///
+  /// In en, this message translates to:
+  /// **'Lighting'**
+  String get scopeLighting;
+
+  /// scopeTextiles
+  ///
+  /// In en, this message translates to:
+  /// **'Textiles'**
+  String get scopeTextiles;
+
+  /// analysisScopeHelp
+  ///
+  /// In en, this message translates to:
+  /// **'Select work categories. Unselected categories are excluded from the request; describe what to preserve in your wishes.'**
+  String get analysisScopeHelp;
 }
 
 class _AppLocalizationsDelegate

@@ -298,5 +298,29 @@
   },
   "@measuredPlanNote": {
     "description": "measuredPlanNote"
+  },
+  "analysisWorkScope": "Welche Arbeiten vorschlagen?",
+  "scopeWallPaint": "Wandfarbe",
+  "scopeFloorFinish": "Bodenbelag",
+  "scopeLighting": "Leuchten",
+  "scopeTextiles": "Textilien",
+  "analysisScopeHelp": "Kategorien auswählen. Nicht gewählte Kategorien werden ausgeschlossen; zu erhaltende Elemente in den Wünschen angeben.",
+  "@analysisWorkScope": {
+    "description": "analysisWorkScope"
+  },
+  "@scopeWallPaint": {
+    "description": "scopeWallPaint"
+  },
+  "@scopeFloorFinish": {
+    "description": "scopeFloorFinish"
+  },
+  "@scopeLighting": {
+    "description": "scopeLighting"
+  },
+  "@scopeTextiles": {
+    "description": "scopeTextiles"
+  },
+  "@analysisScopeHelp": {
+    "description": "analysisScopeHelp"
   }
 }
