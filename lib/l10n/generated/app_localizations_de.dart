@@ -375,4 +375,38 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get historyEmpty =>
       'Füge ein Ausgangsfoto und deine Wünsche hinzu, um den Verlauf zu beginnen.';
+
+  @override
+  String get analyzePhoto => 'Vorschlag erstellen';
+
+  @override
+  String get analysisWorking =>
+      'Analyse auf deinem Mac. Dies kann etwa eine Minute dauern.';
+
+  @override
+  String get analysisDraft =>
+      'Vorläufiger Entwurf. Beobachtungen bestätigen; keine Vermessung oder fertige Renovierungsanleitung.';
+
+  @override
+  String get analysisFailed =>
+      'Vorschlag fehlgeschlagen. Lokalen Server prüfen und erneut versuchen.';
+
+  @override
+  String get analysisNotRoom =>
+      'Kein Raum erkannt. Ein Ausgangsfoto des Raums hinzufügen.';
+
+  @override
+  String get analysisObservations => 'Auf dem Foto sichtbar';
+
+  @override
+  String get analysisSteps => 'Vorgeschlagene Schritte';
+
+  @override
+  String get analysisMaterials => 'Materialkategorien';
+
+  @override
+  String get analysisQuestions => 'Fragen';
+
+  @override
+  String get analysisUnknowns => 'Unbekannte Angaben';
 }

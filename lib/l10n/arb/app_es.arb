@@ -114,5 +114,45 @@
   "proposalPending": "El análisis de fotos y la generación de propuestas aún no están conectados. Aquí aparecerán soluciones para este proyecto.",
   "photoRequired": "Añade una foto del estado inicial.",
   "entryStage": "Etapa",
-  "historyEmpty": "Añade una foto inicial y tus deseos para comenzar el historial."
+  "historyEmpty": "Añade una foto inicial y tus deseos para comenzar el historial.",
+  "analyzePhoto": "Obtener propuesta",
+  "analysisWorking": "Analizando en tu Mac. Puede tardar un minuto.",
+  "analysisDraft": "Borrador preliminar. Confirma las observaciones; no son medidas ni una guía definitiva.",
+  "analysisFailed": "No se pudo obtener la propuesta. Revisa el servidor local e inténtalo de nuevo.",
+  "analysisNotRoom": "No se reconoció una habitación. Añade una foto inicial.",
+  "analysisObservations": "Visible en la foto",
+  "analysisSteps": "Etapas sugeridas",
+  "analysisMaterials": "Categorías de materiales",
+  "analysisQuestions": "Preguntas",
+  "analysisUnknowns": "Datos desconocidos",
+  "@analyzePhoto": {
+    "description": "analyzePhoto"
+  },
+  "@analysisWorking": {
+    "description": "analysisWorking"
+  },
+  "@analysisDraft": {
+    "description": "analysisDraft"
+  },
+  "@analysisFailed": {
+    "description": "analysisFailed"
+  },
+  "@analysisNotRoom": {
+    "description": "analysisNotRoom"
+  },
+  "@analysisObservations": {
+    "description": "analysisObservations"
+  },
+  "@analysisSteps": {
+    "description": "analysisSteps"
+  },
+  "@analysisMaterials": {
+    "description": "analysisMaterials"
+  },
+  "@analysisQuestions": {
+    "description": "analysisQuestions"
+  },
+  "@analysisUnknowns": {
+    "description": "analysisUnknowns"
+  }
 }

@@ -799,6 +799,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add an initial photo and your wishes to start the project history.'**
   String get historyEmpty;
+
+  /// analyzePhoto
+  ///
+  /// In en, this message translates to:
+  /// **'Get a proposal'**
+  String get analyzePhoto;
+
+  /// analysisWorking
+  ///
+  /// In en, this message translates to:
+  /// **'Analyzing on your Mac. This may take about a minute.'**
+  String get analysisWorking;
+
+  /// analysisDraft
+  ///
+  /// In en, this message translates to:
+  /// **'Preliminary draft. Confirm observations; this is not a measurement or a finished renovation guide.'**
+  String get analysisDraft;
+
+  /// analysisFailed
+  ///
+  /// In en, this message translates to:
+  /// **'Could not get a proposal. Check the local server and retry.'**
+  String get analysisFailed;
+
+  /// analysisNotRoom
+  ///
+  /// In en, this message translates to:
+  /// **'No room recognized. Add an initial room photo.'**
+  String get analysisNotRoom;
+
+  /// analysisObservations
+  ///
+  /// In en, this message translates to:
+  /// **'Visible in the photo'**
+  String get analysisObservations;
+
+  /// analysisSteps
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested steps'**
+  String get analysisSteps;
+
+  /// analysisMaterials
+  ///
+  /// In en, this message translates to:
+  /// **'Material categories'**
+  String get analysisMaterials;
+
+  /// analysisQuestions
+  ///
+  /// In en, this message translates to:
+  /// **'Questions'**
+  String get analysisQuestions;
+
+  /// analysisUnknowns
+  ///
+  /// In en, this message translates to:
+  /// **'Unknowns'**
+  String get analysisUnknowns;
 }
 
 class _AppLocalizationsDelegate

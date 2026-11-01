@@ -371,4 +371,37 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get historyEmpty =>
       'Aggiungi una foto iniziale e i tuoi desideri per iniziare la cronologia.';
+
+  @override
+  String get analyzePhoto => 'Ottieni proposta';
+
+  @override
+  String get analysisWorking => 'Analisi sul Mac. Può richiedere un minuto.';
+
+  @override
+  String get analysisDraft =>
+      'Bozza preliminare. Conferma le osservazioni; non sono misure né una guida definitiva.';
+
+  @override
+  String get analysisFailed =>
+      'Proposta non disponibile. Controlla il server locale e riprova.';
+
+  @override
+  String get analysisNotRoom =>
+      'Nessuna stanza riconosciuta. Aggiungi una foto iniziale.';
+
+  @override
+  String get analysisObservations => 'Visibile nella foto';
+
+  @override
+  String get analysisSteps => 'Fasi suggerite';
+
+  @override
+  String get analysisMaterials => 'Categorie di materiali';
+
+  @override
+  String get analysisQuestions => 'Domande';
+
+  @override
+  String get analysisUnknowns => 'Dati sconosciuti';
 }

@@ -114,5 +114,45 @@
   "proposalPending": "Анализ фото и генерация предложений ещё не подключены. Здесь появятся наши решения для этого объекта.",
   "photoRequired": "Добавьте фото исходного состояния.",
   "entryStage": "Этап",
-  "historyEmpty": "Добавьте исходное фото и пожелания, чтобы начать историю объекта."
+  "historyEmpty": "Добавьте исходное фото и пожелания, чтобы начать историю объекта.",
+  "analyzePhoto": "Получить предложение",
+  "analysisWorking": "Анализируем фото на Mac. Это может занять около минуты.",
+  "analysisDraft": "Предварительное предложение. Наблюдения нужно подтвердить; это не обмеры и не готовая инструкция по ремонту.",
+  "analysisFailed": "Не удалось получить предложение. Проверьте локальный сервер и попробуйте снова.",
+  "analysisNotRoom": "Не удалось распознать помещение. Добавьте исходное фото комнаты.",
+  "analysisObservations": "Что видно на фото",
+  "analysisSteps": "Предлагаемые этапы",
+  "analysisMaterials": "Категории материалов",
+  "analysisQuestions": "Что уточнить",
+  "analysisUnknowns": "Что пока неизвестно",
+  "@analyzePhoto": {
+    "description": "analyzePhoto"
+  },
+  "@analysisWorking": {
+    "description": "analysisWorking"
+  },
+  "@analysisDraft": {
+    "description": "analysisDraft"
+  },
+  "@analysisFailed": {
+    "description": "analysisFailed"
+  },
+  "@analysisNotRoom": {
+    "description": "analysisNotRoom"
+  },
+  "@analysisObservations": {
+    "description": "analysisObservations"
+  },
+  "@analysisSteps": {
+    "description": "analysisSteps"
+  },
+  "@analysisMaterials": {
+    "description": "analysisMaterials"
+  },
+  "@analysisQuestions": {
+    "description": "analysisQuestions"
+  },
+  "@analysisUnknowns": {
+    "description": "analysisUnknowns"
+  }
 }
