@@ -69,3 +69,13 @@ class ScopedPlanTest(unittest.TestCase):
             materials=[WorkItem(work_scope='floor_finish',text='New floor covering')],questions=[],uncertainties=['Existing wall condition'])
         with self.assertRaisesRegex(ValueError,'scope_mismatch'):
             check_plan(['Visible floor'],plan,'en',['lighting'])
+
+class ObservationLabelsTest(unittest.TestCase):
+    def test_all_languages_cover_the_same_bounded_item_vocabulary(self):
+        from worker import ITEM_TAGS,LANGUAGES,OBSERVATION_LABELS,Scene
+        self.assertEqual(set(OBSERVATION_LABELS),set(LANGUAGES))
+        for language,labels in OBSERVATION_LABELS.items():
+            self.assertEqual(set(labels),set(ITEM_TAGS))
+            self.assertTrue(all(isinstance(label,str) and label.strip() for label in labels.values()))
+        self.assertEqual(OBSERVATION_LABELS['ru']['ceiling_fan'],'Потолочный вентилятор')
+        with self.assertRaises(ValueError):Scene(items=['wind_generator'],scene_type='interior')

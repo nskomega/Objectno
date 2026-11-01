@@ -33,6 +33,7 @@ type Proposal struct {
 type Result struct {
 	Proposal      Proposal `json:"proposal"`
 	WorkScopes    []string `json:"work_scopes"`
+	DetectedItems []string `json:"detected_items"`
 	Model         string   `json:"model"`
 	Revision      string   `json:"revision"`
 	PromptVersion int      `json:"prompt_version"`
@@ -195,6 +196,18 @@ func validInput(v Input) bool {
 	return err == nil && (format == "jpeg" || format == "png") && config.Width > 0 && config.Height > 0 && int64(config.Width)*int64(config.Height) <= 16000000
 }
 func validResult(v Result) bool {
+	if len(v.DetectedItems) < 1 || len(v.DetectedItems) > 5 {
+		return false
+	}
+	seen := map[string]bool{}
+	allowed := map[string]bool{"bed": true, "bathtub": true, "shower": true, "sink": true, "toilet": true, "ceiling_fan": true, "light_fixture": true, "door": true, "window": true, "cabinet": true, "table": true, "chair": true, "sofa": true, "curtain": true, "mirror": true, "cookware": true, "tiles": true, "wooden_surface": true, "keyboard": true, "unknown": true}
+	for _, tag := range v.DetectedItems {
+		if !allowed[tag] || seen[tag] {
+			return false
+		}
+		seen[tag] = true
+	}
+
 	if v.Model == "" || v.Revision == "" || v.PromptVersion < 1 || len(v.Proposal.Concept) > 4800 {
 		return false
 	}
