@@ -859,6 +859,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unknowns'**
   String get analysisUnknowns;
+
+  /// openings
+  ///
+  /// In en, this message translates to:
+  /// **'Door and window openings'**
+  String get openings;
+
+  /// addOpening
+  ///
+  /// In en, this message translates to:
+  /// **'Add opening'**
+  String get addOpening;
+
+  /// openingX
+  ///
+  /// In en, this message translates to:
+  /// **'Distance from left edge of wall, m'**
+  String get openingX;
+
+  /// openingY
+  ///
+  /// In en, this message translates to:
+  /// **'Height above floor, m'**
+  String get openingY;
+
+  /// openingHelp
+  ///
+  /// In en, this message translates to:
+  /// **'Measure the opening, not the door leaf. Walls 1 and 3 follow room length; 2 and 4 follow width. Count from the left when facing the wall from inside. Reveals are excluded.'**
+  String get openingHelp;
+
+  /// openingInvalid
+  ///
+  /// In en, this message translates to:
+  /// **'Check dimensions: openings must not overlap or extend beyond the wall.'**
+  String get openingInvalid;
+
+  /// netWallArea
+  ///
+  /// In en, this message translates to:
+  /// **'Walls excluding openings: {value} m²'**
+  String netWallArea(String value);
+
+  /// wallNumber
+  ///
+  /// In en, this message translates to:
+  /// **'Wall {number}'**
+  String wallNumber(int number);
 }
 
 class _AppLocalizationsDelegate

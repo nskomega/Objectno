@@ -154,5 +154,47 @@
   },
   "@analysisUnknowns": {
     "description": "analysisUnknowns"
+  },
+  "openings": "Aperture di porte e finestre",
+  "addOpening": "Aggiungi apertura",
+  "openingX": "Distanza dal bordo sinistro, m",
+  "openingY": "Altezza dal pavimento, m",
+  "openingHelp": "Misura l’apertura, non l’anta. Pareti 1 e 3: lunghezza; 2 e 4: larghezza. Conta da sinistra guardando dall’interno. Spallette escluse.",
+  "openingInvalid": "Controlla le misure: le aperture non devono sovrapporsi o superare la parete.",
+  "netWallArea": "Pareti escluse le aperture: {value} m²",
+  "wallNumber": "Parete {number}",
+  "@openings": {
+    "description": "openings"
+  },
+  "@addOpening": {
+    "description": "addOpening"
+  },
+  "@openingX": {
+    "description": "openingX"
+  },
+  "@openingY": {
+    "description": "openingY"
+  },
+  "@openingHelp": {
+    "description": "openingHelp"
+  },
+  "@openingInvalid": {
+    "description": "openingInvalid"
+  },
+  "@netWallArea": {
+    "description": "netWallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallNumber": {
+    "description": "wallNumber",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

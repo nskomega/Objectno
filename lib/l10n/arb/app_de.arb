@@ -154,5 +154,47 @@
   },
   "@analysisUnknowns": {
     "description": "analysisUnknowns"
+  },
+  "openings": "Tür- und Fensteröffnungen",
+  "addOpening": "Öffnung hinzufügen",
+  "openingX": "Abstand vom linken Wandrand, m",
+  "openingY": "Höhe über dem Boden, m",
+  "openingHelp": "Öffnung statt Türblatt messen. Wände 1 und 3: Raumlänge; 2 und 4: Breite. Von innen auf die Wand blicken und links beginnen. Laibungen sind ausgeschlossen.",
+  "openingInvalid": "Maße prüfen: Öffnungen dürfen sich nicht überschneiden oder über die Wand hinausreichen.",
+  "netWallArea": "Wände ohne Öffnungen: {value} m²",
+  "wallNumber": "Wand {number}",
+  "@openings": {
+    "description": "openings"
+  },
+  "@addOpening": {
+    "description": "addOpening"
+  },
+  "@openingX": {
+    "description": "openingX"
+  },
+  "@openingY": {
+    "description": "openingY"
+  },
+  "@openingHelp": {
+    "description": "openingHelp"
+  },
+  "@openingInvalid": {
+    "description": "openingInvalid"
+  },
+  "@netWallArea": {
+    "description": "netWallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallNumber": {
+    "description": "wallNumber",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

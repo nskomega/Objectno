@@ -406,4 +406,34 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Datos desconocidos';
+
+  @override
+  String get openings => 'Huecos de puertas y ventanas';
+
+  @override
+  String get addOpening => 'Añadir hueco';
+
+  @override
+  String get openingX => 'Distancia desde el borde izquierdo, m';
+
+  @override
+  String get openingY => 'Altura desde el suelo, m';
+
+  @override
+  String get openingHelp =>
+      'Mide el hueco, no la hoja. Paredes 1 y 3: largo; 2 y 4: ancho. Cuenta desde la izquierda mirando desde dentro. No incluye jambas.';
+
+  @override
+  String get openingInvalid =>
+      'Revisa las medidas: los huecos no deben solaparse ni salir de la pared.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Paredes sin huecos: $value m²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Pared $number';
+  }
 }

@@ -1,3 +1,4 @@
+import 'openings_panel.dart';
 import '../data/analysis_service.dart';
 import '../../auth/data/auth_api.dart' show AuthFailure;
 import 'dart:convert';
@@ -461,6 +462,12 @@ class _MeasurementsState extends State<_Measurements> {
                                     1000000,
                               ),
                             ),
+                          ),
+                          OpeningsPanel(
+                            repository: widget.repository,
+                            objectId: widget.objectId,
+                            roomId: room.key,
+                            room: room.value,
                           ),
                         ],
                       ),

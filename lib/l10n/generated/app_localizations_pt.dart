@@ -407,4 +407,34 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Dados desconhecidos';
+
+  @override
+  String get openings => 'Vãos de portas e janelas';
+
+  @override
+  String get addOpening => 'Adicionar vão';
+
+  @override
+  String get openingX => 'Distância da borda esquerda, m';
+
+  @override
+  String get openingY => 'Altura acima do piso, m';
+
+  @override
+  String get openingHelp =>
+      'Meça o vão, não a folha da porta. Paredes 1 e 3: comprimento; 2 e 4: largura. Conte da esquerda olhando de dentro. Ombreiras excluídas.';
+
+  @override
+  String get openingInvalid =>
+      'Verifique as medidas: os vãos não podem sobrepor-se nem ultrapassar a parede.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Paredes sem vãos: $value m²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Parede $number';
+  }
 }
