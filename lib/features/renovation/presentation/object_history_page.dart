@@ -1,4 +1,5 @@
 import '../data/analysis_service.dart';
+import '../../auth/data/auth_api.dart' show AuthFailure;
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -175,7 +176,17 @@ class _GenerateProposalState extends State<_GenerateProposal> {
         widget.source.key,
         result,
       );
-    } catch (_) {
+    } catch (error) {
+      assert(() {
+        debugPrint(
+          'Analysis request failed: ${error is AuthFailure
+              ? error.code
+              : error is AnalysisFailure
+              ? error.code
+              : error.runtimeType}',
+        );
+        return true;
+      }());
       if (mounted) setState(() => _error = 'failed');
     } finally {
       if (mounted) setState(() => _busy = false);

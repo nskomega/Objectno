@@ -17,5 +17,5 @@ flutter build ios --simulator --debug --config-only \
 xcrun xcodebuild -workspace ios/Runner.xcworkspace -scheme Runner \
   -configuration Debug -sdk iphonesimulator \
   -destination 'generic/platform=iOS Simulator' \
-  ARCHS="$simulator_arch" ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO \
+  ARCHS="$simulator_arch" ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- \
   BUILD_DIR="$PWD/build/ios" build
