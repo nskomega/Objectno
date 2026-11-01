@@ -1,3 +1,4 @@
+import 'material_estimate_page.dart';
 import 'openings_panel.dart';
 import '../data/analysis_service.dart';
 import '../../auth/data/auth_api.dart' show AuthFailure;
@@ -18,6 +19,7 @@ String phaseLabel(AppLocalizations l, String phase) => switch (phase) {
   'progress' => l.progressStage,
   'result' => l.resultStage,
   'proposal' => l.proposalStage,
+  'estimate' => l.estimateStage,
   _ => l.issuesHeading,
 };
 
@@ -329,6 +331,8 @@ class _HistoryCard extends StatelessWidget {
             Text(record['description'] as String),
             if (record['phase'] == 'proposal')
               _ProposalDetails(analysis: record['analysis'] as Map),
+            if (record['phase'] == 'estimate')
+              MaterialEstimateDetails(estimate: record['estimate'] as Map),
             if (record['phase'] == 'issue')
               Text(record['done'] == true ? l.statusDone : l.statusOpen),
             if (photo != null) ...[
@@ -468,6 +472,20 @@ class _MeasurementsState extends State<_Measurements> {
                             objectId: widget.objectId,
                             roomId: room.key,
                             room: room.value,
+                          ),
+                          OutlinedButton.icon(
+                            onPressed: () => Navigator.push(
+                              context,
+                              MaterialPageRoute<void>(
+                                builder: (_) => MaterialEstimatePage(
+                                  repository: widget.repository,
+                                  objectId: widget.objectId,
+                                  roomId: room.key,
+                                ),
+                              ),
+                            ),
+                            icon: const Icon(Icons.calculate_outlined),
+                            label: Text(l.calculateMaterials),
                           ),
                         ],
                       ),

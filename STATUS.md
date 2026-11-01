@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 01.11.2026. Исходники: 0.1.0-dev.35.
+Обновлено: 01.11.2026. Исходники: 0.1.0-dev.36.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; кандидат Qwen3-VL-4B проверен на одном кухонном кадре, качество для продукта ещё не принято.
@@ -123,3 +123,6 @@ Fixed Russian lexical validators incorrectly applied to every language; retries 
 
 ## Material history - dev.35
 Repository now computes and saves an estimate from current confirmed surfaces inside one transaction. It retains the measurement snapshot, selected surfaces, user-entered product/source/rate, layers, waste, quantity, packages and calculation version. Old estimates survive later geometry edits unchanged. New persistence/isolation test passed; analysis clean. Synthetic test rates are not recommendations. The entry form and result rendering follow separately.
+
+## Product estimate UI - dev.36
+The object measurement card opens a product-based calculation form. Surfaces and units are chosen explicitly; product/source/rate/package/layers/waste have no invented defaults. Saving returns to the common history with quantity, package count and calculation inputs. Eight languages and both themes. All 67 Flutter tests passed; analysis clean; simulator build 36 succeeded. The two new widget tests exercise the complete form/history route at 3x. Native testing is still in progress; no store upload and no real supplier catalog.

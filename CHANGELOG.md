@@ -1,5 +1,10 @@
 # Изменения
 
+## 0.1.0-dev.36 - 2026-11-01
+- Добавлена форма расчёта по конкретному продукту: поверхности, источник нормы, единицы, расход на слой, фасовка, слои и запас. Каталог не имитируется: данные продукта вводит и проверяет пользователь.
+- Результат отображается в общей истории: площадь работ, потребность, упаковки и исходные нормы. Восемь языков, две темы, системный масштаб текста.
+- Все 67 Flutter-тестов прошли, статический анализ чистый. Проверены ввод и возврат в историю при 3x в обеих темах. Сборка 36 для симулятора успешна; нативная проверка новой формы ещё продолжается.
+
 ## 0.1.0-dev.35 - 2026-11-01
 - Material calculations can be saved as history entries with selected surfaces, a measurement snapshot, product consumption/source, layers, waste, required quantity and package count. Later opening changes do not rewrite old calculations.
 - New test passed: 23.4 m² × synthetic 100 ml/m² × 2 coats × 10% waste = 5148 ml, three 2500 ml packages. Synthetic inputs are test data, not a product recommendation. Unknown surfaces and another account are rejected. UI follows separately.

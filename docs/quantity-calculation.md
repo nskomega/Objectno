@@ -1,5 +1,5 @@
 # Воспроизводимый расчёт материалов
-Статус: ядро реализовано в lib/features/renovation/domain/quantity_calculator.dart; UI и каталог ещё не подключены.
+Статус: ядро реализовано в lib/features/renovation/domain/quantity_calculator.dart; UI подключён в dev.36; каталог ещё не подключён.
 
 Помещение имеет тип и подтверждённые прямоугольные поверхности: пол, потолок, стены. Проём задан фактическими размерами и координатами на поверхности, не размером дверного полотна. Вычитается только его площадь; откосы и торцы при необходимости требуют отдельных поверхностей. Проёмы не могут пересекаться или выходить за границы. Сложные контуры пока не поддержаны.
 
@@ -12,3 +12,5 @@
 Проверено восемь сценариев native и Chrome: три типа помещения, вычет проёма, пересечения и границы, упаковка на границе и после неё, отсутствующие данные, большие промежуточные значения и нулевая площадь.
 
 С dev.31 roomFromRecord преобразует существующие обмеры и проёмы в это ядро. В схеме хранения 2 проём задаётся индексом стены 0..3 и x/y/width/height в мм. Точка (0,0) — левый нижний угол каждой стены при взгляде на неё из комнаты. Интерфейс должен показывать порядок стен явно; размер полотна не заменяет фактический проём.
+
+The dev.36 UI accepts explicit product rates in grams, millilitres or pieces per square metre per coat. Amounts must be positive integers in the chosen small unit; layers and package size are explicit, waste accepts up to two decimal places. Source data is user-entered and is not claimed to be verified catalog data. Results are saved in common history together with a copy of the measurements and rate.

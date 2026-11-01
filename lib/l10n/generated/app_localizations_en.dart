@@ -435,4 +435,69 @@ class AppLocalizationsEn extends AppLocalizations {
   String wallNumber(int number) {
     return 'Wall $number';
   }
+
+  @override
+  String get estimateStage => 'Material estimate';
+
+  @override
+  String get calculateMaterials => 'Calculate material';
+
+  @override
+  String get estimateSourceNote =>
+      'Enter consumption for the specific product from its label or manufacturer documentation. No catalog is connected; you supply and verify these details.';
+
+  @override
+  String get selectedSurfaces => 'Work surfaces';
+
+  @override
+  String get floorSurface => 'Floor';
+
+  @override
+  String get ceilingSurface => 'Ceiling';
+
+  @override
+  String get productReference => 'Product name and reference';
+
+  @override
+  String get consumptionSource => 'Consumption source';
+
+  @override
+  String get consumptionPerLayer => 'Consumption per m² per coat';
+
+  @override
+  String get packageSize => 'Quantity per package';
+
+  @override
+  String get materialLayers => 'Number of coats';
+
+  @override
+  String get wastePercent => 'Waste, %';
+
+  @override
+  String get unitGrams => 'g';
+
+  @override
+  String get unitMillilitres => 'ml';
+
+  @override
+  String get unitPieces => 'pcs';
+
+  @override
+  String estimateRequired(String value, String unit) {
+    return 'Required: $value $unit';
+  }
+
+  @override
+  String estimatePackages(int value) {
+    return 'Packages: $value';
+  }
+
+  @override
+  String estimateArea(String value) {
+    return 'Work area: $value m²';
+  }
+
+  @override
+  String get estimateInvalid =>
+      'Select surfaces and units; check consumption, package size, coats and waste.';
 }

@@ -437,4 +437,69 @@ class AppLocalizationsFr extends AppLocalizations {
   String wallNumber(int number) {
     return 'Mur $number';
   }
+
+  @override
+  String get estimateStage => 'Calcul des matériaux';
+
+  @override
+  String get calculateMaterials => 'Calculer le matériau';
+
+  @override
+  String get estimateSourceNote =>
+      'Saisissez la consommation du produit indiquée sur son étiquette ou sa documentation. Aucun catalogue connecté ; vous fournissez et vérifiez ces données.';
+
+  @override
+  String get selectedSurfaces => 'Surfaces à traiter';
+
+  @override
+  String get floorSurface => 'Sol';
+
+  @override
+  String get ceilingSurface => 'Plafond';
+
+  @override
+  String get productReference => 'Nom et référence du produit';
+
+  @override
+  String get consumptionSource => 'Source de consommation';
+
+  @override
+  String get consumptionPerLayer => 'Consommation par m² par couche';
+
+  @override
+  String get packageSize => 'Quantité par emballage';
+
+  @override
+  String get materialLayers => 'Nombre de couches';
+
+  @override
+  String get wastePercent => 'Marge, %';
+
+  @override
+  String get unitGrams => 'g';
+
+  @override
+  String get unitMillilitres => 'ml';
+
+  @override
+  String get unitPieces => 'pièces';
+
+  @override
+  String estimateRequired(String value, String unit) {
+    return 'Besoin : $value $unit';
+  }
+
+  @override
+  String estimatePackages(int value) {
+    return 'Emballages : $value';
+  }
+
+  @override
+  String estimateArea(String value) {
+    return 'Surface : $value m²';
+  }
+
+  @override
+  String get estimateInvalid =>
+      'Choisissez les surfaces et unités ; vérifiez consommation, emballage, couches et marge.';
 }

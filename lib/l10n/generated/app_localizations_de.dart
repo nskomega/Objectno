@@ -439,4 +439,69 @@ class AppLocalizationsDe extends AppLocalizations {
   String wallNumber(int number) {
     return 'Wand $number';
   }
+
+  @override
+  String get estimateStage => 'Materialberechnung';
+
+  @override
+  String get calculateMaterials => 'Material berechnen';
+
+  @override
+  String get estimateSourceNote =>
+      'Verbrauch des konkreten Produkts vom Etikett oder Herstellerdatenblatt eingeben. Kein Katalog verbunden; du lieferst und prüfst diese Angaben.';
+
+  @override
+  String get selectedSurfaces => 'Arbeitsflächen';
+
+  @override
+  String get floorSurface => 'Boden';
+
+  @override
+  String get ceilingSurface => 'Decke';
+
+  @override
+  String get productReference => 'Produktname und Artikelnummer';
+
+  @override
+  String get consumptionSource => 'Quelle des Verbrauchs';
+
+  @override
+  String get consumptionPerLayer => 'Verbrauch pro m² je Schicht';
+
+  @override
+  String get packageSize => 'Menge pro Packung';
+
+  @override
+  String get materialLayers => 'Anzahl der Schichten';
+
+  @override
+  String get wastePercent => 'Reserve, %';
+
+  @override
+  String get unitGrams => 'g';
+
+  @override
+  String get unitMillilitres => 'ml';
+
+  @override
+  String get unitPieces => 'Stk.';
+
+  @override
+  String estimateRequired(String value, String unit) {
+    return 'Bedarf: $value $unit';
+  }
+
+  @override
+  String estimatePackages(int value) {
+    return 'Packungen: $value';
+  }
+
+  @override
+  String estimateArea(String value) {
+    return 'Arbeitsfläche: $value m²';
+  }
+
+  @override
+  String get estimateInvalid =>
+      'Flächen und Einheiten wählen; Verbrauch, Packungsgröße, Schichten und Reserve prüfen.';
 }
