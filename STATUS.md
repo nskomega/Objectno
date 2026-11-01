@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 01.11.2026. Исходники: 0.1.0-dev.31.
+Обновлено: 01.11.2026. Исходники: 0.1.0-dev.33.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; кандидат Qwen3-VL-4B проверен на одном кухонном кадре, качество для продукта ещё не принято.
@@ -114,3 +114,6 @@ Flutter подключён к /v1/analysis: кнопка у исходного �
 
 ## Геометрия с проёмами — dev.31
 Добавлены преобразование прямоугольной комнаты в шесть поверхностей расчётного ядра и сохранение/удаление проёмов на одной из четырёх стен. Стены 1/3 соответствуют длине, 2/4 — ширине; отсчёт положения от левого края выбранной стены и пола. Пересечения и выход за границы запрещены. Старые комнаты без openings читаются как комнаты без вычтенных проёмов. Два новых теста прошли. UI и нормы конкретных продуктов пока не подключены.
+
+## Openings UI - dev.32 / documentation dev.33
+Openings can be added and removed inside the object measurements. Net wall area uses the calculation core; eight languages are supported. All 64 Flutter tests passed, analysis was clean, and three opening tests passed again after adding input hints. Simulator build 32 succeeded; native room dimensions were saved and the opening form opened. Saving an opening on native iOS remains unverified. Widget tests cover 25 to 23.4 square metres, invalid bounds and 3x text in both themes. The dev.32 changelog write failed before its commit; dev.33 adds the missing release description without rewriting history.
