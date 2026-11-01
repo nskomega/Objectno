@@ -405,4 +405,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Unknowns';
+
+  @override
+  String get openings => 'Door and window openings';
+
+  @override
+  String get addOpening => 'Add opening';
+
+  @override
+  String get openingX => 'Distance from left edge of wall, m';
+
+  @override
+  String get openingY => 'Height above floor, m';
+
+  @override
+  String get openingHelp =>
+      'Measure the opening, not the door leaf. Walls 1 and 3 follow room length; 2 and 4 follow width. Count from the left when facing the wall from inside. Reveals are excluded.';
+
+  @override
+  String get openingInvalid =>
+      'Check dimensions: openings must not overlap or extend beyond the wall.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Walls excluding openings: $value m²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Wall $number';
+  }
 }

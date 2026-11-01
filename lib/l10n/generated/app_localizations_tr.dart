@@ -405,4 +405,34 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Bilinmeyenler';
+
+  @override
+  String get openings => 'Kapı ve pencere açıklıkları';
+
+  @override
+  String get addOpening => 'Açıklık ekle';
+
+  @override
+  String get openingX => 'Duvarın sol kenarından uzaklık, m';
+
+  @override
+  String get openingY => 'Zeminden yükseklik, m';
+
+  @override
+  String get openingHelp =>
+      'Kapı kanadını değil açıklığı ölçün. Duvar 1 ve 3: uzunluk; 2 ve 4: genişlik. İçeriden duvara bakarken soldan başlayın. Söveler dahil değildir.';
+
+  @override
+  String get openingInvalid =>
+      'Ölçüleri kontrol edin: açıklıklar çakışmamalı veya duvar sınırını aşmamalıdır.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Açıklıklar hariç duvarlar: $value m²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Duvar $number';
+  }
 }

@@ -154,5 +154,47 @@
   },
   "@analysisUnknowns": {
     "description": "analysisUnknowns"
+  },
+  "openings": "Huecos de puertas y ventanas",
+  "addOpening": "Añadir hueco",
+  "openingX": "Distancia desde el borde izquierdo, m",
+  "openingY": "Altura desde el suelo, m",
+  "openingHelp": "Mide el hueco, no la hoja. Paredes 1 y 3: largo; 2 y 4: ancho. Cuenta desde la izquierda mirando desde dentro. No incluye jambas.",
+  "openingInvalid": "Revisa las medidas: los huecos no deben solaparse ni salir de la pared.",
+  "netWallArea": "Paredes sin huecos: {value} m²",
+  "wallNumber": "Pared {number}",
+  "@openings": {
+    "description": "openings"
+  },
+  "@addOpening": {
+    "description": "addOpening"
+  },
+  "@openingX": {
+    "description": "openingX"
+  },
+  "@openingY": {
+    "description": "openingY"
+  },
+  "@openingHelp": {
+    "description": "openingHelp"
+  },
+  "@openingInvalid": {
+    "description": "openingInvalid"
+  },
+  "@netWallArea": {
+    "description": "netWallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallNumber": {
+    "description": "wallNumber",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

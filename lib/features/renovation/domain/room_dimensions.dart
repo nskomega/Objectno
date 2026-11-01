@@ -8,3 +8,8 @@ int? parseMetresToMm(String input) {
       (parts.length == 1 ? 0 : int.parse(parts[1].padRight(3, '0')));
   return mm > 0 && mm <= 1000000 ? mm : null;
 }
+
+int? parseOffsetMetresToMm(String input) {
+  if (RegExp(r'^0([.,]0{1,3})?$').hasMatch(input.trim())) return 0;
+  return parseMetresToMm(input);
+}

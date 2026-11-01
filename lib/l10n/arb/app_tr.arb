@@ -154,5 +154,47 @@
   },
   "@analysisUnknowns": {
     "description": "analysisUnknowns"
+  },
+  "openings": "Kapı ve pencere açıklıkları",
+  "addOpening": "Açıklık ekle",
+  "openingX": "Duvarın sol kenarından uzaklık, m",
+  "openingY": "Zeminden yükseklik, m",
+  "openingHelp": "Kapı kanadını değil açıklığı ölçün. Duvar 1 ve 3: uzunluk; 2 ve 4: genişlik. İçeriden duvara bakarken soldan başlayın. Söveler dahil değildir.",
+  "openingInvalid": "Ölçüleri kontrol edin: açıklıklar çakışmamalı veya duvar sınırını aşmamalıdır.",
+  "netWallArea": "Açıklıklar hariç duvarlar: {value} m²",
+  "wallNumber": "Duvar {number}",
+  "@openings": {
+    "description": "openings"
+  },
+  "@addOpening": {
+    "description": "addOpening"
+  },
+  "@openingX": {
+    "description": "openingX"
+  },
+  "@openingY": {
+    "description": "openingY"
+  },
+  "@openingHelp": {
+    "description": "openingHelp"
+  },
+  "@openingInvalid": {
+    "description": "openingInvalid"
+  },
+  "@netWallArea": {
+    "description": "netWallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallNumber": {
+    "description": "wallNumber",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

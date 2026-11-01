@@ -407,4 +407,34 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Inconnues';
+
+  @override
+  String get openings => 'Ouvertures des portes et fenêtres';
+
+  @override
+  String get addOpening => 'Ajouter une ouverture';
+
+  @override
+  String get openingX => 'Distance du bord gauche, m';
+
+  @override
+  String get openingY => 'Hauteur depuis le sol, m';
+
+  @override
+  String get openingHelp =>
+      'Mesurez l’ouverture, pas le vantail. Murs 1 et 3 : longueur ; 2 et 4 : largeur. Comptez depuis la gauche en regardant de l’intérieur. Tableaux exclus.';
+
+  @override
+  String get openingInvalid =>
+      'Vérifiez les dimensions : les ouvertures ne doivent ni se chevaucher ni dépasser du mur.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Murs hors ouvertures : $value m²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Mur $number';
+  }
 }

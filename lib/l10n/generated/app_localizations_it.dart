@@ -404,4 +404,34 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Dati sconosciuti';
+
+  @override
+  String get openings => 'Aperture di porte e finestre';
+
+  @override
+  String get addOpening => 'Aggiungi apertura';
+
+  @override
+  String get openingX => 'Distanza dal bordo sinistro, m';
+
+  @override
+  String get openingY => 'Altezza dal pavimento, m';
+
+  @override
+  String get openingHelp =>
+      'Misura l’apertura, non l’anta. Pareti 1 e 3: lunghezza; 2 e 4: larghezza. Conta da sinistra guardando dall’interno. Spallette escluse.';
+
+  @override
+  String get openingInvalid =>
+      'Controlla le misure: le aperture non devono sovrapporsi o superare la parete.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Pareti escluse le aperture: $value m²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Parete $number';
+  }
 }

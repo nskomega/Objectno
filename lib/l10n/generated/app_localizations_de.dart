@@ -409,4 +409,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Unbekannte Angaben';
+
+  @override
+  String get openings => 'Tür- und Fensteröffnungen';
+
+  @override
+  String get addOpening => 'Öffnung hinzufügen';
+
+  @override
+  String get openingX => 'Abstand vom linken Wandrand, m';
+
+  @override
+  String get openingY => 'Höhe über dem Boden, m';
+
+  @override
+  String get openingHelp =>
+      'Öffnung statt Türblatt messen. Wände 1 und 3: Raumlänge; 2 und 4: Breite. Von innen auf die Wand blicken und links beginnen. Laibungen sind ausgeschlossen.';
+
+  @override
+  String get openingInvalid =>
+      'Maße prüfen: Öffnungen dürfen sich nicht überschneiden oder über die Wand hinausreichen.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Wände ohne Öffnungen: $value m²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Wand $number';
+  }
 }

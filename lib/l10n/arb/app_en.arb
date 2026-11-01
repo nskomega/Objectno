@@ -509,5 +509,47 @@
   },
   "@analysisUnknowns": {
     "description": "analysisUnknowns"
+  },
+  "openings": "Door and window openings",
+  "addOpening": "Add opening",
+  "openingX": "Distance from left edge of wall, m",
+  "openingY": "Height above floor, m",
+  "openingHelp": "Measure the opening, not the door leaf. Walls 1 and 3 follow room length; 2 and 4 follow width. Count from the left when facing the wall from inside. Reveals are excluded.",
+  "openingInvalid": "Check dimensions: openings must not overlap or extend beyond the wall.",
+  "netWallArea": "Walls excluding openings: {value} m²",
+  "wallNumber": "Wall {number}",
+  "@openings": {
+    "description": "openings"
+  },
+  "@addOpening": {
+    "description": "addOpening"
+  },
+  "@openingX": {
+    "description": "openingX"
+  },
+  "@openingY": {
+    "description": "openingY"
+  },
+  "@openingHelp": {
+    "description": "openingHelp"
+  },
+  "@openingInvalid": {
+    "description": "openingInvalid"
+  },
+  "@netWallArea": {
+    "description": "netWallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallNumber": {
+    "description": "wallNumber",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

@@ -407,4 +407,34 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get analysisUnknowns => 'Что пока неизвестно';
+
+  @override
+  String get openings => 'Проёмы дверей и окон';
+
+  @override
+  String get addOpening => 'Добавить проём';
+
+  @override
+  String get openingX => 'Отступ от левого края стены, м';
+
+  @override
+  String get openingY => 'Высота от пола, м';
+
+  @override
+  String get openingHelp =>
+      'Укажите размер проёма, а не полотна. Стены 1 и 3 — длина комнаты, 2 и 4 — ширина. Отсчёт слева при взгляде на стену из комнаты. Откосы не учтены.';
+
+  @override
+  String get openingInvalid =>
+      'Проверьте размеры: проёмы не должны пересекаться или выходить за стену.';
+
+  @override
+  String netWallArea(String value) {
+    return 'Стены за вычетом проёмов: $value м²';
+  }
+
+  @override
+  String wallNumber(int number) {
+    return 'Стена $number';
+  }
 }

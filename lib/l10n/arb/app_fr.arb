@@ -154,5 +154,47 @@
   },
   "@analysisUnknowns": {
     "description": "analysisUnknowns"
+  },
+  "openings": "Ouvertures des portes et fenêtres",
+  "addOpening": "Ajouter une ouverture",
+  "openingX": "Distance du bord gauche, m",
+  "openingY": "Hauteur depuis le sol, m",
+  "openingHelp": "Mesurez l’ouverture, pas le vantail. Murs 1 et 3 : longueur ; 2 et 4 : largeur. Comptez depuis la gauche en regardant de l’intérieur. Tableaux exclus.",
+  "openingInvalid": "Vérifiez les dimensions : les ouvertures ne doivent ni se chevaucher ni dépasser du mur.",
+  "netWallArea": "Murs hors ouvertures : {value} m²",
+  "wallNumber": "Mur {number}",
+  "@openings": {
+    "description": "openings"
+  },
+  "@addOpening": {
+    "description": "addOpening"
+  },
+  "@openingX": {
+    "description": "openingX"
+  },
+  "@openingY": {
+    "description": "openingY"
+  },
+  "@openingHelp": {
+    "description": "openingHelp"
+  },
+  "@openingInvalid": {
+    "description": "openingInvalid"
+  },
+  "@netWallArea": {
+    "description": "netWallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallNumber": {
+    "description": "wallNumber",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }

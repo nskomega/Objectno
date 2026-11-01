@@ -154,5 +154,47 @@
   },
   "@analysisUnknowns": {
     "description": "analysisUnknowns"
+  },
+  "openings": "Проёмы дверей и окон",
+  "addOpening": "Добавить проём",
+  "openingX": "Отступ от левого края стены, м",
+  "openingY": "Высота от пола, м",
+  "openingHelp": "Укажите размер проёма, а не полотна. Стены 1 и 3 — длина комнаты, 2 и 4 — ширина. Отсчёт слева при взгляде на стену из комнаты. Откосы не учтены.",
+  "openingInvalid": "Проверьте размеры: проёмы не должны пересекаться или выходить за стену.",
+  "netWallArea": "Стены за вычетом проёмов: {value} м²",
+  "wallNumber": "Стена {number}",
+  "@openings": {
+    "description": "openings"
+  },
+  "@addOpening": {
+    "description": "addOpening"
+  },
+  "@openingX": {
+    "description": "openingX"
+  },
+  "@openingY": {
+    "description": "openingY"
+  },
+  "@openingHelp": {
+    "description": "openingHelp"
+  },
+  "@openingInvalid": {
+    "description": "openingInvalid"
+  },
+  "@netWallArea": {
+    "description": "netWallArea",
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@wallNumber": {
+    "description": "wallNumber",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
   }
 }
