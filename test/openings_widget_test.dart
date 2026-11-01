@@ -74,6 +74,8 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
+        await tester.ensureVisible(find.text('Door and window openings'));
+        await tester.pumpAndSettle();
         await tester.tap(find.text('Door and window openings'));
         await tester.pumpAndSettle();
         await tester.enterText(find.byType(TextFormField).at(0), '4');

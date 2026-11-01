@@ -504,4 +504,11 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Flächen und Einheiten wählen; Verbrauch, Packungsgröße, Schichten und Reserve prüfen.';
+
+  @override
+  String get measuredPlan => 'Grundriss nach Aufmaß';
+
+  @override
+  String get measuredPlanNote =>
+      'Draufsicht. Öffnungen sind orange; Türblätter und Leitungen werden nicht dargestellt. Nummern entsprechen den Wänden.';
 }

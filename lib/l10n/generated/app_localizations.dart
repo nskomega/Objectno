@@ -1021,6 +1021,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select surfaces and units; check consumption, package size, coats and waste.'**
   String get estimateInvalid;
+
+  /// measuredPlan
+  ///
+  /// In en, this message translates to:
+  /// **'Measured floor plan'**
+  String get measuredPlan;
+
+  /// measuredPlanNote
+  ///
+  /// In en, this message translates to:
+  /// **'Top view. Openings are orange; door leaves and utility routes are not modeled. Numbers match the selected walls.'**
+  String get measuredPlanNote;
 }
 
 class _AppLocalizationsDelegate

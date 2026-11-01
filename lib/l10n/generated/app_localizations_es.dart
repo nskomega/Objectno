@@ -501,4 +501,11 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Selecciona superficies y unidades; revisa consumo, envase, capas y margen.';
+
+  @override
+  String get measuredPlan => 'Plano según medidas';
+
+  @override
+  String get measuredPlanNote =>
+      'Vista superior. Huecos en naranja; no se modelan hojas ni instalaciones. Los números corresponden a las paredes.';
 }

@@ -502,4 +502,11 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Escolha superfícies e unidades; verifique consumo, embalagem, demãos e reserva.';
+
+  @override
+  String get measuredPlan => 'Planta pelas medidas';
+
+  @override
+  String get measuredPlanNote =>
+      'Vista superior. Vãos em laranja; folhas e instalações não são modeladas. Os números correspondem às paredes.';
 }
