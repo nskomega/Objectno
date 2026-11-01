@@ -47,5 +47,16 @@ class TextValidationTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_texts('ru', ['Осветлить стены', 'осветлить стены'])
 
+class MultilingualPlanTest(unittest.TestCase):
+    def test_non_russian_material_names_are_not_checked_as_russian(self):
+        from worker import Plan,check_plan
+        plan=Plan(concept='Use light wall paint and retain the existing kitchen layout.',
+          work_steps=['Paint the walls','Update the floor finish','Replace the light fittings'],
+          materials=['Washable wall paint','Floor covering'],questions=['Which items should remain?','May the lights change?'],
+          uncertainties=['The wall condition needs inspection'])
+        for language in ['en','es','fr','de','it','pt','tr']:
+            check_plan(['A wooden table'],plan,language)
+        with self.assertRaises(ValueError):check_plan(['A wooden table'],plan,'ru')
+
 if __name__ == '__main__':
     unittest.main()
