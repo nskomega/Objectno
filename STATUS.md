@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 01.11.2026. Исходники: 0.1.0-dev.34.
+Обновлено: 01.11.2026. Исходники: 0.1.0-dev.35.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; кандидат Qwen3-VL-4B проверен на одном кухонном кадре, качество для продукта ещё не принято.
@@ -120,3 +120,6 @@ Openings can be added and removed inside the object measurements. Net wall area 
 
 ## Model languages - dev.34
 Fixed Russian lexical validators incorrectly applied to every language; retries now respect the requested language. Prompt version 8. Seven Python tests passed; real Go API checks returned English (14.6 s) and Spanish (12.7 s) on the known kitchen photo. Quality remains provisional: the Spanish material list included natural light. No product quantities or professional approval are inferred from those results. Other rooms and the remaining model languages still need evaluation.
+
+## Material history - dev.35
+Repository now computes and saves an estimate from current confirmed surfaces inside one transaction. It retains the measurement snapshot, selected surfaces, user-entered product/source/rate, layers, waste, quantity, packages and calculation version. Old estimates survive later geometry edits unchanged. New persistence/isolation test passed; analysis clean. Synthetic test rates are not recommendations. The entry form and result rendering follow separately.
