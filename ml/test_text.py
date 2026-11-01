@@ -49,10 +49,10 @@ class TextValidationTest(unittest.TestCase):
 
 class MultilingualPlanTest(unittest.TestCase):
     def test_non_russian_material_names_are_not_checked_as_russian(self):
-        from worker import Plan,check_plan
+        from worker import Plan,WorkItem,check_plan
         plan=Plan(concept='Use light wall paint and retain the existing kitchen layout.',
-          work_steps=['Paint the walls','Update the floor finish','Replace the light fittings'],
-          materials=['Washable wall paint','Floor covering'],questions=['Which items should remain?','May the lights change?'],
+          work_steps=[WorkItem(work_scope='wall_paint',text='Paint the walls')],
+          materials=[WorkItem(work_scope='wall_paint',text='Washable wall paint')],questions=['Which items should remain?','May the lights change?'],
           uncertainties=['The wall condition needs inspection'])
         for language in ['en','es','fr','de','it','pt','tr']:
             check_plan(['A wooden table'],plan,language)
@@ -60,3 +60,12 @@ class MultilingualPlanTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class ScopedPlanTest(unittest.TestCase):
+    def test_unselected_floor_work_is_rejected_even_if_text_is_valid(self):
+        from worker import Plan,WorkItem,check_plan
+        plan=Plan(concept='Refresh the room with subtle lighting and preserve the floor.',
+            work_steps=[WorkItem(work_scope='floor_finish',text='Replace the floor covering')],
+            materials=[WorkItem(work_scope='floor_finish',text='New floor covering')],questions=[],uncertainties=['Existing wall condition'])
+        with self.assertRaisesRegex(ValueError,'scope_mismatch'):
+            check_plan(['Visible floor'],plan,'en',['lighting'])

@@ -44,9 +44,9 @@ def run(manifest, api, output):
                 if len(raw)>8*1024*1024: raise ValueError('Photo exceeds limit')
                 if case.get('sha256') and hashlib.sha256(raw).hexdigest()!=case['sha256']:
                     raise ValueError('Fixture checksum mismatch')
-                result = post('/v1/analysis', {'photo':base64.b64encode(raw).decode(), 'wish':case['wish'], 'language':case['language']}, session['access_token'])
+                result = post('/v1/analysis', {'photo':base64.b64encode(raw).decode(), 'wish':case['wish'], 'language':case['language'],'work_scopes':case['work_scopes']}, session['access_token'])
                 proposal = result['proposal']
-                report.update(result=result, structural_pass=(proposal['scene_matches']==case['interior'] and
+                report.update(result=result, structural_pass=(set(result.get('work_scopes',[]))==set(case['work_scopes']) and proposal['scene_matches']==case['interior'] and
                   (not case['interior'] or bool(proposal['concept'].strip())) and
                   (case['interior'] or (not proposal['work_steps'] and not proposal['materials']))))
             except urllib.error.HTTPError as error:

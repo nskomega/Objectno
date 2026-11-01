@@ -16,9 +16,10 @@ import (
 )
 
 type Input struct {
-	Photo    string `json:"photo"`
-	Wish     string `json:"wish"`
-	Language string `json:"language"`
+	Photo      string   `json:"photo"`
+	Wish       string   `json:"wish"`
+	Language   string   `json:"language"`
+	WorkScopes []string `json:"work_scopes"`
 }
 type Proposal struct {
 	SceneMatches  bool     `json:"scene_matches"`
@@ -31,6 +32,7 @@ type Proposal struct {
 }
 type Result struct {
 	Proposal      Proposal `json:"proposal"`
+	WorkScopes    []string `json:"work_scopes"`
 	Model         string   `json:"model"`
 	Revision      string   `json:"revision"`
 	PromptVersion int      `json:"prompt_version"`
@@ -133,7 +135,7 @@ func NewHandler(authenticate func(string) error, workerURL string, origins []str
 		var result Result
 		d := json.NewDecoder(bytes.NewReader(body))
 		d.DisallowUnknownFields()
-		if d.Decode(&result) != nil || d.Decode(new(any)) != io.EOF || !validResult(result) {
+		if d.Decode(&result) != nil || d.Decode(new(any)) != io.EOF || !validResult(result) || !sameScopes(input.WorkScopes, result.WorkScopes) {
 			fail(w, 502, "analysis_failed")
 			return
 		}
@@ -146,7 +148,39 @@ func NewHandler(authenticate func(string) error, workerURL string, origins []str
 		_ = json.NewEncoder(w).Encode(result)
 	})
 }
+func validScopes(scopes []string) bool {
+	if len(scopes) < 1 || len(scopes) > 4 {
+		return false
+	}
+	seen := map[string]bool{}
+	for _, scope := range scopes {
+		if seen[scope] || !map[string]bool{"wall_paint": true, "floor_finish": true, "lighting": true, "textiles": true}[scope] {
+			return false
+		}
+		seen[scope] = true
+	}
+	return true
+}
+func sameScopes(input, output []string) bool {
+	if !validScopes(output) || len(input) != len(output) {
+		return false
+	}
+	wanted := map[string]bool{}
+	for _, scope := range input {
+		wanted[scope] = true
+	}
+	for _, scope := range output {
+		if !wanted[scope] {
+			return false
+		}
+	}
+	return true
+}
 func validInput(v Input) bool {
+	if !validScopes(v.WorkScopes) {
+		return false
+	}
+
 	if len(v.Photo) > 11200000 || len(strings.TrimSpace(v.Wish)) == 0 || len(v.Wish) > 8000 {
 		return false
 	}
