@@ -87,7 +87,7 @@ class Engine:
                 if 'quantity_question' in fixes:hints.append('Спроси только, какие предметы оставить и можно ли менять светильники.')
                 if 'inspect_step' in fixes:hints.append('Каждый этап должен менять стены, пол или свет, а не быть осмотром.')
                 if 'repetitive_output' in fixes or 'invalid_output' in fixes:hints.append('Не повторяй пункты.')
-                extra='\nИсправь ответ. '+' '.join(hints)
+                extra=('\nИсправь ответ. '+' '.join(hints)) if language=='ru' else ('\nRevise the response in '+LANGUAGES[language]+'. Avoid duplicate points, unsupported visible details, product brands, URLs and quantities.')
         raise last
     def analyze(self,request):
         if request.language not in LANGUAGES:raise ValueError('unsupported_language')
@@ -136,12 +136,12 @@ work_steps: exactly 3 finish steps for walls, floor or lighting, not appliance r
 materials: 2 or 3 finish categories naming the surface, no brands, films or SKUs.
 questions: 2 questions about which visible items to keep and whether the lights may change. Do not ask what the result should be. uncertainties: 1 or 2 items needing measurement or inspection.
 No quantities, dimensions, prices, brands, URLs, hidden-service claims or wiring/plumbing instructions. Return JSON.'''
-            plan=self._generate_checked(prompt,Plan,request.language,image,lambda plan:check_plan(scene.observations,plan))
+            plan=self._generate_checked(prompt,Plan,request.language,image,lambda plan:check_plan(scene.observations,plan,request.language))
             proposal=Proposal(scene_matches=True,observations=scene.observations,**plan.model_dump())
         else:
             proposal=Proposal(scene_matches=False,observations=scene.observations,concept='',work_steps=[],materials=[],questions=[],uncertainties=[])
         validate_texts(request.language,[proposal.concept,*proposal.observations,*proposal.work_steps,*proposal.materials,*proposal.questions,*proposal.uncertainties])
-        return {'proposal':proposal.model_dump(),'model':MODEL_ID,'revision':REVISION,'prompt_version':7,
+        return {'proposal':proposal.model_dump(),'model':MODEL_ID,'revision':REVISION,'prompt_version':8,
           'elapsed_ms':round((time.monotonic()-started)*1000),'peak_memory_gb':round(mx.get_peak_memory()/1e9,3)}
 _LATIN_WORD=re.compile(r'[A-Za-z]{2,}')
 def validate_texts(language,texts):
@@ -170,7 +170,9 @@ def reject_materials(materials):
         if not re.search(r'крас|напольн|покрыти|светиль|ламп',material.casefold()):raise ValueError('banned_finish')
 def reject_quantity_questions(questions):
     if re.search(r'толщин|количеств|сколько|расход',' '.join(questions).casefold()):raise ValueError('quantity_question')
-def check_plan(observations,plan):
+def check_plan(observations,plan,language='ru'):
+    # The lexical rules below are Russian-specific, not universal vocabulary.
+    if language != 'ru':return
     reject_invented_finishes(observations,[plan.concept,*plan.work_steps,*plan.materials,*plan.questions,*plan.uncertainties])
     reject_weak_steps(plan.work_steps)
     reject_materials(plan.materials)

@@ -1,5 +1,9 @@
 # Изменения
 
+## 0.1.0-dev.34 - 2026-11-01
+- Russian-only lexical checks no longer reject material names in other languages. Retry instructions use the requested language; prompt version is 8. General JSON and text checks remain enabled.
+- Seven Python tests passed. Real authenticated API checks returned English in 14.6 s and Spanish in 12.7 s on the same kitchen photo. These checks establish language routing only, not professional quality: Spanish still called natural light a material.
+
 ## 0.1.0-dev.33 - 2026-11-01
 - Добавлено пропущенное описание dev.32 отдельным коммитом без переписывания истории. Поведение приложения не изменено.
 

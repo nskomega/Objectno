@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 01.11.2026. Исходники: 0.1.0-dev.33.
+Обновлено: 01.11.2026. Исходники: 0.1.0-dev.34.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; кандидат Qwen3-VL-4B проверен на одном кухонном кадре, качество для продукта ещё не принято.
@@ -117,3 +117,6 @@ Flutter подключён к /v1/analysis: кнопка у исходного �
 
 ## Openings UI - dev.32 / documentation dev.33
 Openings can be added and removed inside the object measurements. Net wall area uses the calculation core; eight languages are supported. All 64 Flutter tests passed, analysis was clean, and three opening tests passed again after adding input hints. Simulator build 32 succeeded; native room dimensions were saved and the opening form opened. Saving an opening on native iOS remains unverified. Widget tests cover 25 to 23.4 square metres, invalid bounds and 3x text in both themes. The dev.32 changelog write failed before its commit; dev.33 adds the missing release description without rewriting history.
+
+## Model languages - dev.34
+Fixed Russian lexical validators incorrectly applied to every language; retries now respect the requested language. Prompt version 8. Seven Python tests passed; real Go API checks returned English (14.6 s) and Spanish (12.7 s) on the known kitchen photo. Quality remains provisional: the Spanish material list included natural light. No product quantities or professional approval are inferred from those results. Other rooms and the remaining model languages still need evaluation.
