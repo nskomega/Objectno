@@ -371,4 +371,38 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get historyEmpty =>
       'Geçmişi başlatmak için başlangıç fotoğrafı ve isteklerinizi ekleyin.';
+
+  @override
+  String get analyzePhoto => 'Öneri oluştur';
+
+  @override
+  String get analysisWorking =>
+      'Mac üzerinde analiz ediliyor. Yaklaşık bir dakika sürebilir.';
+
+  @override
+  String get analysisDraft =>
+      'Ön taslak. Gözlemleri doğrulayın; bunlar ölçüm veya tamamlanmış bir tadilat rehberi değildir.';
+
+  @override
+  String get analysisFailed =>
+      'Öneri alınamadı. Yerel sunucuyu kontrol edip tekrar deneyin.';
+
+  @override
+  String get analysisNotRoom =>
+      'Oda tanınamadı. Odanın başlangıç fotoğrafını ekleyin.';
+
+  @override
+  String get analysisObservations => 'Fotoğrafta görünenler';
+
+  @override
+  String get analysisSteps => 'Önerilen aşamalar';
+
+  @override
+  String get analysisMaterials => 'Malzeme kategorileri';
+
+  @override
+  String get analysisQuestions => 'Sorular';
+
+  @override
+  String get analysisUnknowns => 'Bilinmeyenler';
 }

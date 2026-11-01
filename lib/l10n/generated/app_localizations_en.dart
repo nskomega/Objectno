@@ -371,4 +371,38 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get historyEmpty =>
       'Add an initial photo and your wishes to start the project history.';
+
+  @override
+  String get analyzePhoto => 'Get a proposal';
+
+  @override
+  String get analysisWorking =>
+      'Analyzing on your Mac. This may take about a minute.';
+
+  @override
+  String get analysisDraft =>
+      'Preliminary draft. Confirm observations; this is not a measurement or a finished renovation guide.';
+
+  @override
+  String get analysisFailed =>
+      'Could not get a proposal. Check the local server and retry.';
+
+  @override
+  String get analysisNotRoom =>
+      'No room recognized. Add an initial room photo.';
+
+  @override
+  String get analysisObservations => 'Visible in the photo';
+
+  @override
+  String get analysisSteps => 'Suggested steps';
+
+  @override
+  String get analysisMaterials => 'Material categories';
+
+  @override
+  String get analysisQuestions => 'Questions';
+
+  @override
+  String get analysisUnknowns => 'Unknowns';
 }

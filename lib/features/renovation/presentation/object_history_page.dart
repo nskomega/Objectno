@@ -1,3 +1,4 @@
+import '../data/analysis_service.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -14,6 +15,7 @@ String phaseLabel(AppLocalizations l, String phase) => switch (phase) {
   'before' => l.beforeStage,
   'progress' => l.progressStage,
   'result' => l.resultStage,
+  'proposal' => l.proposalStage,
   _ => l.issuesHeading,
 };
 
@@ -99,7 +101,13 @@ class ObjectHistoryPage extends StatelessWidget {
                           _HistoryCard(record: records[i]),
                           if (i ==
                               records.indexWhere((r) => r['phase'] == 'before'))
-                            const _ProposalPending(),
+                            _GenerateProposal(
+                              repository: repository,
+                              objectId: objectId,
+                              source: history.data!.firstWhere(
+                                (r) => r.value['phase'] == 'before',
+                              ),
+                            ),
                         ],
                         const SizedBox(height: 24),
                       ],
@@ -125,6 +133,129 @@ class ObjectHistoryPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _GenerateProposal extends StatefulWidget {
+  const _GenerateProposal({
+    required this.repository,
+    required this.objectId,
+    required this.source,
+  });
+  final JournalRepository repository;
+  final int objectId;
+  final Entry source;
+  @override
+  State<_GenerateProposal> createState() => _GenerateProposalState();
+}
+
+class _GenerateProposalState extends State<_GenerateProposal> {
+  bool _busy = false;
+  String? _error;
+  Future<void> _run(AnalysisService service) async {
+    final language = Localizations.localeOf(context).languageCode;
+    setState(() {
+      _busy = true;
+      _error = null;
+    });
+    try {
+      final result = await service.analyze(
+        photo: widget.source.value['photo'] as String,
+        wish: widget.source.value['description'] as String,
+        language: language,
+      );
+      if (!mounted) return;
+      if (!result.matches) {
+        setState(() => _error = 'notRoom');
+        return;
+      }
+      await widget.repository.addProposal(
+        widget.objectId,
+        widget.source.key,
+        result,
+      );
+    } catch (_) {
+      if (mounted) setState(() => _error = 'failed');
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    final service = AnalysisScope.of(context);
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              l.proposalStage,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 8),
+            Text(l.analysisDraft),
+            if (service?.enabled != true) Text(l.proposalPending),
+            if (_busy) ...[
+              const SizedBox(height: 12),
+              const LinearProgressIndicator(),
+              Text(l.analysisWorking),
+            ],
+            if (_error != null)
+              Text(
+                _error == 'notRoom' ? l.analysisNotRoom : l.analysisFailed,
+                style: TextStyle(color: Theme.of(context).colorScheme.error),
+              ),
+            const SizedBox(height: 12),
+            FilledButton(
+              onPressed: _busy || service?.enabled != true
+                  ? null
+                  : () => _run(service!),
+              child: Text(l.analyzePhoto),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ProposalDetails extends StatelessWidget {
+  const _ProposalDetails({required this.analysis});
+  final Map analysis;
+  @override
+  Widget build(BuildContext context) {
+    final l = context.l10n;
+    final proposal = analysis['proposal'] as Map;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 12),
+        Text(l.analysisDraft),
+        for (final section in [
+          (l.analysisObservations, 'observations'),
+          (l.analysisSteps, 'work_steps'),
+          (l.analysisMaterials, 'materials'),
+          (l.analysisQuestions, 'questions'),
+          (l.analysisUnknowns, 'uncertainties'),
+        ]) ...[
+          const SizedBox(height: 16),
+          Text(section.$1, style: Theme.of(context).textTheme.titleMedium),
+          for (final text in proposal[section.$2] as List)
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text('• $text'),
+            ),
+        ],
+        const SizedBox(height: 16),
+        Text(
+          '${analysis['model']} · ${analysis['revision']}',
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+      ],
     );
   }
 }
@@ -179,6 +310,8 @@ class _HistoryCard extends StatelessWidget {
               ),
             const SizedBox(height: 12),
             Text(record['description'] as String),
+            if (record['phase'] == 'proposal')
+              _ProposalDetails(analysis: record['analysis'] as Map),
             if (record['phase'] == 'issue')
               Text(record['done'] == true ? l.statusDone : l.statusOpen),
             if (photo != null) ...[

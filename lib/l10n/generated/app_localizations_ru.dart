@@ -373,4 +373,38 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get historyEmpty =>
       'Добавьте исходное фото и пожелания, чтобы начать историю объекта.';
+
+  @override
+  String get analyzePhoto => 'Получить предложение';
+
+  @override
+  String get analysisWorking =>
+      'Анализируем фото на Mac. Это может занять около минуты.';
+
+  @override
+  String get analysisDraft =>
+      'Предварительное предложение. Наблюдения нужно подтвердить; это не обмеры и не готовая инструкция по ремонту.';
+
+  @override
+  String get analysisFailed =>
+      'Не удалось получить предложение. Проверьте локальный сервер и попробуйте снова.';
+
+  @override
+  String get analysisNotRoom =>
+      'Не удалось распознать помещение. Добавьте исходное фото комнаты.';
+
+  @override
+  String get analysisObservations => 'Что видно на фото';
+
+  @override
+  String get analysisSteps => 'Предлагаемые этапы';
+
+  @override
+  String get analysisMaterials => 'Категории материалов';
+
+  @override
+  String get analysisQuestions => 'Что уточнить';
+
+  @override
+  String get analysisUnknowns => 'Что пока неизвестно';
 }

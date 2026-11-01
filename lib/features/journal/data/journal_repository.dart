@@ -1,3 +1,4 @@
+import '../../renovation/data/analysis_result.dart' show AnalysisResult;
 import 'dart:convert';
 import '../../renovation/domain/quantity_calculator.dart';
 import 'package:sembast/sembast.dart';
@@ -123,6 +124,29 @@ class JournalRepository {
         ),
       )
       .onSnapshots(database);
+
+  Future<int> addProposal(int objectId, int sourceId, AnalysisResult result) {
+    if (!result.matches) throw ArgumentError('Not an interior');
+    return database.transaction((txn) async {
+      final source = await history.record(sourceId).get(txn);
+      if (!await objects.record(objectId).exists(txn) ||
+          source == null ||
+          source['objectId'] != objectId ||
+          source['phase'] != 'before' ||
+          source['photo'] == null) {
+        throw StateError('Source no longer exists');
+      }
+      return history.add(txn, {
+        'objectId': objectId,
+        'sourceHistoryId': sourceId,
+        'phase': 'proposal',
+        'origin': 'local_model',
+        'description': result.concept,
+        'analysis': result.json,
+        'createdAt': DateTime.now().toUtc().toIso8601String(),
+      });
+    });
+  }
 
   Map<String, Object?> _historyValue(
     int objectId,

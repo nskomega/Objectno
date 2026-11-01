@@ -1,3 +1,4 @@
+import '../features/renovation/data/analysis_service.dart';
 import '../features/auth/application/session_controller.dart';
 import '../features/auth/data/auth_api.dart';
 import '../features/auth/data/session_vault.dart';
@@ -18,6 +19,7 @@ class ObjectnoApp extends StatefulWidget {
 
 class _ObjectnoAppState extends State<ObjectnoApp> {
   late final SessionController _session;
+  late final AnalysisService _analysis;
   JournalRepository? _repository;
   bool _sessionReady = false;
   String? _accountId;
@@ -34,6 +36,7 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
           api: AuthApi(baseUrl: const String.fromEnvironment('API_BASE_URL')),
           vault: createSessionVault(),
         );
+    _analysis = AnalysisService(_session);
     _session.addListener(_sessionChanged);
     _restoreSession();
     _load();
@@ -105,6 +108,7 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
 
   @override
   void dispose() {
+    _analysis.close();
     _session.removeListener(_sessionChanged);
     if (widget.session == null) _session.dispose();
     if (widget.repository == null) _repository?.database.close();
@@ -114,6 +118,8 @@ class _ObjectnoAppState extends State<ObjectnoApp> {
   @override
   Widget build(BuildContext context) => MaterialApp(
     navigatorKey: _navigatorKey,
+    builder: (context, child) =>
+        AnalysisScope(service: _analysis, child: child!),
     onGenerateTitle: (context) => context.l10n.appName,
     locale: _language == 'system' ? null : Locale(_language),
     supportedLocales: AppLocalizations.supportedLocales,

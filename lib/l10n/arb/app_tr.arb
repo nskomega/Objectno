@@ -114,5 +114,45 @@
   "proposalPending": "Fotoğraf analizi ve öneri üretimi henüz bağlı değil. Bu proje için çözümler burada görünecek.",
   "photoRequired": "Başlangıç durumunun fotoğrafını ekleyin.",
   "entryStage": "Aşama",
-  "historyEmpty": "Geçmişi başlatmak için başlangıç fotoğrafı ve isteklerinizi ekleyin."
+  "historyEmpty": "Geçmişi başlatmak için başlangıç fotoğrafı ve isteklerinizi ekleyin.",
+  "analyzePhoto": "Öneri oluştur",
+  "analysisWorking": "Mac üzerinde analiz ediliyor. Yaklaşık bir dakika sürebilir.",
+  "analysisDraft": "Ön taslak. Gözlemleri doğrulayın; bunlar ölçüm veya tamamlanmış bir tadilat rehberi değildir.",
+  "analysisFailed": "Öneri alınamadı. Yerel sunucuyu kontrol edip tekrar deneyin.",
+  "analysisNotRoom": "Oda tanınamadı. Odanın başlangıç fotoğrafını ekleyin.",
+  "analysisObservations": "Fotoğrafta görünenler",
+  "analysisSteps": "Önerilen aşamalar",
+  "analysisMaterials": "Malzeme kategorileri",
+  "analysisQuestions": "Sorular",
+  "analysisUnknowns": "Bilinmeyenler",
+  "@analyzePhoto": {
+    "description": "analyzePhoto"
+  },
+  "@analysisWorking": {
+    "description": "analysisWorking"
+  },
+  "@analysisDraft": {
+    "description": "analysisDraft"
+  },
+  "@analysisFailed": {
+    "description": "analysisFailed"
+  },
+  "@analysisNotRoom": {
+    "description": "analysisNotRoom"
+  },
+  "@analysisObservations": {
+    "description": "analysisObservations"
+  },
+  "@analysisSteps": {
+    "description": "analysisSteps"
+  },
+  "@analysisMaterials": {
+    "description": "analysisMaterials"
+  },
+  "@analysisQuestions": {
+    "description": "analysisQuestions"
+  },
+  "@analysisUnknowns": {
+    "description": "analysisUnknowns"
+  }
 }

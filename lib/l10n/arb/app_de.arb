@@ -114,5 +114,45 @@
   "proposalPending": "Fotoanalyse und Vorschlagserstellung sind noch nicht verbunden. Lösungen für dieses Projekt erscheinen hier.",
   "photoRequired": "Füge ein Foto des Ausgangszustands hinzu.",
   "entryStage": "Phase",
-  "historyEmpty": "Füge ein Ausgangsfoto und deine Wünsche hinzu, um den Verlauf zu beginnen."
+  "historyEmpty": "Füge ein Ausgangsfoto und deine Wünsche hinzu, um den Verlauf zu beginnen.",
+  "analyzePhoto": "Vorschlag erstellen",
+  "analysisWorking": "Analyse auf deinem Mac. Dies kann etwa eine Minute dauern.",
+  "analysisDraft": "Vorläufiger Entwurf. Beobachtungen bestätigen; keine Vermessung oder fertige Renovierungsanleitung.",
+  "analysisFailed": "Vorschlag fehlgeschlagen. Lokalen Server prüfen und erneut versuchen.",
+  "analysisNotRoom": "Kein Raum erkannt. Ein Ausgangsfoto des Raums hinzufügen.",
+  "analysisObservations": "Auf dem Foto sichtbar",
+  "analysisSteps": "Vorgeschlagene Schritte",
+  "analysisMaterials": "Materialkategorien",
+  "analysisQuestions": "Fragen",
+  "analysisUnknowns": "Unbekannte Angaben",
+  "@analyzePhoto": {
+    "description": "analyzePhoto"
+  },
+  "@analysisWorking": {
+    "description": "analysisWorking"
+  },
+  "@analysisDraft": {
+    "description": "analysisDraft"
+  },
+  "@analysisFailed": {
+    "description": "analysisFailed"
+  },
+  "@analysisNotRoom": {
+    "description": "analysisNotRoom"
+  },
+  "@analysisObservations": {
+    "description": "analysisObservations"
+  },
+  "@analysisSteps": {
+    "description": "analysisSteps"
+  },
+  "@analysisMaterials": {
+    "description": "analysisMaterials"
+  },
+  "@analysisQuestions": {
+    "description": "analysisQuestions"
+  },
+  "@analysisUnknowns": {
+    "description": "analysisUnknowns"
+  }
 }

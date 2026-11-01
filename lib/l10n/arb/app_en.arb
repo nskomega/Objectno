@@ -469,5 +469,45 @@
   },
   "@historyEmpty": {
     "description": "Unified renovation object: historyEmpty"
+  },
+  "analyzePhoto": "Get a proposal",
+  "analysisWorking": "Analyzing on your Mac. This may take about a minute.",
+  "analysisDraft": "Preliminary draft. Confirm observations; this is not a measurement or a finished renovation guide.",
+  "analysisFailed": "Could not get a proposal. Check the local server and retry.",
+  "analysisNotRoom": "No room recognized. Add an initial room photo.",
+  "analysisObservations": "Visible in the photo",
+  "analysisSteps": "Suggested steps",
+  "analysisMaterials": "Material categories",
+  "analysisQuestions": "Questions",
+  "analysisUnknowns": "Unknowns",
+  "@analyzePhoto": {
+    "description": "analyzePhoto"
+  },
+  "@analysisWorking": {
+    "description": "analysisWorking"
+  },
+  "@analysisDraft": {
+    "description": "analysisDraft"
+  },
+  "@analysisFailed": {
+    "description": "analysisFailed"
+  },
+  "@analysisNotRoom": {
+    "description": "analysisNotRoom"
+  },
+  "@analysisObservations": {
+    "description": "analysisObservations"
+  },
+  "@analysisSteps": {
+    "description": "analysisSteps"
+  },
+  "@analysisMaterials": {
+    "description": "analysisMaterials"
+  },
+  "@analysisQuestions": {
+    "description": "analysisQuestions"
+  },
+  "@analysisUnknowns": {
+    "description": "analysisUnknowns"
   }
 }
