@@ -38,3 +38,6 @@ On 2026-11-01 build 20 was signed and installed after the owner reconnected the 
 
 ## Build 20 manual checks confirmed
 The owner confirmed legacy issue/photo retention in the updated history and successful creation of a new object with wishes and its initial photo in a Before entry. Recorded 2026-11-01 in dev.22. Progress/result events, measurements and inference remain separate checks/features.
+
+## Keychain на симуляторе
+С dev.29 scripts/build-ios-simulator.sh включает штатную ad-hoc подпись Xcode, которая также создаёт simulated entitlements. CODE_SIGNING_ALLOWED=NO оставлял приложение без Keychain identity и приводил к -34018. Нельзя подменять нативное безопасное хранилище памятью для сокрытия этой ошибки. Это отдельный путь от подписи настоящего устройства. Документация Apple: https://developer.apple.com/forums/thread/114456 .
