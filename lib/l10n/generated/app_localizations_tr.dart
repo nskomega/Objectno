@@ -507,4 +507,23 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Üstten görünüm. Açıklıklar turuncudur; kapı kanatları ve tesisat modellenmez. Numaralar seçilen duvarlarla eşleşir.';
+
+  @override
+  String get analysisWorkScope => 'Hangi işler önerilsin?';
+
+  @override
+  String get scopeWallPaint => 'Duvar boyası';
+
+  @override
+  String get scopeFloorFinish => 'Zemin kaplaması';
+
+  @override
+  String get scopeLighting => 'Aydınlatma';
+
+  @override
+  String get scopeTextiles => 'Tekstil';
+
+  @override
+  String get analysisScopeHelp =>
+      'İş kategorilerini seçin. Seçilmeyenler isteğe dahil edilmez; korunacak öğeleri isteklerinizde belirtin.';
 }

@@ -298,5 +298,29 @@
   },
   "@measuredPlanNote": {
     "description": "measuredPlanNote"
+  },
+  "analysisWorkScope": "¿Qué trabajos proponer?",
+  "scopeWallPaint": "Pintura de paredes",
+  "scopeFloorFinish": "Revestimiento del suelo",
+  "scopeLighting": "Iluminación",
+  "scopeTextiles": "Textiles",
+  "analysisScopeHelp": "Elige categorías. Las no seleccionadas se excluyen de la solicitud; indica qué conservar en tus preferencias.",
+  "@analysisWorkScope": {
+    "description": "analysisWorkScope"
+  },
+  "@scopeWallPaint": {
+    "description": "scopeWallPaint"
+  },
+  "@scopeFloorFinish": {
+    "description": "scopeFloorFinish"
+  },
+  "@scopeLighting": {
+    "description": "scopeLighting"
+  },
+  "@scopeTextiles": {
+    "description": "scopeTextiles"
+  },
+  "@analysisScopeHelp": {
+    "description": "analysisScopeHelp"
   }
 }

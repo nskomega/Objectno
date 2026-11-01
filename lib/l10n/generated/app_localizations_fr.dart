@@ -509,4 +509,23 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Vue de dessus. Ouvertures en orange ; vantaux et réseaux non modélisés. Les numéros correspondent aux murs.';
+
+  @override
+  String get analysisWorkScope => 'Quels travaux proposer ?';
+
+  @override
+  String get scopeWallPaint => 'Peinture des murs';
+
+  @override
+  String get scopeFloorFinish => 'Revêtement de sol';
+
+  @override
+  String get scopeLighting => 'Luminaires';
+
+  @override
+  String get scopeTextiles => 'Textiles';
+
+  @override
+  String get analysisScopeHelp =>
+      'Choisissez les catégories. Les autres sont exclues de la demande ; indiquez les éléments à conserver dans vos souhaits.';
 }

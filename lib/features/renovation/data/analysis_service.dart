@@ -18,8 +18,11 @@ class AnalysisService {
     required String photo,
     required String wish,
     required String language,
+    required Set<WorkScope> workScopes,
   }) async {
     if (!enabled) throw const AnalysisFailure('unavailable');
+    if (workScopes.isEmpty) throw const AnalysisFailure('invalid');
+    final requestedScopes = workScopes.map((scope) => scope.value).toSet();
     final token = await session.accessToken();
     final identity = session.user?.id;
     try {
@@ -34,6 +37,7 @@ class AnalysisService {
               'photo': photo,
               'wish': wish,
               'language': language,
+              'work_scopes': requestedScopes.toList()..sort(),
             });
       final result = await (() async {
         final response = await _client.send(request);
@@ -52,6 +56,11 @@ class AnalysisService {
           jsonDecode(utf8.decode(bytes)) as Map<String, dynamic>,
         );
       })().timeout(const Duration(seconds: 160));
+      final returnedScopes = (result.json['work_scopes'] as List).toSet();
+      if (returnedScopes.length != requestedScopes.length ||
+          !returnedScopes.containsAll(requestedScopes)) {
+        throw const AnalysisFailure('invalid');
+      }
       if (identity == null || session.user?.id != identity) {
         throw const AnalysisFailure('session_changed');
       }

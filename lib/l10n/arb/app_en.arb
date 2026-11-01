@@ -653,5 +653,29 @@
   },
   "@measuredPlanNote": {
     "description": "measuredPlanNote"
+  },
+  "analysisWorkScope": "Which work should be proposed?",
+  "scopeWallPaint": "Wall paint",
+  "scopeFloorFinish": "Floor finish",
+  "scopeLighting": "Lighting",
+  "scopeTextiles": "Textiles",
+  "analysisScopeHelp": "Select work categories. Unselected categories are excluded from the request; describe what to preserve in your wishes.",
+  "@analysisWorkScope": {
+    "description": "analysisWorkScope"
+  },
+  "@scopeWallPaint": {
+    "description": "scopeWallPaint"
+  },
+  "@scopeFloorFinish": {
+    "description": "scopeFloorFinish"
+  },
+  "@scopeLighting": {
+    "description": "scopeLighting"
+  },
+  "@scopeTextiles": {
+    "description": "scopeTextiles"
+  },
+  "@analysisScopeHelp": {
+    "description": "analysisScopeHelp"
   }
 }

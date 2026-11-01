@@ -507,4 +507,23 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get measuredPlanNote =>
       'Top view. Openings are orange; door leaves and utility routes are not modeled. Numbers match the selected walls.';
+
+  @override
+  String get analysisWorkScope => 'Which work should be proposed?';
+
+  @override
+  String get scopeWallPaint => 'Wall paint';
+
+  @override
+  String get scopeFloorFinish => 'Floor finish';
+
+  @override
+  String get scopeLighting => 'Lighting';
+
+  @override
+  String get scopeTextiles => 'Textiles';
+
+  @override
+  String get analysisScopeHelp =>
+      'Select work categories. Unselected categories are excluded from the request; describe what to preserve in your wishes.';
 }
