@@ -500,4 +500,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Select surfaces and units; check consumption, package size, coats and waste.';
+
+  @override
+  String get measuredPlan => 'Measured floor plan';
+
+  @override
+  String get measuredPlanNote =>
+      'Top view. Openings are orange; door leaves and utility routes are not modeled. Numbers match the selected walls.';
 }

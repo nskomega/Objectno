@@ -1,3 +1,4 @@
+import 'measured_plan.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../../l10n/l10n.dart';
@@ -86,6 +87,7 @@ class _OpeningsPanelState extends State<OpeningsPanel> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(l.netWallArea(number.format(net / 1000000))),
+        MeasuredPlan(room: widget.room),
         ExpansionTile(
           title: Text(l.openings),
           childrenPadding: const EdgeInsets.symmetric(vertical: 12),

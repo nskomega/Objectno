@@ -290,5 +290,13 @@
   },
   "@estimateInvalid": {
     "description": "estimateInvalid"
+  },
+  "measuredPlan": "Planta pelas medidas",
+  "measuredPlanNote": "Vista superior. Vãos em laranja; folhas e instalações não são modeladas. Os números correspondem às paredes.",
+  "@measuredPlan": {
+    "description": "measuredPlan"
+  },
+  "@measuredPlanNote": {
+    "description": "measuredPlanNote"
   }
 }

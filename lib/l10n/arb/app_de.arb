@@ -290,5 +290,13 @@
   },
   "@estimateInvalid": {
     "description": "estimateInvalid"
+  },
+  "measuredPlan": "Grundriss nach Aufmaß",
+  "measuredPlanNote": "Draufsicht. Öffnungen sind orange; Türblätter und Leitungen werden nicht dargestellt. Nummern entsprechen den Wänden.",
+  "@measuredPlan": {
+    "description": "measuredPlan"
+  },
+  "@measuredPlanNote": {
+    "description": "measuredPlanNote"
   }
 }

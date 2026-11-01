@@ -502,4 +502,11 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Выберите поверхности и единицы; проверьте норму, фасовку, слои и запас.';
+
+  @override
+  String get measuredPlan => 'План по обмерам';
+
+  @override
+  String get measuredPlanNote =>
+      'Вид сверху. Проёмы выделены оранжевым; створки и инженерные сети не моделируются. Номера соответствуют выбранным стенам.';
 }

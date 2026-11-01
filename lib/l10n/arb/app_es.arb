@@ -290,5 +290,13 @@
   },
   "@estimateInvalid": {
     "description": "estimateInvalid"
+  },
+  "measuredPlan": "Plano según medidas",
+  "measuredPlanNote": "Vista superior. Huecos en naranja; no se modelan hojas ni instalaciones. Los números corresponden a las paredes.",
+  "@measuredPlan": {
+    "description": "measuredPlan"
+  },
+  "@measuredPlanNote": {
+    "description": "measuredPlanNote"
   }
 }

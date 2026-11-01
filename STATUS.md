@@ -1,5 +1,5 @@
 # Состояние Objectno
-Обновлено: 01.11.2026. Исходники: 0.1.0-dev.36.
+Обновлено: 01.11.2026. Исходники: 0.1.0-dev.37.
 
 ## Цель и объём
 Подготовить первую отправку в App Store и Google Play, затем ежедневные полезные обновления. Цель не выполнена, публикаций нет. Актуальные требования: docs/product-proposal.md. Помощник по ремонту ванной, кухни, спальни и других помещений; санузел — пример. Фото, текст/голос, уточнения, визуализация, размерные схемы, расчёты материалов, реальные товары, инструкции и заказ исполнителей входят в требования первого выпуска, но ещё не реализованы. Модели должны работать на собственных вычислениях без платных API; кандидат Qwen3-VL-4B проверен на одном кухонном кадре, качество для продукта ещё не принято.
@@ -126,3 +126,8 @@ Repository now computes and saves an estimate from current confirmed surfaces in
 
 ## Product estimate UI - dev.36
 The object measurement card opens a product-based calculation form. Surfaces and units are chosen explicitly; product/source/rate/package/layers/waste have no invented defaults. Saving returns to the common history with quantity, package count and calculation inputs. Eight languages and both themes. All 67 Flutter tests passed; analysis clean; simulator build 36 succeeded. The two new widget tests exercise the complete form/history route at 3x. Native testing is still in progress; no store upload and no real supplier catalog.
+
+## Measured plan - dev.37
+The measurement section now renders a proportional top view with four wall numbers, marked openings and dimensions from the saved room. No inferred door swing or utility routes. Eight languages; system text scaling preserved. Both 3x visual renders were inspected using an optional local font for test previews only; app fonts unchanged. All 69 Flutter tests passed, analysis clean; Go race tests and vet passed. Native UI testing of the opening save, material form and plan is blocked by the locked Mac; an unlock question is pending. Latest model prompt is 8; seven Python tests passed in dev.34.
+
+Build verification for dev.37: Android debug APK and iOS simulator app both built successfully after the final plan color change. CFBundleVersion is 37. Android uses the emulator API address 10.0.2.2:8088; iOS simulator uses 127.0.0.1:8088. These are debug configurations, not store artifacts.

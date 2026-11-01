@@ -290,5 +290,13 @@
   },
   "@estimateInvalid": {
     "description": "estimateInvalid"
+  },
+  "measuredPlan": "Pianta dalle misure",
+  "measuredPlanNote": "Vista dall’alto. Aperture in arancione; ante e impianti non sono modellati. I numeri corrispondono alle pareti.",
+  "@measuredPlan": {
+    "description": "measuredPlan"
+  },
+  "@measuredPlanNote": {
+    "description": "measuredPlanNote"
   }
 }

@@ -645,5 +645,13 @@
   },
   "@estimateInvalid": {
     "description": "estimateInvalid"
+  },
+  "measuredPlan": "Measured floor plan",
+  "measuredPlanNote": "Top view. Openings are orange; door leaves and utility routes are not modeled. Numbers match the selected walls.",
+  "@measuredPlan": {
+    "description": "measuredPlan"
+  },
+  "@measuredPlanNote": {
+    "description": "measuredPlanNote"
   }
 }

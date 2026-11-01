@@ -290,5 +290,13 @@
   },
   "@estimateInvalid": {
     "description": "estimateInvalid"
+  },
+  "measuredPlan": "Ölçülere göre plan",
+  "measuredPlanNote": "Üstten görünüm. Açıklıklar turuncudur; kapı kanatları ve tesisat modellenmez. Numaralar seçilen duvarlarla eşleşir.",
+  "@measuredPlan": {
+    "description": "measuredPlan"
+  },
+  "@measuredPlanNote": {
+    "description": "measuredPlanNote"
   }
 }

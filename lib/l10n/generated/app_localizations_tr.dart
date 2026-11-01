@@ -500,4 +500,11 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Yüzey ve birim seçin; tüketim, paket, kat ve fireyi kontrol edin.';
+
+  @override
+  String get measuredPlan => 'Ölçülere göre plan';
+
+  @override
+  String get measuredPlanNote =>
+      'Üstten görünüm. Açıklıklar turuncudur; kapı kanatları ve tesisat modellenmez. Numaralar seçilen duvarlarla eşleşir.';
 }

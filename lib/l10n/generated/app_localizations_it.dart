@@ -499,4 +499,11 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Scegli superfici e unità; verifica consumo, confezione, strati e scorta.';
+
+  @override
+  String get measuredPlan => 'Pianta dalle misure';
+
+  @override
+  String get measuredPlanNote =>
+      'Vista dall’alto. Aperture in arancione; ante e impianti non sono modellati. I numeri corrispondono alle pareti.';
 }

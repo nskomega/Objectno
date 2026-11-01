@@ -290,5 +290,13 @@
   },
   "@estimateInvalid": {
     "description": "estimateInvalid"
+  },
+  "measuredPlan": "План по обмерам",
+  "measuredPlanNote": "Вид сверху. Проёмы выделены оранжевым; створки и инженерные сети не моделируются. Номера соответствуют выбранным стенам.",
+  "@measuredPlan": {
+    "description": "measuredPlan"
+  },
+  "@measuredPlanNote": {
+    "description": "measuredPlanNote"
   }
 }

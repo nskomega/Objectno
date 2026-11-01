@@ -502,4 +502,11 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get estimateInvalid =>
       'Choisissez les surfaces et unités ; vérifiez consommation, emballage, couches et marge.';
+
+  @override
+  String get measuredPlan => 'Plan selon les mesures';
+
+  @override
+  String get measuredPlanNote =>
+      'Vue de dessus. Ouvertures en orange ; vantaux et réseaux non modélisés. Les numéros correspondent aux murs.';
 }
