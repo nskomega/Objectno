@@ -72,7 +72,9 @@ class ObjectHistoryPage extends StatelessWidget {
                     }
                     final records =
                         [
-                          ...history.data!.map((r) => r.value),
+                          ...history.data!.map(
+                            (r) => {...r.value, '_historyId': r.key},
+                          ),
                           ...issues.data!.map(
                             (r) => {...r.value, 'phase': 'issue'},
                           ),
@@ -100,13 +102,15 @@ class ObjectHistoryPage extends StatelessWidget {
                           const _ProposalPending(),
                         for (var i = 0; i < records.length; i++) ...[
                           _HistoryCard(record: records[i]),
-                          if (i ==
-                              records.indexWhere((r) => r['phase'] == 'before'))
+                          if (records[i]['phase'] == 'before')
                             _GenerateProposal(
+                              key: ValueKey<int>(
+                                records[i]['_historyId'] as int,
+                              ),
                               repository: repository,
                               objectId: objectId,
                               source: history.data!.firstWhere(
-                                (r) => r.value['phase'] == 'before',
+                                (r) => r.key == records[i]['_historyId'],
                               ),
                             ),
                         ],
@@ -140,6 +144,7 @@ class ObjectHistoryPage extends StatelessWidget {
 
 class _GenerateProposal extends StatefulWidget {
   const _GenerateProposal({
+    super.key,
     required this.repository,
     required this.objectId,
     required this.source,

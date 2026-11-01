@@ -134,6 +134,14 @@ void main() {
       final id = (await tester.runAsync(
         () => repo.createRenovation('Kitchen', 'Light walls', photo),
       ))!;
+      final secondSource = (await tester.runAsync(
+        () => repo.addHistory(
+          id,
+          'Updated wishes',
+          phase: 'before',
+          photo: photo,
+        ),
+      ))!;
       final session = SessionController(
         vault: MemorySessionVault(),
         api: AuthApi(
@@ -154,9 +162,10 @@ void main() {
       addTearDown(session.dispose);
       final service = AnalysisService(
         session,
-        client: MockClient(
-          (r) async => http.Response(jsonEncode(draft()), 200),
-        ),
+        client: MockClient((r) async {
+          expect(jsonDecode(r.body)['wish'], 'Updated wishes');
+          return http.Response(jsonEncode(draft()), 200);
+        }),
       );
       addTearDown(service.close);
       await tester.pumpWidget(
@@ -183,13 +192,13 @@ void main() {
       );
       await tester.pumpAndSettle();
       await tester.scrollUntilVisible(
-        find.text('Get a proposal'),
+        find.byKey(ValueKey(secondSource)),
         350,
         scrollable: find.byType(Scrollable).first,
       );
-      await tester.ensureVisible(find.text('Get a proposal'));
+      await tester.ensureVisible(find.text('Get a proposal').last);
       await tester.pumpAndSettle();
-      await tester.tap(find.text('Get a proposal'));
+      await tester.tap(find.text('Get a proposal').last);
       await tester.pumpAndSettle();
       expect(
         (await tester.runAsync(
@@ -201,6 +210,12 @@ void main() {
         find.text('Light walls, keep furniture.'),
         350,
         scrollable: find.byType(Scrollable).first,
+      );
+      expect(
+        (await tester.runAsync(
+          () => repo.watchHistory(id).first,
+        ))!.last.value['sourceHistoryId'],
+        secondSource,
       );
       expect(find.text('Light walls, keep furniture.'), findsOneWidget);
       expect(tester.takeException(), isNull);
