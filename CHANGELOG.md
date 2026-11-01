@@ -1,5 +1,9 @@
 # Изменения
 
+## 0.1.0-dev.35 - 2026-11-01
+- Material calculations can be saved as history entries with selected surfaces, a measurement snapshot, product consumption/source, layers, waste, required quantity and package count. Later opening changes do not rewrite old calculations.
+- New test passed: 23.4 m² × synthetic 100 ml/m² × 2 coats × 10% waste = 5148 ml, three 2500 ml packages. Synthetic inputs are test data, not a product recommendation. Unknown surfaces and another account are rejected. UI follows separately.
+
 ## 0.1.0-dev.34 - 2026-11-01
 - Russian-only lexical checks no longer reject material names in other languages. Retry instructions use the requested language; prompt version is 8. General JSON and text checks remain enabled.
 - Seven Python tests passed. Real authenticated API checks returned English in 14.6 s and Spanish in 12.7 s on the same kitchen photo. These checks establish language routing only, not professional quality: Spanish still called natural light a material.

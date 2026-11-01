@@ -165,6 +165,54 @@ class JournalRepository {
       )
       .onSnapshots(database);
 
+  Future<int> addMaterialEstimate(
+    int objectId,
+    int roomId, {
+    required Set<String> surfaceIds,
+    required ProductConsumption product,
+    required int layers,
+    required int wasteBasisPoints,
+  }) => database.transaction((txn) async {
+    final room = await rooms.record(roomId).get(txn);
+    if (room == null ||
+        room['objectId'] != objectId ||
+        !await objects.record(objectId).exists(txn)) {
+      throw StateError('Room not found');
+    }
+    final estimate = estimateMaterial(
+      room: roomFromRecord(room),
+      surfaceIds: surfaceIds,
+      product: product,
+      layers: layers,
+      wasteBasisPoints: wasteBasisPoints,
+    );
+    return history.add(txn, {
+      'objectId': objectId,
+      'roomId': roomId,
+      'phase': 'estimate',
+      'origin': 'calculation',
+      'description': product.productId,
+      'createdAt': DateTime.now().toUtc().toIso8601String(),
+      'estimate': {
+        'calculationVersion': MaterialEstimate.calculationVersion,
+        'measurementSnapshot': room,
+        'surfaceIds': estimate.surfaceIds,
+        'areaMm2': estimate.areaMm2,
+        'layers': layers,
+        'wasteBasisPoints': wasteBasisPoints,
+        'productId': product.productId,
+        'source': product.source,
+        'sourceKind': 'user_entered',
+        'unit': product.unit.name,
+        'unitsPerSquareMetrePerLayer': product.unitsPerSquareMetrePerLayer,
+        'unitsPerPackage': product.unitsPerPackage,
+        'requiredUnits': estimate.requiredUnits,
+        'packages': estimate.packages,
+        'purchasedUnits': estimate.purchasedUnits,
+      },
+    });
+  });
+
   Future<int> addProposal(int objectId, int sourceId, AnalysisResult result) {
     if (!result.matches) throw ArgumentError('Not an interior');
     return database.transaction((txn) async {
