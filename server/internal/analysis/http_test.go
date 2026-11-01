@@ -27,7 +27,7 @@ func inputBody() string {
 	return string(b)
 }
 func sample() Result {
-	return Result{WorkScopes: []string{"wall_paint"}, Proposal: Proposal{SceneMatches: true, Observations: []string{"Visible wall"}, Concept: "A lighter finish", WorkSteps: []string{"Confirm scope"}, Materials: []string{"Paint"}, Questions: []string{"Dimensions?"}, Uncertainties: []string{"Hidden services unknown"}}, Model: "test-model", Revision: "test-revision", PromptVersion: 1}
+	return Result{DetectedItems: []string{"cabinet"}, WorkScopes: []string{"wall_paint"}, Proposal: Proposal{SceneMatches: true, Observations: []string{"Visible wall"}, Concept: "A lighter finish", WorkSteps: []string{"Confirm scope"}, Materials: []string{"Paint"}, Questions: []string{"Dimensions?"}, Uncertainties: []string{"Hidden services unknown"}}, Model: "test-model", Revision: "test-revision", PromptVersion: 1}
 }
 func call(h http.Handler, body, token string) *httptest.ResponseRecorder {
 	r := httptest.NewRequest("POST", "/v1/analysis", strings.NewReader(body))

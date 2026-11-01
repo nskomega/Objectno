@@ -21,3 +21,5 @@ API проверяет сессию до и после вывода, разме�
 With dev.41, /v1/analysis requires work_scopes: a nonempty unique subset of wall_paint, floor_finish, lighting, textiles. The response echoes the selected categories; Go rejects changed scopes. Prompt 9 constrains generated work/material item categories to this subset. Text/observation accuracy still requires review. Flutter builds before the corresponding UI update will receive invalid_input.
 
 Flutter dev.42 supplies the mandatory work_scopes field. Select at least one work category beside the source photo; no categories are preselected. The client verifies that response scopes match the request and saves them with the draft.
+
+Prompt 10 returns detected_items, a bounded list of item codes. Visible observation labels come from ml/observation_labels.json in the requested language. This avoids invented technical names but does not guarantee correct object classification.
