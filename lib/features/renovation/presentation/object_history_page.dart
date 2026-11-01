@@ -238,6 +238,9 @@ class _GenerateProposalState extends State<_GenerateProposal> {
               children: [
                 for (final scope in WorkScope.values)
                   FilterChip(
+                    key: ValueKey(
+                      'analysis-scope-${widget.source.key}-${scope.value}',
+                    ),
                     label: Text(workScopeLabel(l, scope)),
                     selected: _workScopes.contains(scope),
                     onSelected: _busy
@@ -271,6 +274,7 @@ class _GenerateProposalState extends State<_GenerateProposal> {
                   _busy || _workScopes.isEmpty || service?.enabled != true
                   ? null
                   : () => _run(service!),
+              key: ValueKey('analysis-request-${widget.source.key}'),
               child: Text(l.analyzePhoto),
             ),
           ],
