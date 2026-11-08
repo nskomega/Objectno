@@ -1,0 +1,37 @@
+name: Ошибка
+description: Сообщить о сбое в приложении или API
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Что произошло
+      description: Опишите фактическое поведение.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидание
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Версия / сборка
+      placeholder: 0.1.0-dev.N + номер сборки
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Платформа
+      options:
+        - iOS
+        - Android
+        - Web
+        - Go API
+        - ML worker
+    validations:
+      required: true
