@@ -14,6 +14,7 @@ Flutter 3.44.2 / Dart 3.12.2. `flutter pub get`, затем `flutter run -d chro
 
 ## Документы
 - [Правила работы](AGENTS.md).
+- [Участие](CONTRIBUTING.md).
 - [Предложение продукта](docs/product-proposal.md).
 - [Дизайн-система](docs/design-system.md).
 - [Каталог UI kit](design.md).
