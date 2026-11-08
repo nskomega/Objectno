@@ -9,6 +9,9 @@ Flutter-прототип: общая история объекта, фото, л
 Flutter 3.44.2 / Dart 3.12.2. `flutter pub get`, затем `flutter run -d chrome` для веб-прототипа. Для iOS/Android требуется настроенный нативный toolchain. `dart analyze lib test`, `flutter test`; web-сборка: `flutter build web --release`.
 Данные локальные: на web они привязаны к origin браузера; очистка данных браузера удалит их. Синхронизации между устройствами пока нет. Refresh-токен хранится через secure storage на мобильных платформах; web-сессия — в памяти. Без API доступен локальный журнал.
 
+## Вопросы и ответы
+Краткие ответы по запуску и границам расчёта: [Discussions → Q&A](https://github.com/nskomega/Objectno/discussions/categories/q-a).
+
 ## Документы
 - [Предложение продукта](docs/product-proposal.md).
 - [Дизайн-система](docs/design-system.md).
