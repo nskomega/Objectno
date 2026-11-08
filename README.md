@@ -13,6 +13,7 @@ Flutter 3.44.2 / Dart 3.12.2. `flutter pub get`, затем `flutter run -d chro
 Краткие ответы по запуску и границам расчёта: [Discussions → Q&A](https://github.com/nskomega/Objectno/discussions/categories/q-a).
 
 ## Документы
+- [Участие](CONTRIBUTING.md).
 - [Предложение продукта](docs/product-proposal.md).
 - [Дизайн-система](docs/design-system.md).
 - [Каталог UI kit](design.md).
