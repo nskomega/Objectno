@@ -322,5 +322,29 @@
   },
   "@analysisScopeHelp": {
     "description": "analysisScopeHelp"
+  },
+  "openingDoor": "Porte",
+  "@openingDoor": {
+    "description": "Photo-assisted manual room plan: openingDoor"
+  },
+  "openingWindow": "Fenêtre",
+  "@openingWindow": {
+    "description": "Photo-assisted manual room plan: openingWindow"
+  },
+  "openingUnspecified": "Ouverture",
+  "@openingUnspecified": {
+    "description": "Photo-assisted manual room plan: openingUnspecified"
+  },
+  "openingReferencePhoto": "Photo de référence de l’historique",
+  "@openingReferencePhoto": {
+    "description": "Photo-assisted manual room plan: openingReferencePhoto"
+  },
+  "openingNoPhoto": "Sans photo de référence",
+  "@openingNoPhoto": {
+    "description": "Photo-assisted manual room plan: openingNoPhoto"
+  },
+  "photoPlanHelp": "Saisissez d’abord les dimensions mesurées de la pièce. Repérez portes et fenêtres sur les photos, choisissez le mur et saisissez les dimensions et distances mesurées de l’ouverture. Les photos ne déterminent pas l’échelle. Ajoutez d’autres vues à l’historique du bien.",
+  "@photoPlanHelp": {
+    "description": "Photo-assisted manual room plan: photoPlanHelp"
   }
 }

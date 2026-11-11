@@ -525,4 +525,23 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'Scegli le categorie. Le altre sono escluse dalla richiesta; indica cosa conservare nelle preferenze.';
+
+  @override
+  String get openingDoor => 'Porta';
+
+  @override
+  String get openingWindow => 'Finestra';
+
+  @override
+  String get openingUnspecified => 'Apertura';
+
+  @override
+  String get openingReferencePhoto => 'Foto di riferimento dalla cronologia';
+
+  @override
+  String get openingNoPhoto => 'Senza foto di riferimento';
+
+  @override
+  String get photoPlanHelp =>
+      'Inserisci prima le dimensioni misurate della stanza. Individua porte e finestre nelle foto, scegli la parete e inserisci dimensioni e distanze misurate dell’apertura. Le foto non determinano la scala. Aggiungi altre viste alla cronologia dell’immobile.';
 }

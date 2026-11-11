@@ -527,4 +527,23 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'Elige categorías. Las no seleccionadas se excluyen de la solicitud; indica qué conservar en tus preferencias.';
+
+  @override
+  String get openingDoor => 'Puerta';
+
+  @override
+  String get openingWindow => 'Ventana';
+
+  @override
+  String get openingUnspecified => 'Hueco';
+
+  @override
+  String get openingReferencePhoto => 'Foto de referencia del historial';
+
+  @override
+  String get openingNoPhoto => 'Sin foto de referencia';
+
+  @override
+  String get photoPlanHelp =>
+      'Introduzca primero las medidas de la habitación. Identifique puertas y ventanas en las fotos, elija la pared e introduzca las medidas y distancias del hueco. Las fotos no determinan la escala. Añada más vistas al historial del inmueble.';
 }

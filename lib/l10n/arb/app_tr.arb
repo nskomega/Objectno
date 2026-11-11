@@ -322,5 +322,29 @@
   },
   "@analysisScopeHelp": {
     "description": "analysisScopeHelp"
+  },
+  "openingDoor": "Kapı",
+  "@openingDoor": {
+    "description": "Photo-assisted manual room plan: openingDoor"
+  },
+  "openingWindow": "Pencere",
+  "@openingWindow": {
+    "description": "Photo-assisted manual room plan: openingWindow"
+  },
+  "openingUnspecified": "Açıklık",
+  "@openingUnspecified": {
+    "description": "Photo-assisted manual room plan: openingUnspecified"
+  },
+  "openingReferencePhoto": "Geçmişten referans fotoğrafı",
+  "@openingReferencePhoto": {
+    "description": "Photo-assisted manual room plan: openingReferencePhoto"
+  },
+  "openingNoPhoto": "Referans fotoğrafı olmadan",
+  "@openingNoPhoto": {
+    "description": "Photo-assisted manual room plan: openingNoPhoto"
+  },
+  "photoPlanHelp": "Önce odanın ölçülen boyutlarını girin. Fotoğraflarda kapı ve pencereleri belirleyin, duvarı seçin ve açıklığın ölçülen boyutlarını ve mesafelerini girin. Fotoğraflar ölçeği belirlemez. Diğer açıları mülk geçmişine ekleyin.",
+  "@photoPlanHelp": {
+    "description": "Photo-assisted manual room plan: photoPlanHelp"
   }
 }

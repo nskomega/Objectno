@@ -115,24 +115,33 @@ class JournalRepository {
     });
   }
 
-  Future<void> addRoomOpening(int objectId, int roomId, RoomOpening opening) =>
-      database.transaction((txn) async {
-        final room = await rooms.record(roomId).get(txn);
-        if (room == null ||
-            room['objectId'] != objectId ||
-            !await objects.record(objectId).exists(txn)) {
-          throw StateError('Room not found');
-        }
-        final openings = [
-          ...(room['openings'] as List? ?? []),
-          opening.toJson(),
-        ];
-        final updated = {...room, 'openings': openings, 'schemaVersion': 2};
-        roomFromRecord(
-          updated,
-        ); // Reject intersections and out-of-bounds openings before writing.
-        await rooms.record(roomId).put(txn, updated);
-      });
+  Future<void> addRoomOpening(
+    int objectId,
+    int roomId,
+    RoomOpening opening,
+  ) => database.transaction((txn) async {
+    final room = await rooms.record(roomId).get(txn);
+    if (room == null ||
+        room['objectId'] != objectId ||
+        !await objects.record(objectId).exists(txn)) {
+      throw StateError('Room not found');
+    }
+    if (opening.sourceHistoryId != null) {
+      final source = await history.record(opening.sourceHistoryId!).get(txn);
+      if (source == null ||
+          source['objectId'] != objectId ||
+          source['photo'] is! String ||
+          (source['photo'] as String).isEmpty) {
+        throw StateError('Reference photo not found');
+      }
+    }
+    final openings = [...(room['openings'] as List? ?? []), opening.toJson()];
+    final updated = {...room, 'openings': openings, 'schemaVersion': 3};
+    roomFromRecord(
+      updated,
+    ); // Reject intersections and out-of-bounds openings before writing.
+    await rooms.record(roomId).put(txn, updated);
+  });
 
   Future<void> removeRoomOpening(int objectId, int roomId, int index) =>
       database.transaction((txn) async {
@@ -150,7 +159,7 @@ class JournalRepository {
         await rooms.record(roomId).put(txn, {
           ...room,
           'openings': openings,
-          'schemaVersion': 2,
+          'schemaVersion': 3,
         });
       });
 

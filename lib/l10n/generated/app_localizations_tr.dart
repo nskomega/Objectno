@@ -526,4 +526,23 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'İş kategorilerini seçin. Seçilmeyenler isteğe dahil edilmez; korunacak öğeleri isteklerinizde belirtin.';
+
+  @override
+  String get openingDoor => 'Kapı';
+
+  @override
+  String get openingWindow => 'Pencere';
+
+  @override
+  String get openingUnspecified => 'Açıklık';
+
+  @override
+  String get openingReferencePhoto => 'Geçmişten referans fotoğrafı';
+
+  @override
+  String get openingNoPhoto => 'Referans fotoğrafı olmadan';
+
+  @override
+  String get photoPlanHelp =>
+      'Önce odanın ölçülen boyutlarını girin. Fotoğraflarda kapı ve pencereleri belirleyin, duvarı seçin ve açıklığın ölçülen boyutlarını ve mesafelerini girin. Fotoğraflar ölçeği belirlemez. Diğer açıları mülk geçmişine ekleyin.';
 }

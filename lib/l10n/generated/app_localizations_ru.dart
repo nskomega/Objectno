@@ -528,4 +528,23 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'Выберите работы. Невыбранные категории не включаются в запрос; что нужно сохранить, укажите в пожеланиях.';
+
+  @override
+  String get openingDoor => 'Дверь';
+
+  @override
+  String get openingWindow => 'Окно';
+
+  @override
+  String get openingUnspecified => 'Проём';
+
+  @override
+  String get openingReferencePhoto => 'Фото для сверки из истории';
+
+  @override
+  String get openingNoPhoto => 'Без фото для сверки';
+
+  @override
+  String get photoPlanHelp =>
+      'Сначала введите измеренные размеры комнаты. По фотографиям найдите двери и окна, затем выберите стену и введите измеренные размеры и отступы проёма. Масштаб по фото не определяется. Дополнительные ракурсы добавляйте в историю объекта.';
 }

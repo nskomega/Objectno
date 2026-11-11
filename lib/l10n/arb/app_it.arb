@@ -322,5 +322,29 @@
   },
   "@analysisScopeHelp": {
     "description": "analysisScopeHelp"
+  },
+  "openingDoor": "Porta",
+  "@openingDoor": {
+    "description": "Photo-assisted manual room plan: openingDoor"
+  },
+  "openingWindow": "Finestra",
+  "@openingWindow": {
+    "description": "Photo-assisted manual room plan: openingWindow"
+  },
+  "openingUnspecified": "Apertura",
+  "@openingUnspecified": {
+    "description": "Photo-assisted manual room plan: openingUnspecified"
+  },
+  "openingReferencePhoto": "Foto di riferimento dalla cronologia",
+  "@openingReferencePhoto": {
+    "description": "Photo-assisted manual room plan: openingReferencePhoto"
+  },
+  "openingNoPhoto": "Senza foto di riferimento",
+  "@openingNoPhoto": {
+    "description": "Photo-assisted manual room plan: openingNoPhoto"
+  },
+  "photoPlanHelp": "Inserisci prima le dimensioni misurate della stanza. Individua porte e finestre nelle foto, scegli la parete e inserisci dimensioni e distanze misurate dell’apertura. Le foto non determinano la scala. Aggiungi altre viste alla cronologia dell’immobile.",
+  "@photoPlanHelp": {
+    "description": "Photo-assisted manual room plan: photoPlanHelp"
   }
 }

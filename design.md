@@ -173,3 +173,9 @@ Normal text: about 50 logical pixels before device bottom safe area, with 22px i
 
 ## Unified object history
 Object card opens the renovation history. Create object collects its name, initial photo and wishes together. Existing objects remain readable without fabricating a starting photo. Initial state, proposal, work progress and final result are visible phases; actual records contain dates and photos. Proposal availability is explicit until local inference is connected. Measurement summary and an expandable measurement form live within the same object page. Old issues appear as legacy issue records in the chronology and retain status controls; measurements retain existing names/data. No separate rooms-list shortcut on the main object screen.
+
+## План по обмерам и фотографии для сверки — 11.11.2026
+
+Внутри обмеров `OpeningsPanel` показывает схему и раскрываемый раздел дверей/окон. В форме — переносимые ChoiceChip типа и стены, необязательный выбор фото из истории объекта с предпросмотром, размеры и отступы в метрах. Сохранённый проём показывает тип, стену и габариты; фото для сверки раскрывается рядом с ним. Старые записи показываются как «Проём». Фото из других объектов и аккаунтов недоступны для привязки.
+
+Пояснение явно сообщает порядок: обмеры комнаты → сверка с фото → ручной ввод проёмов. Дополнительные ракурсы добавляются через существующую историю. Фото не определяет масштаб; приложение не заявляет автоматического распознавания. Подписи — ARB для восьми языков, цвета и компоненты — из текущей темы. Widget-сценарий обновлён для двух тем и 3x текста; запуск теста и визуальная проверка заблокированы ограничением localhost-сокетов среды и пока не подтверждены.

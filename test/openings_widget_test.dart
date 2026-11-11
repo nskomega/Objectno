@@ -42,7 +42,14 @@ void main() {
             heightMm: 2500,
             wish: '',
           );
-          return (id, room);
+          final source = await repo.addHistory(
+            id,
+            'Window from corner',
+            phase: 'before',
+            photo:
+                'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a9p8AAAAASUVORK5CYII=',
+          );
+          return (id, room, source);
         }))!;
         await tester.pumpWidget(
           MaterialApp(
@@ -92,6 +99,14 @@ void main() {
           ),
           findsOneWidget,
         );
+        await tester.ensureVisible(find.text('Window'));
+        await tester.tap(find.text('Window'));
+        await tester.ensureVisible(find.byType(DropdownButtonFormField<int>));
+        await tester.tap(find.byType(DropdownButtonFormField<int>));
+        await tester.pumpAndSettle();
+        await tester.tap(find.text('Window from corner').last);
+        await tester.pumpAndSettle();
+        expect(find.byType(Image), findsOneWidget);
         await tester.enterText(find.byType(TextFormField).at(0), '0.8');
         FocusManager.instance.primaryFocus?.unfocus();
         await tester.pumpAndSettle();
@@ -104,6 +119,10 @@ void main() {
           () => repo.watchRooms(ids.$1).first,
         );
         expect(saved!.single.value['openings'], hasLength(1));
+        final opening = (saved.single.value['openings'] as List).single as Map;
+        expect(opening['kind'], 'window');
+        expect(opening['sourceHistoryId'], ids.$3);
+        expect(find.textContaining('Window · Wall 1'), findsOneWidget);
         expect(tester.takeException(), isNull);
       },
     );

@@ -322,5 +322,29 @@
   },
   "@analysisScopeHelp": {
     "description": "analysisScopeHelp"
+  },
+  "openingDoor": "Porta",
+  "@openingDoor": {
+    "description": "Photo-assisted manual room plan: openingDoor"
+  },
+  "openingWindow": "Janela",
+  "@openingWindow": {
+    "description": "Photo-assisted manual room plan: openingWindow"
+  },
+  "openingUnspecified": "Vão",
+  "@openingUnspecified": {
+    "description": "Photo-assisted manual room plan: openingUnspecified"
+  },
+  "openingReferencePhoto": "Foto de referência do histórico",
+  "@openingReferencePhoto": {
+    "description": "Photo-assisted manual room plan: openingReferencePhoto"
+  },
+  "openingNoPhoto": "Sem foto de referência",
+  "@openingNoPhoto": {
+    "description": "Photo-assisted manual room plan: openingNoPhoto"
+  },
+  "photoPlanHelp": "Introduza primeiro as dimensões medidas da divisão. Identifique portas e janelas nas fotos, escolha a parede e introduza as dimensões e distâncias medidas do vão. As fotos não determinam a escala. Adicione outras vistas ao histórico do imóvel.",
+  "@photoPlanHelp": {
+    "description": "Photo-assisted manual room plan: photoPlanHelp"
   }
 }

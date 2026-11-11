@@ -1,14 +1,25 @@
 import 'quantity_calculator.dart';
 
+enum OpeningKind { unspecified, door, window }
+
 /// A measured opening on wall 0/2 (length) or 1/3 (width).
 class RoomOpening {
-  RoomOpening({required this.wall, required this.geometry}) {
+  RoomOpening({
+    required this.wall,
+    required this.geometry,
+    this.kind = OpeningKind.unspecified,
+    this.sourceHistoryId,
+  }) {
     if (wall < 0 || wall > 3) throw ArgumentError('Invalid wall');
   }
   final int wall;
   final SurfaceOpening geometry;
+  final OpeningKind kind;
+  final int? sourceHistoryId;
   Map<String, Object?> toJson() => {
     'wall': wall,
+    'kind': kind.name,
+    if (sourceHistoryId != null) 'sourceHistoryId': sourceHistoryId,
     'xMm': geometry.xMm,
     'yMm': geometry.yMm,
     'widthMm': geometry.widthMm,
@@ -16,6 +27,10 @@ class RoomOpening {
   };
   factory RoomOpening.fromJson(Map<String, Object?> value) => RoomOpening(
     wall: value['wall'] as int,
+    kind: value['kind'] == null
+        ? OpeningKind.unspecified
+        : OpeningKind.values.byName(value['kind'] as String),
+    sourceHistoryId: value['sourceHistoryId'] as int?,
     geometry: SurfaceOpening(
       xMm: value['xMm'] as int,
       yMm: value['yMm'] as int,

@@ -322,5 +322,29 @@
   },
   "@analysisScopeHelp": {
     "description": "analysisScopeHelp"
+  },
+  "openingDoor": "Дверь",
+  "@openingDoor": {
+    "description": "Photo-assisted manual room plan: openingDoor"
+  },
+  "openingWindow": "Окно",
+  "@openingWindow": {
+    "description": "Photo-assisted manual room plan: openingWindow"
+  },
+  "openingUnspecified": "Проём",
+  "@openingUnspecified": {
+    "description": "Photo-assisted manual room plan: openingUnspecified"
+  },
+  "openingReferencePhoto": "Фото для сверки из истории",
+  "@openingReferencePhoto": {
+    "description": "Photo-assisted manual room plan: openingReferencePhoto"
+  },
+  "openingNoPhoto": "Без фото для сверки",
+  "@openingNoPhoto": {
+    "description": "Photo-assisted manual room plan: openingNoPhoto"
+  },
+  "photoPlanHelp": "Сначала введите измеренные размеры комнаты. По фотографиям найдите двери и окна, затем выберите стену и введите измеренные размеры и отступы проёма. Масштаб по фото не определяется. Дополнительные ракурсы добавляйте в историю объекта.",
+  "@photoPlanHelp": {
+    "description": "Photo-assisted manual room plan: photoPlanHelp"
   }
 }

@@ -530,4 +530,23 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'Kategorien auswählen. Nicht gewählte Kategorien werden ausgeschlossen; zu erhaltende Elemente in den Wünschen angeben.';
+
+  @override
+  String get openingDoor => 'Tür';
+
+  @override
+  String get openingWindow => 'Fenster';
+
+  @override
+  String get openingUnspecified => 'Öffnung';
+
+  @override
+  String get openingReferencePhoto => 'Referenzfoto aus dem Verlauf';
+
+  @override
+  String get openingNoPhoto => 'Ohne Referenzfoto';
+
+  @override
+  String get photoPlanHelp =>
+      'Geben Sie zuerst die gemessenen Raummaße ein. Finden Sie Türen und Fenster auf den Fotos, wählen Sie die Wand und geben Sie gemessene Öffnungsmaße und Abstände ein. Fotos bestimmen keinen Maßstab. Weitere Ansichten können Sie im Objektverlauf hinzufügen.';
 }

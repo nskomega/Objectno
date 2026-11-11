@@ -528,4 +528,23 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'Choisissez les catégories. Les autres sont exclues de la demande ; indiquez les éléments à conserver dans vos souhaits.';
+
+  @override
+  String get openingDoor => 'Porte';
+
+  @override
+  String get openingWindow => 'Fenêtre';
+
+  @override
+  String get openingUnspecified => 'Ouverture';
+
+  @override
+  String get openingReferencePhoto => 'Photo de référence de l’historique';
+
+  @override
+  String get openingNoPhoto => 'Sans photo de référence';
+
+  @override
+  String get photoPlanHelp =>
+      'Saisissez d’abord les dimensions mesurées de la pièce. Repérez portes et fenêtres sur les photos, choisissez le mur et saisissez les dimensions et distances mesurées de l’ouverture. Les photos ne déterminent pas l’échelle. Ajoutez d’autres vues à l’historique du bien.';
 }

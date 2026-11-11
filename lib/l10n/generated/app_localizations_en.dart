@@ -526,4 +526,23 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'Select work categories. Unselected categories are excluded from the request; describe what to preserve in your wishes.';
+
+  @override
+  String get openingDoor => 'Door';
+
+  @override
+  String get openingWindow => 'Window';
+
+  @override
+  String get openingUnspecified => 'Opening';
+
+  @override
+  String get openingReferencePhoto => 'Reference photo from history';
+
+  @override
+  String get openingNoPhoto => 'Without a reference photo';
+
+  @override
+  String get photoPlanHelp =>
+      'Enter measured room dimensions first. Use photos to identify doors and windows, then choose the wall and enter measured opening dimensions and offsets. Photos do not determine scale. Add more views using the object history.';
 }

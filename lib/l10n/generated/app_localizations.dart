@@ -1069,6 +1069,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select work categories. Unselected categories are excluded from the request; describe what to preserve in your wishes.'**
   String get analysisScopeHelp;
+
+  /// Photo-assisted manual room plan: openingDoor
+  ///
+  /// In en, this message translates to:
+  /// **'Door'**
+  String get openingDoor;
+
+  /// Photo-assisted manual room plan: openingWindow
+  ///
+  /// In en, this message translates to:
+  /// **'Window'**
+  String get openingWindow;
+
+  /// Photo-assisted manual room plan: openingUnspecified
+  ///
+  /// In en, this message translates to:
+  /// **'Opening'**
+  String get openingUnspecified;
+
+  /// Photo-assisted manual room plan: openingReferencePhoto
+  ///
+  /// In en, this message translates to:
+  /// **'Reference photo from history'**
+  String get openingReferencePhoto;
+
+  /// Photo-assisted manual room plan: openingNoPhoto
+  ///
+  /// In en, this message translates to:
+  /// **'Without a reference photo'**
+  String get openingNoPhoto;
+
+  /// Photo-assisted manual room plan: photoPlanHelp
+  ///
+  /// In en, this message translates to:
+  /// **'Enter measured room dimensions first. Use photos to identify doors and windows, then choose the wall and enter measured opening dimensions and offsets. Photos do not determine scale. Add more views using the object history.'**
+  String get photoPlanHelp;
 }
 
 class _AppLocalizationsDelegate

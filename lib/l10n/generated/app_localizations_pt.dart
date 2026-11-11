@@ -528,4 +528,23 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get analysisScopeHelp =>
       'Escolha categorias. As demais ficam fora do pedido; indique o que preservar nas preferências.';
+
+  @override
+  String get openingDoor => 'Porta';
+
+  @override
+  String get openingWindow => 'Janela';
+
+  @override
+  String get openingUnspecified => 'Vão';
+
+  @override
+  String get openingReferencePhoto => 'Foto de referência do histórico';
+
+  @override
+  String get openingNoPhoto => 'Sem foto de referência';
+
+  @override
+  String get photoPlanHelp =>
+      'Introduza primeiro as dimensões medidas da divisão. Identifique portas e janelas nas fotos, escolha a parede e introduza as dimensões e distâncias medidas do vão. As fotos não determinam a escala. Adicione outras vistas ao histórico do imóvel.';
 }
