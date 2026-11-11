@@ -1,6 +1,6 @@
 # Состояние Objectno
 
-Обновлено: 11.11.2026. Исходники: **0.1.0-dev.54** в `feature/photo-assisted-room-plan`, ещё не интегрированы. Последние обычные артефакты: **dev.44**, iOS Simulator и Android debug APK. На пользовательском iPhone остаётся сборка **20**.
+Обновлено: 11.11.2026. Исходники: **0.1.0-dev.55** в `chore/remove-agent-instructions`, ещё не интегрированы. Последние обычные артефакты: **dev.44**, iOS Simulator и Android debug APK. На пользовательском iPhone остаётся сборка **20**.
 
 ## Текущий этап — план по обмерам и Git Flow
 
